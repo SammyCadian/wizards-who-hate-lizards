@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpy73rsjkhjof"]
+[gd_scene load_steps=7 format=3 uid="uid://cpy73rsjkhjof"]
 
 [ext_resource type="Texture2D" uid="uid://cngh1yax0t6w6" path="res://Sprites/UI/BattleUIBase.png" id="1_4jryg"]
 [ext_resource type="Script" path="res://Scenes/UI/battle_ui.gd" id="1_on61b"]
 [ext_resource type="Texture2D" uid="uid://buturd74io4mv" path="res://Sprites/UI/ResourceProgress1.png" id="3_flsy5"]
+[ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_qr0r5"]
 [ext_resource type="Texture2D" uid="uid://nhalmskqhddv" path="res://Sprites/UI/ResourceProgress2.png" id="4_5yivv"]
+[ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="4_8is2n"]
 
 [node name="BattleUI" type="Control"]
 layout_mode = 3
@@ -14,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_on61b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="."]
 position = Vector2(576, 568)
 texture = ExtResource("1_4jryg")
 
@@ -28,29 +30,41 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Units"]
+[node name="Column1" type="VBoxContainer" parent="Units"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="UnitOne" type="Button" parent="Units/VBoxContainer"]
+[node name="UnitOne" type="Button" parent="Units/Column1"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
+icon = ExtResource("3_qr0r5")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="UnitTwo" type="Button" parent="Units/VBoxContainer"]
+[node name="UnitTwo" type="Button" parent="Units/Column1"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
+icon = ExtResource("4_8is2n")
+expand_icon = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Units"]
+[node name="Column2" type="VBoxContainer" parent="Units"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="UnitThree" type="Button" parent="Units/VBoxContainer2"]
+[node name="UnitThree" type="Button" parent="Units/Column2"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
+expand_icon = true
 
-[node name="UnitFour" type="Button" parent="Units/VBoxContainer2"]
+[node name="UnitFour" type="Button" parent="Units/Column2"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
+expand_icon = true
 
 [node name="Abilities" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -60,13 +74,15 @@ offset_right = 890.0
 offset_bottom = 637.0
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="Abilities"]
+[node name="Ability1" type="Button" parent="Abilities"]
 layout_mode = 2
 size_flags_vertical = 3
+expand_icon = true
 
-[node name="Button2" type="Button" parent="Abilities"]
+[node name="Ability2" type="Button" parent="Abilities"]
 layout_mode = 2
 size_flags_vertical = 3
+expand_icon = true
 
 [node name="IncomeTimer" type="Timer" parent="."]
 
@@ -80,9 +96,25 @@ offset_top = 581.0
 offset_right = 644.68
 offset_bottom = 604.824
 scale = Vector2(0.9, 0.9)
-value = 100.0
 fill_mode = 4
 texture_under = ExtResource("3_flsy5")
 texture_progress = ExtResource("4_5yivv")
+
+[node name="PointsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 525.0
+offset_right = 670.0
+offset_bottom = 548.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnitDescription" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 506.0
+offset_right = 612.0
+offset_bottom = 641.0
 
 [connection signal="timeout" from="IncomeTimer" to="." method="_on_income_timer_timeout"]
