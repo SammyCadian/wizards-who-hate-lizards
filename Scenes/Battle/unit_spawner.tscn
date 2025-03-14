@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://diqlvj73qjhx5"]
+[gd_scene load_steps=4 format=3 uid="uid://diqlvj73qjhx5"]
 
-[ext_resource type="PackedScene" uid="uid://c4s4unihsvr5r" path="res://Scenes/Battle/unit.tscn" id="1_ijhnh"]
+[ext_resource type="Script" path="res://Scenes/Battle/unit_spawner.gd" id="1_gc3y3"]
+[ext_resource type="PackedScene" uid="uid://c5yrbwdqddv0h" path="res://Scenes/Lizards/sus_scene.tscn" id="2_ardsm"]
+[ext_resource type="PackedScene" uid="uid://dw8h0r1xbj0t3" path="res://Scenes/Lizards/spike_scene.tscn" id="3_i3vrk"]
 
 [node name="Unit Spawner" type="Node2D"]
+script = ExtResource("1_gc3y3")
+sus_scene = ExtResource("2_ardsm")
+spike_scene = ExtResource("3_i3vrk")
 
-[node name="Unit" parent="." instance=ExtResource("1_ijhnh")]
+[node name="EnemySpawnPoint1" type="Marker2D" parent="."]
+position = Vector2(0, -78)
+
+[node name="EnemySpawnPoint2" type="Marker2D" parent="."]
+
+[node name="EnemySpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(0, 78)
