@@ -1,5 +1,7 @@
 extends Control
 
+signal unitButtonPressed(pressedUnitID: String)
+
 @export var incomeTime = 5.0
 
 var magicPoints = 0
@@ -68,17 +70,13 @@ func _on_income_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_unit_one_pressed() -> void:
-	battleNode.unitSelected = true
-	battleNode.unitName = units[0]
+	unitButtonPressed.emit(units[0])
 
 func _on_unit_two_pressed() -> void:
-	battleNode.unitSelected = true
-	battleNode.unitName = units[1]
+	unitButtonPressed.emit(units[1])
 
 func _on_unit_three_pressed() -> void:
-	battleNode.unitSelected = true
-	battleNode.unitName = units[2]
+	unitButtonPressed.emit(units[2])
 
 func _on_unit_four_pressed() -> void:
-	battleNode.unitSelected = true
-	battleNode.unitName = units[3]
+	unitButtonPressed.emit(units[3])

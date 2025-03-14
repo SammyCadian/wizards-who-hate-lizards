@@ -29,3 +29,5 @@ position = Vector2(0, 9)
 
 [node name="bottomLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, 98)
+
+[connection signal="unitButtonPressed" from="BattleUI" to="." method="_on_battle_ui_unit_button_pressed"]
