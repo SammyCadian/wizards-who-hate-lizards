@@ -7,8 +7,8 @@ var magicPoints = 0
 var battleNode = null # Parent battle node
 
 # Units in each button, global script should update these as the player unlocks/selects other units outside of battle
-@export var unitOne = "Unit"
-# @export var unitTwo = "SECOND_UNIT"
+@export var unitOneIcon: CompressedTexture2D
+@export var unitTwoIcon: CompressedTexture2D
 # @export var unitThree = "THIRD_UNIT"
 # @export var unitFour = "FOURTH_UNIT"
 
@@ -16,9 +16,16 @@ var battleNode = null # Parent battle node
 var units = []
 var abilities = []
 
+#Load units in for testing purposes
+func testLoad():
+	receiveUnit(unitOneIcon, "TestUnit")
+	receiveUnit(unitTwoIcon, "TestUnit")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	battleNode = get_parent() # Get the current battle
+	
+	testLoad()
 	
 	$IncomeTimer.set_wait_time(incomeTime/100)
 	$IncomeTimer.start()
@@ -29,6 +36,28 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func updatePoints():
+	$PointsLabel.text = str(magicPoints)
+
+#Load a unit ID and button icon into the UI
+func receiveUnit(icon: CompressedTexture2D, unitID: String):
+	units.append(unitID)
+	match units.size():
+		1:
+			$Units/Column1/UnitOne.icon = icon
+			$Units/Column1/UnitOne.disabled = false
+		2:
+			$Units/Column1/UnitTwo.icon = icon
+			$Units/Column1/UnitTwo.disabled = false
+		3:
+			$Units/Column1/UnitThree.icon = icon
+			$Units/Column1/UnitThree.disabled = false
+		4:
+			$Units/Column1/UnitFour.icon = icon
+			$Units/Column1/UnitFour.disabled = false
+	pass
+
+#signal functions
 func _on_income_timer_timeout() -> void:
 	if($IncomeVisual.value == 100):
 		$IncomeVisual.value = 0
@@ -38,10 +67,18 @@ func _on_income_timer_timeout() -> void:
 	$IncomeVisual.value += 1
 	pass # Replace with function body.
 
-func updatePoints():
-	$PointsLabel.text = str(magicPoints)
-
-
 func _on_unit_one_pressed() -> void:
 	battleNode.unitSelected = true
-	battleNode.unitName = unitOne
+	battleNode.unitName = units[0]
+
+func _on_unit_two_pressed() -> void:
+	battleNode.unitSelected = true
+	battleNode.unitName = units[1]
+
+func _on_unit_three_pressed() -> void:
+	battleNode.unitSelected = true
+	battleNode.unitName = units[2]
+
+func _on_unit_four_pressed() -> void:
+	battleNode.unitSelected = true
+	battleNode.unitName = units[3]
