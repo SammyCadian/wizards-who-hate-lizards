@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://h1mk235t1xj1"]
+
+[ext_resource type="Script" uid="uid://du2kw8mus66di" path="res://Scenes/Battle/lane.gd" id="1_iwgww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bixg"]
+size = Vector2(1508, 76)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_iwgww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2bixg")
+
+[node name="Highlight" type="ColorRect" parent="."]
+visible = false
+offset_left = -754.0
+offset_top = -38.0
+offset_right = 754.0
+offset_bottom = 38.0
+color = Color(1, 1, 1, 0.133333)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

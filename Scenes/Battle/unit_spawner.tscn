@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://diqlvj73qjhx5"]
+
+[ext_resource type="PackedScene" uid="uid://c4s4unihsvr5r" path="res://Scenes/Battle/unit.tscn" id="1_ijhnh"]
+
+[node name="Unit Spawner" type="Node2D"]
+
+[node name="Unit" parent="." instance=ExtResource("1_ijhnh")]

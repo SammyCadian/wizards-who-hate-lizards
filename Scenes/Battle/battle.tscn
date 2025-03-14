@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://5iga6e20ot8s"]
+
+[ext_resource type="Texture2D" uid="uid://cwryhdn81v2b" path="res://Sprites/Battlefields/BattlefieldTest.png" id="1_3qw02"]
+[ext_resource type="Script" uid="uid://cv5q8jp1if1m0" path="res://Scenes/Battle/battle.gd" id="1_aqr0y"]
+[ext_resource type="PackedScene" uid="uid://cpy73rsjkhjof" path="res://Scenes/UI/battle_ui.tscn" id="3_aqr0y"]
+[ext_resource type="PackedScene" uid="uid://h1mk235t1xj1" path="res://Scenes/Battle/lane.tscn" id="4_wqxgi"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_aqr0y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Battlefield" type="Sprite2D" parent="."]
+position = Vector2(0, -93)
+scale = Vector2(0.159119, 0.180762)
+texture = ExtResource("1_3qw02")
+
+[node name="BattleUI" parent="." instance=ExtResource("3_aqr0y")]
+offset_left = -576.0
+offset_top = -349.0
+offset_right = -576.0
+offset_bottom = -349.0
+
+[node name="topLane" parent="." instance=ExtResource("4_wqxgi")]
+position = Vector2(0, -83)
+
+[node name="middleLane" parent="." instance=ExtResource("4_wqxgi")]
+position = Vector2(0, 9)
+
+[node name="bottomLane" parent="." instance=ExtResource("4_wqxgi")]
+position = Vector2(0, 98)

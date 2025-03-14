@@ -4,12 +4,22 @@ extends Control
 
 var magicPoints = 0
 
+var battleNode = null # Parent battle node
+
+# Units in each button, global script should update these as the player unlocks/selects other units outside of battle
+@export var unitOne = "Unit"
+# @export var unitTwo = "SECOND_UNIT"
+# @export var unitThree = "THIRD_UNIT"
+# @export var unitFour = "FOURTH_UNIT"
+
 #Holds IDs for units and abilities
 var units = []
 var abilities = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	battleNode = get_parent() # Get the current battle
+	
 	$IncomeTimer.set_wait_time(incomeTime/100)
 	$IncomeTimer.start()
 	updatePoints()
@@ -30,3 +40,8 @@ func _on_income_timer_timeout() -> void:
 
 func updatePoints():
 	$PointsLabel.text = str(magicPoints)
+
+
+func _on_unit_one_pressed() -> void:
+	battleNode.unitSelected = true
+	battleNode.unitName = unitOne
