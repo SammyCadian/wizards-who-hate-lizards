@@ -45,7 +45,6 @@ func _process(delta):
 				# unitSpawnerNode.placeUnit(unitName, cursorPos) # EXAMPLE CALL using the unit spawner node directly, it will have to be accessed before hand
 				# Global.placeUnit(unitName, cursorPos) # EXAMPLE CALL using Global script as an easy route to unit spawner
 
-
 func _on_battle_ui_unit_button_pressed(pressedUnitID: String) -> void:
 	unitSelected = true
 	unitName = pressedUnitID

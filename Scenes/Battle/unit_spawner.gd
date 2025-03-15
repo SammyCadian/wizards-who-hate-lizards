@@ -18,7 +18,6 @@ func _ready() -> void:
 	starting_enemies = get_child_count() # Typically 0 for now
 	current_enemies = get_child_count()
 
-
 # This loop will function as an enemy AI. It will handle waves
 func _process(delta: float) -> void:
 	current_enemies = get_child_count()

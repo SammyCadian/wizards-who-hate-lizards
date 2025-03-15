@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt40u850dlxkd"]
 
-[ext_resource type="Script" path="res://Scenes/Battle/battle_manager.gd" id="1_7vafl"]
+[ext_resource type="Script" uid="uid://dxnakg1ii2sh3" path="res://Scenes/Battle/battle_manager.gd" id="1_7vafl"]
 [ext_resource type="PackedScene" uid="uid://diqlvj73qjhx5" path="res://Scenes/Battle/unit_spawner.tscn" id="1_t73rl"]
 
 [node name="Battle Manager" type="Node2D"]
