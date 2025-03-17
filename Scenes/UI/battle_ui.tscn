@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpy73rsjkhjof"]
 
 [ext_resource type="Texture2D" uid="uid://cngh1yax0t6w6" path="res://Sprites/UI/BattleUIBase.png" id="1_4jryg"]
-[ext_resource type="Script" path="res://Scenes/UI/battle_ui.gd" id="1_on61b"]
+[ext_resource type="Script" uid="uid://dmgx35wc12n2w" path="res://Scenes/UI/battle_ui.gd" id="1_on61b"]
 [ext_resource type="Texture2D" uid="uid://buturd74io4mv" path="res://Sprites/UI/ResourceProgress1.png" id="3_flsy5"]
 [ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_qr0r5"]
 [ext_resource type="Texture2D" uid="uid://nhalmskqhddv" path="res://Sprites/UI/ResourceProgress2.png" id="4_5yivv"]

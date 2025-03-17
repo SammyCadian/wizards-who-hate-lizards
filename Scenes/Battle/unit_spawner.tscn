@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://diqlvj73qjhx5"]
 
-[ext_resource type="Script" path="res://Scenes/Battle/unit_spawner.gd" id="1_gc3y3"]
+[ext_resource type="Script" uid="uid://bc60ok2y2qi5" path="res://Scenes/Battle/unit_spawner.gd" id="1_gc3y3"]
 [ext_resource type="PackedScene" uid="uid://c5yrbwdqddv0h" path="res://Scenes/Lizards/sus_scene.tscn" id="2_ardsm"]
 [ext_resource type="PackedScene" uid="uid://dw8h0r1xbj0t3" path="res://Scenes/Lizards/spike_scene.tscn" id="3_i3vrk"]
 
