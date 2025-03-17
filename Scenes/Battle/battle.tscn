@@ -20,6 +20,8 @@ offset_left = -576.0
 offset_top = -349.0
 offset_right = -576.0
 offset_bottom = -349.0
+unitOneIcon = null
+unitTwoIcon = null
 
 [node name="topLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, -83)

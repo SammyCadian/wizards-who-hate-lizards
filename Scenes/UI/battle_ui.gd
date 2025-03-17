@@ -15,7 +15,7 @@ var battleNode = null # Parent battle node
 # @export var unitFour = "FOURTH_UNIT"
 
 #Holds IDs for units and abilities
-var units = []
+var units = [] #TODO match unit names with scene names
 var abilities = []
 
 #Load units in for testing purposes

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5yrbwdqddv0h"]
+[gd_scene load_steps=23 format=3 uid="uid://c5yrbwdqddv0h"]
 
 [ext_resource type="Script" path="res://Scenes/Lizards/sus.gd" id="1_e2gu1"]
 [ext_resource type="Texture2D" uid="uid://bh34ekx7xpgpf" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusAttack.png" id="2_h7yft"]
@@ -135,8 +135,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wpf3"]
+size = Vector2(419.381, 886.716)
+
 [node name="Sus" type="StaticBody2D"]
-scale = Vector2(0.272917, 0.272917)
+scale = Vector2(0.093, 0.093)
 script = ExtResource("1_e2gu1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -144,3 +147,5 @@ sprite_frames = SubResource("SpriteFrames_ggxi4")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.835794, 36.6412)
+shape = SubResource("RectangleShape2D_4wpf3")

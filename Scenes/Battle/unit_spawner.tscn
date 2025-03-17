@@ -8,11 +8,12 @@
 script = ExtResource("1_gc3y3")
 sus_scene = ExtResource("2_ardsm")
 spike_scene = ExtResource("3_i3vrk")
+metadata/_edit_group_ = true
 
 [node name="EnemySpawnPoint1" type="Marker2D" parent="."]
-position = Vector2(0, -78)
+position = Vector2(0, -90)
 
 [node name="EnemySpawnPoint2" type="Marker2D" parent="."]
 
 [node name="EnemySpawnPoint3" type="Marker2D" parent="."]
-position = Vector2(0, 78)
+position = Vector2(0, 90)
