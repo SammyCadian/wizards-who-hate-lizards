@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7uda4nvu01t5"
-path="res://.godot/imported/SusWalk.png-757a3e7227df75ede7f0f43ebdad1d8c.ctex"
+uid="uid://b1gbqcv7e8t4t"
+path="res://.godot/imported/AutoRifleIcon.png-0d5c06dc5ce15b46c335a74a83af544e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Units/Lizards/SuspiciousLizard/SusWalk.png"
-dest_files=["res://.godot/imported/SusWalk.png-757a3e7227df75ede7f0f43ebdad1d8c.ctex"]
+source_file="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png"
+dest_files=["res://.godot/imported/AutoRifleIcon.png-0d5c06dc5ce15b46c335a74a83af544e.ctex"]
 
 [params]
 

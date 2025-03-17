@@ -53,7 +53,6 @@ func _process(delta):
 	if unitSelected:
 		if Input.is_action_just_pressed("leftMB"):
 			if (selectedLane != "NO_LANE"):
-				print("hello!!!")
 				laneSelected.emit(unitName, selectedLane, 1)
 				unitSelected = false
 				unitName = "NO_UNIT"

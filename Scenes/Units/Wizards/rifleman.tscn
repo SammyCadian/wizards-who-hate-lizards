@@ -1,0 +1,140 @@
+[gd_scene load_steps=18 format=3 uid="uid://ddgw8akh4iuwq"]
+
+[ext_resource type="Script" uid="uid://c0c8gu0s7skth" path="res://Scenes/Units/Wizards/rifleman.gd" id="1_7owsm"]
+[ext_resource type="Texture2D" uid="uid://badpqktslru2s" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanShoot.png" id="2_67k6v"]
+[ext_resource type="Texture2D" uid="uid://di2o38ep7qiuu" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanWalk.png" id="3_8txdn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pson"]
+atlas = ExtResource("2_67k6v")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuifx"]
+atlas = ExtResource("2_67k6v")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hykt"]
+atlas = ExtResource("2_67k6v")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2huwf"]
+atlas = ExtResource("2_67k6v")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu5rj"]
+atlas = ExtResource("3_8txdn")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfdiy"]
+atlas = ExtResource("3_8txdn")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e76bc"]
+atlas = ExtResource("3_8txdn")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rddav"]
+atlas = ExtResource("3_8txdn")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocf8m"]
+atlas = ExtResource("3_8txdn")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74n2s"]
+atlas = ExtResource("3_8txdn")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sc6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pson")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuifx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hykt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2huwf")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu5rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfdiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e76bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rddav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocf8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74n2s")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6yiv"]
+size = Vector2(20, 1.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_628q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47y6h"]
+
+[node name="Rifleman" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_7owsm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.187, 0.187)
+sprite_frames = SubResource("SpriteFrames_6sc6y")
+animation = &"attack"
+frame_progress = 0.352353
+
+[node name="RangeArea" type="Area2D" parent="."]
+position = Vector2(-1, 1)
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="RangeArea"]
+position = Vector2(216, 18)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_d6yiv")
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_628q2")
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="HITBOX" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(-5, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_47y6h")
+
+[connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
+[connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
+[connection signal="area_exited" from="HitboxArea" to="." method="_on_hitbox_area_area_exited"]

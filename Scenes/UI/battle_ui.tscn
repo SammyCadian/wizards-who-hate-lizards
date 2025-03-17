@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpy73rsjkhjof"]
+[gd_scene load_steps=8 format=3 uid="uid://cpy73rsjkhjof"]
 
 [ext_resource type="Texture2D" uid="uid://cngh1yax0t6w6" path="res://Sprites/UI/BattleUIBase.png" id="1_4jryg"]
 [ext_resource type="Script" uid="uid://dmgx35wc12n2w" path="res://Scenes/UI/battle_ui.gd" id="1_on61b"]
 [ext_resource type="Texture2D" uid="uid://buturd74io4mv" path="res://Sprites/UI/ResourceProgress1.png" id="3_flsy5"]
 [ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_qr0r5"]
+[ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="4_0jf0l"]
 [ext_resource type="Texture2D" uid="uid://nhalmskqhddv" path="res://Sprites/UI/ResourceProgress2.png" id="4_5yivv"]
 [ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="4_8is2n"]
 
@@ -17,6 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_on61b")
 unitOneIcon = ExtResource("3_qr0r5")
 unitTwoIcon = ExtResource("4_8is2n")
+unitThreeIcon = ExtResource("4_0jf0l")
 
 [node name="Base" type="Sprite2D" parent="."]
 position = Vector2(576, 568)
@@ -61,6 +63,8 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
 disabled = true
+icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="UnitFour" type="Button" parent="Units/Column2"]

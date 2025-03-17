@@ -11,7 +11,7 @@ var battleNode = null # Parent battle node
 # Units in each button, global script should update these as the player unlocks/selects other units outside of battle
 @export var unitOneIcon: CompressedTexture2D
 @export var unitTwoIcon: CompressedTexture2D
-# @export var unitThree = "THIRD_UNIT"
+@export var unitThreeIcon: CompressedTexture2D
 # @export var unitFour = "FOURTH_UNIT"
 
 #Holds IDs for units and abilities
@@ -20,8 +20,9 @@ var abilities = []
 
 #Load units in for testing purposes
 func testLoad():
-	receiveUnit(unitOneIcon, "spike")
-	receiveUnit(unitTwoIcon, "sus")
+	receiveUnit(unitOneIcon, "scout")
+	receiveUnit(unitTwoIcon, "rifleman")
+	receiveUnit(unitThreeIcon, "autorifle")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,11 +53,11 @@ func receiveUnit(icon: CompressedTexture2D, unitID: String):
 			$Units/Column1/UnitTwo.icon = icon
 			$Units/Column1/UnitTwo.disabled = false
 		3:
-			$Units/Column1/UnitThree.icon = icon
-			$Units/Column1/UnitThree.disabled = false
+			$Units/Column2/UnitThree.icon = icon
+			$Units/Column2/UnitThree.disabled = false
 		4:
-			$Units/Column1/UnitFour.icon = icon
-			$Units/Column1/UnitFour.disabled = false
+			$Units/Column2/UnitFour.icon = icon
+			$Units/Column2/UnitFour.disabled = false
 	pass
 
 #signal functions

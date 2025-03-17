@@ -1,19 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://diqlvj73qjhx5"]
+[gd_scene load_steps=7 format=3 uid="uid://diqlvj73qjhx5"]
 
-[ext_resource type="Script" uid="uid://dte3tcqk3sh1o" path="res://Scenes/Battle/unit_spawner.gd" id="1_gc3y3"]
-[ext_resource type="PackedScene" uid="uid://c5yrbwdqddv0h" path="res://Scenes/Lizards/sus_scene.tscn" id="2_ardsm"]
-[ext_resource type="PackedScene" uid="uid://dw8h0r1xbj0t3" path="res://Scenes/Lizards/spike_scene.tscn" id="3_i3vrk"]
+[ext_resource type="Script" uid="uid://bc60ok2y2qi5" path="res://Scenes/Battle/unit_spawner.gd" id="1_gc3y3"]
+[ext_resource type="PackedScene" uid="uid://c5mdfaipfun23" path="res://Scenes/Units/Lizards/sus_scene.tscn" id="2_bdpr3"]
+[ext_resource type="PackedScene" uid="uid://dw8h0r1xbj0t3" path="res://Scenes/Units/Lizards/spike_scene.tscn" id="3_i3vrk"]
+[ext_resource type="PackedScene" uid="uid://dhrsqjgxt8sv0" path="res://Scenes/Units/Wizards/scout.tscn" id="3_oeoac"]
+[ext_resource type="PackedScene" uid="uid://ddgw8akh4iuwq" path="res://Scenes/Units/Wizards/rifleman.tscn" id="4_bdpr3"]
+[ext_resource type="PackedScene" uid="uid://co1e2lije056e" path="res://Scenes/Units/Wizards/autorifle.tscn" id="4_sxex5"]
 
 [node name="Unit Spawner" type="Node2D"]
 script = ExtResource("1_gc3y3")
-sus_scene = ExtResource("2_ardsm")
+sus_scene = ExtResource("2_bdpr3")
 spike_scene = ExtResource("3_i3vrk")
-metadata/_edit_group_ = true
+scout_scene = ExtResource("3_oeoac")
+rifleman_scene = ExtResource("4_bdpr3")
+autorifle_scene = ExtResource("4_sxex5")
 
 [node name="EnemySpawnPoint1" type="Marker2D" parent="."]
-position = Vector2(0, -90)
+position = Vector2(720, -90)
 
 [node name="EnemySpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(720, 0)
 
 [node name="EnemySpawnPoint3" type="Marker2D" parent="."]
-position = Vector2(0, 90)
+position = Vector2(720, 90)
+
+[node name="WizSpawnPoint1" type="Marker2D" parent="."]
+position = Vector2(-720, -90)
+
+[node name="WizSpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(-720, 0)
+
+[node name="WizSpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(-720, 90)
