@@ -7,8 +7,9 @@ var damageTaken = 0
 
 
 func _ready() -> void:
-	$AnimatedSprite2D.animation = "walk"
+	pass
 	
+
 func _process(delta: float) -> void:
 	move()
 
@@ -19,6 +20,14 @@ func move():
 		velocity = Vector2(-50, 0)  
 	move_and_slide()
 
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent().has_method("WizardDamage"):
+		var node = area.get_parent() as Node
+		damageTaken += node.WizardDamage()
+		$DamageTimer.start()
+
+
 func _on_damage_timer_timeout() -> void:
 	health -= damageTaken
 	print("enemy: " , health)
@@ -27,7 +36,14 @@ func _on_damage_timer_timeout() -> void:
 		queue_free()
 
 
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.get_parent().has_method("WizardDamage"):
+		var node = area.get_parent() as Node
+		damageTaken -= node.WizardDamage()
+
+
 func _on_range_area_body_entered(body: Node2D) -> void:
+	print("fuck")
 	see_enemy = true
 
 
@@ -37,18 +53,3 @@ func _on_range_area_body_exited(body: Node2D) -> void:
 
 func LizardDamage() -> int:
 	return damage
-
-
-func _on_hitbox_area_area_entered(area: Area2D) -> void:
-	if area.get_parent().has_method("WizardDamage"):
-		var node = area.get_parent() as Node
-		damageTaken += node.WizardDamage()
-		$DamageTimer.start()
-	pass # Replace with function body.
-
-
-func _on_hitbox_area_area_exited(area: Area2D) -> void:
-	if area.get_parent().has_method("WizardDamage"):
-		var node = area.get_parent() as Node
-		damageTaken -= node.WizardDamage()
-	pass # Replace with function body.

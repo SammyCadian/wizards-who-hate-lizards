@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfpp8is4ddpv"]
+
+[ext_resource type="Script" path="res://Scenes/Units/wizard_1.gd" id="1_7yi0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6yiv"]
+size = Vector2(20, 1.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_628q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47y6h"]
+
+[node name="wizard1" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_7yi0a")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RangeArea" type="Area2D" parent="."]
+position = Vector2(-1, 1)
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="RangeArea"]
+position = Vector2(240, 19)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_d6yiv")
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_628q2")
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="HITBOX" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_47y6h")
+
+[connection signal="body_entered" from="RangeArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
+[connection signal="area_exited" from="HitboxArea" to="." method="_on_hitbox_area_area_exited"]

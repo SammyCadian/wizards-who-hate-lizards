@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://c5yrbwdqddv0h"]
 
-[ext_resource type="Script" uid="uid://c344uhmkn3uwk" path="res://Scenes/Lizards/sus.gd" id="1_e2gu1"]
+[ext_resource type="Script" uid="uid://cetxajjgqn04a" path="res://Scenes/Lizards/sus.gd" id="1_e2gu1"]
 [ext_resource type="Texture2D" uid="uid://bh34ekx7xpgpf" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusAttack.png" id="2_h7yft"]
 [ext_resource type="Texture2D" uid="uid://cgym21byfv6xy" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusDeath.png" id="3_pm5im"]
 [ext_resource type="Texture2D" uid="uid://db3iopfphpoev" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusWalk.png" id="4_o6c7k"]

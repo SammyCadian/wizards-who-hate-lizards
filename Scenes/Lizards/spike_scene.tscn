@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dw8h0r1xbj0t3"]
+[gd_scene load_steps=27 format=3 uid="uid://dw8h0r1xbj0t3"]
 
 [ext_resource type="Texture2D" uid="uid://mptm3w074wgi" path="res://Sprites/Units/Lizards/SpikeLizard/SpikeAttack.png" id="1_bwf0y"]
 [ext_resource type="Script" uid="uid://btni6uusa2wsg" path="res://Scenes/Lizards/spike_scene.gd" id="1_cipye"]
@@ -149,21 +149,48 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah21y"]
-size = Vector2(376.344, 892.473)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_patrw"]
+size = Vector2(457.625, 24)
 
-[node name="Spike" type="Node2D"]
-scale = Vector2(0.093, 0.093)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s63m3"]
+size = Vector2(24.5, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pv43"]
+size = Vector2(25, 25)
+
+[node name="Spike" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_cipye")
-speed = -100
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3.05176e-05)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_58wq1")
 animation = &"walk"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="RangeArea" type="Area2D" parent="."]
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5.37636, 26.8817)
-shape = SubResource("RectangleShape2D_ah21y")
+[node name="Range" type="CollisionShape2D" parent="RangeArea"]
+position = Vector2(-229.188, 12)
+shape = SubResource("RectangleShape2D_patrw")
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="HITBOX" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(12, 12.5)
+shape = SubResource("RectangleShape2D_s63m3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 12.5)
+shape = SubResource("RectangleShape2D_4pv43")
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
+[connection signal="body_exited" from="RangeArea" to="." method="_on_range_area_body_exited"]
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
+[connection signal="area_exited" from="HitboxArea" to="." method="_on_hitbox_area_area_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
