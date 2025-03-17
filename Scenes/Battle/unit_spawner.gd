@@ -9,13 +9,10 @@ extends Node2D
 var starting_enemies:int # How many enemies we start with
 var current_enemies: int # How many enemies there are currently
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	starting_enemies = get_child_count() # Typically 0 for now
 	current_enemies = get_child_count()
-
 
 
 # This loop will function as an enemy AI. It will handle waves
@@ -30,7 +27,6 @@ func _process(delta: float) -> void:
 		enemy_spawn_prep($EnemySpawnPoint3, 1)
 
 
-
 # Will randomize the type of enemy spawned
 func enemy_spawn_prep(location, amount):
 	var randomType = randi_range(0, 1)
@@ -39,7 +35,6 @@ func enemy_spawn_prep(location, amount):
 			spawn(sus_scene, location, amount)
 		1:
 			spawn(spike_scene, location, amount)
-
 
 
 # General spawner called by enemy AI and battle script
