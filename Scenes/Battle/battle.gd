@@ -54,7 +54,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("leftMB"):
 			if (selectedLane != "NO_LANE"):
 				print("hello!!!")
-				laneSelected.emit(unitName, selectedLane, 2)
+				laneSelected.emit(unitName, selectedLane, 1)
 				unitSelected = false
 				unitName = "NO_UNIT"
 				# This should call an exported unit spawner function with passed in information

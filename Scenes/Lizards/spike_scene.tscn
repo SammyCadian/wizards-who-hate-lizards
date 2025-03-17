@@ -121,7 +121,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yp66i")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -167,7 +167,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -3.05176e-05)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_58wq1")
-animation = &"walk"
+animation = &"death"
 
 [node name="RangeArea" type="Area2D" parent="."]
 collision_mask = 4

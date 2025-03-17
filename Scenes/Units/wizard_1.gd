@@ -56,3 +56,7 @@ func _on_hitbox_area_area_exited(area: Area2D) -> void:
 	if area.get_parent().has_method("LizardDamage"):
 		var node = area.get_parent() as Node
 		damageTaken -= node.LizardDamage()
+
+
+func _on_range_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
