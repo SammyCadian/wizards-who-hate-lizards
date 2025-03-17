@@ -150,22 +150,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah21y"]
-size = Vector2(260.152, 641.221)
+size = Vector2(376.344, 892.473)
 
 [node name="Spike" type="Node2D"]
-scale = Vector2(0.272917, 0.272917)
+scale = Vector2(0.093, 0.093)
 script = ExtResource("1_cipye")
 speed = -100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.000554092, -340.763)
-scale = Vector2(0.709923, 0.709923)
+position = Vector2(0, -3.05176e-05)
 sprite_frames = SubResource("SpriteFrames_58wq1")
 animation = &"walk"
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0.00044728, -337.099)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 16.4883)
+position = Vector2(5.37636, 26.8817)
 shape = SubResource("RectangleShape2D_ah21y")
