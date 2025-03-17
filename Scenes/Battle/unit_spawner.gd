@@ -10,8 +10,8 @@ var current_enemies: int # How many enemies there are currently
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Manually connect "laneSelected" signal from Battle node to this(Unit Spawner) node
-	var battle = get_node("/root/Game/Display Manager/Battle")
-	battle.laneSelected.connect(spawn)
+	#var battle = get_node("/root/Game/Display Manager/Battle")
+	#battle.laneSelected.connect(spawn)
 	
 	
 	# Initialize enemy counter
@@ -28,10 +28,11 @@ func _process(delta: float) -> void:
 	
 	# If there aren't any enemies left, spawns more
 	if(starting_enemies == current_enemies):
-		print("spawned spike")
-		enemy_spawn_prep($EnemySpawnPoint1, 2)
-		enemy_spawn_prep($EnemySpawnPoint2, 2)
-		enemy_spawn_prep($EnemySpawnPoint3, 2)
+		pass
+		#print("spawned spike")
+		#enemy_spawn_prep($EnemySpawnPoint1, 2)
+		#enemy_spawn_prep($EnemySpawnPoint2, 2)
+		#enemy_spawn_prep($EnemySpawnPoint3, 2)
 
 
 
@@ -41,24 +42,39 @@ func enemy_spawn_prep(location, amount):
 	var randomType = randi_range(0, 1)
 	match randomType:
 		0:
-			spawn("spike_scene", location, amount)
+			spawn(spike_scene, location, amount)
 		1:
-			spawn("sus_scene", location, amount)
-
-
-
-
+			spawn(sus_scene, location, amount)
 
 # General spawner called by enemy AI and battle script
-func spawn(type:String, location, amount):
-	
-	
-	if(type == "spike_scene" || type == "sus_scene"):
+func spawn(type, location, amount):
+	if(type == spike_scene || type == sus_scene):
 		# Loops through spawner "amount" times
 		for i in amount:
 			var unit = type.instantiate()
-			unit.global_position = location.global_position
+			unit.position = location.position
 			add_child(unit)
 			await get_tree().create_timer(1.0).timeout
 	else:
 		print("Spawned in " + type)
+
+func getSpawnPoint(laneID: String):
+	match (laneID):
+		"TOP_LANE":
+			return $EnemySpawnPoint1
+		"MID_LANE":
+			return $EnemySpawnPoint2
+		"BOT_LANE":
+			return $EnemySpawnPoint3
+
+func getUnit(unitID: String):
+	match (unitID):
+		"spike":
+			return spike_scene
+		"sus":
+			return sus_scene
+
+func _on_battle_lane_selected(unitName: String, selectedLane: String, unitNum: int) -> void:
+	print(unitName)
+	spawn(getUnit(unitName), getSpawnPoint(selectedLane), unitNum)
+	pass # Replace with function body.

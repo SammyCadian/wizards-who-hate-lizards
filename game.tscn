@@ -10,4 +10,3 @@ script = ExtResource("1_feb5d")
 [node name="Display Manager" parent="." instance=ExtResource("2_fc0e3")]
 
 [node name="Battle Manager" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(685, 8)

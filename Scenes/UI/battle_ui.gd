@@ -20,8 +20,8 @@ var abilities = []
 
 #Load units in for testing purposes
 func testLoad():
-	receiveUnit(unitOneIcon, "TestUnit")
-	receiveUnit(unitTwoIcon, "TestUnit")
+	receiveUnit(unitOneIcon, "spike")
+	receiveUnit(unitTwoIcon, "sus")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

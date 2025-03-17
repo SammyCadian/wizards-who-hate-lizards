@@ -81,11 +81,13 @@ size_flags_horizontal = 3
 [node name="Ability1" type="Button" parent="Abilities"]
 layout_mode = 2
 size_flags_vertical = 3
+disabled = true
 expand_icon = true
 
 [node name="Ability2" type="Button" parent="Abilities"]
 layout_mode = 2
 size_flags_vertical = 3
+disabled = true
 expand_icon = true
 
 [node name="IncomeTimer" type="Timer" parent="."]

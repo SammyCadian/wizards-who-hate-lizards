@@ -9,7 +9,7 @@ var bottomLaneEnter = false
 #@export var unit_spawner: PackedScene
 
 # Signal definition to recieve when the player selects a lane
-signal laneSelected
+signal laneSelected(unitName, selectedLane, unitNum)
 
 
 # Unit variables
@@ -51,9 +51,12 @@ func _process(delta):
 	
 	# Place a unit if one is selected
 	if unitSelected:
-		if (topLaneEnter || middleLaneEnter || bottomLaneEnter):
-			if Input.is_action_just_pressed("leftMB"):
-				laneSelected.emit(unitName, selectedLane, 5)
+		if Input.is_action_just_pressed("leftMB"):
+			if (selectedLane != "NO_LANE"):
+				print("hello!!!")
+				laneSelected.emit(unitName, selectedLane, 2)
+				unitSelected = false
+				unitName = "NO_UNIT"
 				# This should call an exported unit spawner function with passed in information
 				# Alternatively this could GRAB information from a unit spawner function to get the exact node and spawn it locally
 				# The cursorPos is where the unit position should be set
@@ -61,6 +64,9 @@ func _process(delta):
 				# Line 10 in the battle_ui.gd script should be changed to whatever the name the unit spawner is expecting
 				# unitSpawnerNode.placeUnit(unitName, cursorPos) # EXAMPLE CALL using the unit spawner node directly, it will have to be accessed before hand
 				# Global.placeUnit(unitName, cursorPos) # EXAMPLE CALL using Global script as an easy route to unit spawner
+			else:
+				unitSelected = false
+				unitName = "NO_UNIT"
 				
 
 
