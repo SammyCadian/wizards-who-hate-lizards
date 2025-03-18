@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://5iga6e20ot8s"]
+[gd_scene load_steps=7 format=3 uid="uid://5iga6e20ot8s"]
 
 [ext_resource type="Texture2D" uid="uid://cwryhdn81v2b" path="res://Sprites/Battlefields/BattlefieldTest.png" id="1_3qw02"]
 [ext_resource type="Script" uid="uid://cv5q8jp1if1m0" path="res://Scenes/Battle/battle.gd" id="1_aqr0y"]
 [ext_resource type="PackedScene" uid="uid://cpy73rsjkhjof" path="res://Scenes/UI/battle_ui.tscn" id="3_aqr0y"]
 [ext_resource type="PackedScene" uid="uid://h1mk235t1xj1" path="res://Scenes/Battle/lane.tscn" id="4_wqxgi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqxgi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8bsx"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_aqr0y")
@@ -30,4 +34,26 @@ position = Vector2(0, 9)
 [node name="bottomLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, 98)
 
+[node name="LizardWinCon" type="Area2D" parent="."]
+position = Vector2(-775, 8)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LizardWinCon"]
+scale = Vector2(2, 12)
+shape = SubResource("RectangleShape2D_wqxgi")
+
+[node name="WizardWinCon" type="Area2D" parent="."]
+position = Vector2(775, 8)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WizardWinCon"]
+scale = Vector2(2, 12)
+shape = SubResource("RectangleShape2D_o8bsx")
+
 [connection signal="unitButtonPressed" from="BattleUI" to="." method="_on_battle_ui_unit_button_pressed"]
+[connection signal="area_entered" from="LizardWinCon" to="." method="_on_lizard_win_con_area_entered"]
+[connection signal="area_entered" from="WizardWinCon" to="." method="_on_wizard_win_con_area_entered"]

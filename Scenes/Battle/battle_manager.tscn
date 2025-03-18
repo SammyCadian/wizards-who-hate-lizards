@@ -12,3 +12,4 @@ script = ExtResource("1_7vafl")
 [node name="Unit Spawner" parent="." instance=ExtResource("1_t73rl")]
 
 [connection signal="laneSelected" from="Battle" to="Unit Spawner" method="_on_battle_lane_selected"]
+[connection signal="winCon" from="Battle" to="." method="_on_battle_win_con"]

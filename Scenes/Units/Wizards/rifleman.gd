@@ -49,7 +49,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_damage_timer_timeout() -> void:
 	health -= damageTaken
-	print("Rifleman health: " + str(health))
+	#print("Rifleman health: " + str(health))
 	if(health <= 0):
 		$DamageTimer.stop()
 		ouchieMyForehead()

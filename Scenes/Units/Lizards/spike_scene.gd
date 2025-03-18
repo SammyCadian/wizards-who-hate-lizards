@@ -37,7 +37,7 @@ func LizardDamage() -> int:
 
 func _on_damage_timer_timeout() -> void:
 	health -= damageTaken
-	print("Spike health: " , health)
+	#print("Spike health: " , health)
 	if(health <= 0):
 		$DamageTimer.stop()
 		ouchieMyForehead()

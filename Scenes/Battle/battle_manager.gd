@@ -8,3 +8,10 @@ func startBattle(loadedUnits: Array):
 
 # Should tell the respective spawners which sprites they can select from
 # Something like playerSpriteVal = 0 and enemySpriteVal = 1
+
+func _on_battle_win_con(side: Variant) -> void:
+	if(side == "Wizards"):
+		print("we won!!!")
+	else:
+		print("we lost...")
+	pass # Replace with function body.

@@ -16,8 +16,6 @@ func _ready() -> void:
 	starting_enemies = get_child_count() # Typically 0 for now
 	current_enemies = get_child_count()
 
-
-
 # This loop will function as an enemy AI. It will handle waves
 func _process(delta: float) -> void:
 	# Checks how many enemies there are left
@@ -25,9 +23,10 @@ func _process(delta: float) -> void:
 	
 	# If there aren't any enemies left, spawns more
 	if(starting_enemies == current_enemies):
-		enemy_spawn_prep($EnemySpawnPoint1, 1)
-		enemy_spawn_prep($EnemySpawnPoint2, 1)
-		enemy_spawn_prep($EnemySpawnPoint3, 1)
+		#enemy_spawn_prep($EnemySpawnPoint1, 1)
+		#enemy_spawn_prep($EnemySpawnPoint2, 1)
+		#enemy_spawn_prep($EnemySpawnPoint3, 1)
+		pass
 
 
 
@@ -40,8 +39,6 @@ func enemy_spawn_prep(location, amount):
 		1:
 			spawn(spike_scene, location, amount)
 
-
-
 # General spawner called by enemy AI and battle script
 func spawn(type, location, amount):
 	for i in amount:
@@ -49,8 +46,6 @@ func spawn(type, location, amount):
 		unit.position = location.position
 		add_child(unit)
 		await get_tree().create_timer(1.0).timeout
-
-
 
 func getSpawnPoint(laneID: String):
 	match (laneID):
@@ -60,8 +55,6 @@ func getSpawnPoint(laneID: String):
 			return $WizSpawnPoint2
 		"BOT_LANE":
 			return $WizSpawnPoint3
-
-
 
 func getUnit(unitID: String):
 	match (unitID):

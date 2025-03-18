@@ -10,6 +10,7 @@ var bottomLaneEnter = false
 
 # Signal definition to recieve when the player selects a lane
 signal laneSelected(unitName, selectedLane, unitNum)
+signal winCon(side)
 
 
 # Unit variables
@@ -72,3 +73,13 @@ func _process(delta):
 func _on_battle_ui_unit_button_pressed(pressedUnitID: String) -> void:
 	unitSelected = true
 	unitName = pressedUnitID
+
+
+func _on_lizard_win_con_area_entered(area: Area2D) -> void:
+	winCon.emit("Wizards")
+	pass # Replace with function body.
+
+
+func _on_wizard_win_con_area_entered(area: Area2D) -> void:
+	winCon.emit("Lizards")
+	pass # Replace with function body.
