@@ -2,11 +2,9 @@ extends Control
 
 signal unitButtonPressed(pressedUnitID: String)
 
-@export var incomeTime = 5.0
+@export var incomeTime = 2.0 # Timer between getting more magic points
+var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
 
-var magicPoints = 0
-
-var battleNode = null # Parent battle node
 
 # Units in each button, global script should update these as the player unlocks/selects other units outside of battle
 @export var unitOneIcon: CompressedTexture2D
@@ -26,14 +24,11 @@ func testLoad():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	battleNode = get_parent() # Get the current battle
-	
 	testLoad()
 	
 	$IncomeTimer.set_wait_time(incomeTime/100)
 	$IncomeTimer.start()
 	updatePoints()
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -71,13 +66,25 @@ func _on_income_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_unit_one_pressed() -> void:
-	unitButtonPressed.emit(units[0])
+	if (magicPoints >= 10):
+		magicPoints -= 10
+		updatePoints()
+		unitButtonPressed.emit(units[0])
 
 func _on_unit_two_pressed() -> void:
+	if (magicPoints >= 20):
+		magicPoints -= 20
+		updatePoints()
 	unitButtonPressed.emit(units[1])
 
 func _on_unit_three_pressed() -> void:
+	if (magicPoints >= 40):
+		magicPoints -= 40
+		updatePoints()
 	unitButtonPressed.emit(units[2])
 
 func _on_unit_four_pressed() -> void:
+	if (magicPoints >= 100):
+		magicPoints -= 100
+		updatePoints()
 	unitButtonPressed.emit(units[3])
