@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsl6gtr1e6wls"]
+
+[ext_resource type="Texture2D" uid="uid://1hyfmby6yd5s" path="res://icon.svg" id="1_k3vwj"]
+[ext_resource type="Script" uid="uid://dxkev2kusk38" path="res://Scenes/UI/map.gd" id="1_yijh4"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_yijh4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(10, 6)
+texture = ExtResource("1_k3vwj")
+
+[node name="node0" type="Marker2D" parent="."]
+position = Vector2(-512, 0)
+
+[node name="topPathNode1" type="Marker2D" parent="."]
+position = Vector2(-384, -128)
+
+[node name="topPathNode2" type="Marker2D" parent="."]
+position = Vector2(-128, -128)
+
+[node name="bottomPathNode1" type="Marker2D" parent="."]
+position = Vector2(-384, 128)
+
+[node name="bottomPathNode2" type="Marker2D" parent="."]
+position = Vector2(-128, 128)
+
+[node name="node3" type="Marker2D" parent="."]
+
+[node name="node4" type="Marker2D" parent="."]
+position = Vector2(128, 0)
+
+[node name="node5" type="Marker2D" parent="."]
+position = Vector2(256, 0)
+
+[node name="node6" type="Marker2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="node7" type="Marker2D" parent="."]
+position = Vector2(512, 0)
