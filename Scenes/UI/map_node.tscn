@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmhl2x4wtd3tl"]
+[gd_scene load_steps=3 format=3 uid="uid://bmhl2x4wtd3tl"]
 
+[ext_resource type="Script" uid="uid://cj81t4w50fwg2" path="res://Scenes/UI/map_node.gd" id="1_nprav"]
 [ext_resource type="Texture2D" uid="uid://1hyfmby6yd5s" path="res://icon.svg" id="1_oy1af"]
 
 [node name="Map Node" type="Node2D"]
+script = ExtResource("1_nprav")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -26,3 +28,19 @@ text = "TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
