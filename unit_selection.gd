@@ -5,7 +5,7 @@ extends Node2D
 @export var unitTwoIcon: CompressedTexture2D
 @export var unitThreeIcon: CompressedTexture2D
 
-var units = [[1,2,3],[1,2,3],[1,2,3],[1,2,3]]
+var units = [[null,"NO_UNIT",0],[null,"NO_UNIT",0],[null,"NO_UNIT",0],[null,"NO_UNIT",0]]
 var selected = false
 var unitId = ""
 var cost = 0
