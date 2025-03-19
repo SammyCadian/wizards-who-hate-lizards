@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctmhvm3i7gl60"]
+
+[ext_resource type="Script" uid="uid://dahbk8serjvie" path="res://unit_selection.gd" id="1_bxdoy"]
+[ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
+[ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_0rmpk"]
+[ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="4_jqnbg"]
+
+[node name="Unit Selection" type="Node2D"]
+script = ExtResource("1_bxdoy")
+unitOneIcon = ExtResource("2_ongp6")
+unitTwoIcon = ExtResource("3_0rmpk")
+unitThreeIcon = ExtResource("4_jqnbg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 777.0
+offset_bottom = 366.0
+color = Color(0.435192, 0.435192, 0.435192, 1)
+
+[node name="UnitsForBattle" type="HBoxContainer" parent="."]
+offset_left = 271.0
+offset_top = 251.0
+offset_right = 507.0
+offset_bottom = 306.0
+
+[node name="Unit1" type="VBoxContainer" parent="UnitsForBattle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit1Button" type="Button" parent="UnitsForBattle/Unit1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Unit2" type="VBoxContainer" parent="UnitsForBattle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit2Button" type="Button" parent="UnitsForBattle/Unit2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Unit3" type="VBoxContainer" parent="UnitsForBattle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit3Button" type="Button" parent="UnitsForBattle/Unit3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Unit4" type="VBoxContainer" parent="UnitsForBattle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit4Button" type="Button" parent="UnitsForBattle/Unit4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="All units" type="HBoxContainer" parent="."]
+offset_left = 270.0
+offset_top = 77.0
+offset_right = 506.0
+offset_bottom = 132.0
+
+[node name="Unit1" type="VBoxContainer" parent="All units"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UnitSelect1" type="Button" parent="All units/Unit1"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("2_ongp6")
+
+[node name="Unit2" type="VBoxContainer" parent="All units"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UnitSelect2" type="Button" parent="All units/Unit2"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("3_0rmpk")
+
+[node name="Unit3" type="VBoxContainer" parent="All units"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UnitSelect3" type="Button" parent="All units/Unit3"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("4_jqnbg")
+
+[node name="Unit4" type="VBoxContainer" parent="All units"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UnitSelect4" type="Button" parent="All units/Unit4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnterGame" type="Button" parent="."]
+offset_left = 603.0
+offset_top = 258.0
+offset_right = 652.0
+offset_bottom = 301.0
+text = "Enter the game"
+
+[connection signal="pressed" from="UnitsForBattle/Unit1/Unit1Button" to="." method="_on_unit_1_button_pressed"]
+[connection signal="pressed" from="UnitsForBattle/Unit2/Unit2Button" to="." method="_on_unit_2_button_pressed"]
+[connection signal="pressed" from="UnitsForBattle/Unit3/Unit3Button" to="." method="_on_unit_3_button_pressed"]
+[connection signal="pressed" from="UnitsForBattle/Unit4/Unit4Button" to="." method="_on_unit_4_button_pressed"]
+[connection signal="pressed" from="All units/Unit1/UnitSelect1" to="." method="_on_unit_select_1_pressed"]
+[connection signal="pressed" from="All units/Unit2/UnitSelect2" to="." method="_on_unit_select_2_pressed"]
+[connection signal="pressed" from="All units/Unit3/UnitSelect3" to="." method="_on_unit_select_3_pressed"]
+[connection signal="pressed" from="All units/Unit4/UnitSelect4" to="." method="_on_unit_select_4_pressed"]
+[connection signal="pressed" from="EnterGame" to="." method="_on_enter_game_pressed"]
