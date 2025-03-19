@@ -3,6 +3,8 @@ extends Node2D
 # Preload a map node scene for instantiation
 var mapNode = preload("res://Scenes/UI/map_node.tscn")
 
+@export var selectedMapNode =  null # Track the currently selected node
+
 # Make an rng object for randomizing the map
 var rng = RandomNumberGenerator.new()
 
