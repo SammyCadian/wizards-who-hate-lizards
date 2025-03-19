@@ -107,7 +107,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hbi03")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -149,7 +149,7 @@ script = ExtResource("1_cq06d")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_6sc6y")
-animation = &"walk"
+animation = &"death"
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)

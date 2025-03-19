@@ -54,6 +54,7 @@ metadata/_edit_group_ = true
 scale = Vector2(2, 12)
 shape = SubResource("RectangleShape2D_o8bsx")
 
+[connection signal="spendPoints" from="." to="BattleUI" method="_on_battle_spend_points"]
 [connection signal="unitButtonPressed" from="BattleUI" to="." method="_on_battle_ui_unit_button_pressed"]
 [connection signal="area_entered" from="LizardWinCon" to="." method="_on_lizard_win_con_area_entered"]
 [connection signal="area_entered" from="WizardWinCon" to="." method="_on_wizard_win_con_area_entered"]

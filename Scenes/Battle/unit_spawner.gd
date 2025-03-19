@@ -9,8 +9,6 @@ extends Node2D
 var starting_enemies:int # How many enemies we start with
 var current_enemies: int # How many enemies there are currently
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	starting_enemies = get_child_count() # Typically 0 for now
@@ -23,12 +21,10 @@ func _process(delta: float) -> void:
 	
 	# If there aren't any enemies left, spawns more
 	if(starting_enemies == current_enemies):
-		#enemy_spawn_prep($EnemySpawnPoint1, 1)
-		#enemy_spawn_prep($EnemySpawnPoint2, 1)
-		#enemy_spawn_prep($EnemySpawnPoint3, 1)
+		enemy_spawn_prep($EnemySpawnPoint1, 0)
+		enemy_spawn_prep($EnemySpawnPoint2, 3)
+		enemy_spawn_prep($EnemySpawnPoint3, 0)
 		pass
-
-
 
 # Will randomize the type of enemy spawned
 func enemy_spawn_prep(location, amount):
@@ -64,8 +60,6 @@ func getUnit(unitID: String):
 			return rifleman_scene
 		"autorifle":
 			return autorifle_scene
-
-
 
 func _on_battle_lane_selected(unitName: String, selectedLane: String, unitNum: int) -> void:
 	print(unitName)

@@ -7,6 +7,7 @@ var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
 
+var targets = []
 
 func _ready() -> void:
 	$AnimatedSprite2D.animation = "walk"
@@ -36,21 +37,33 @@ func LizardDamage() -> int:
 
 
 func _on_damage_timer_timeout() -> void:
-	health -= damageTaken
-	#print("Spike health: " , health)
+	if(targets.size() > 0):
+		targets[0].takeDamage(damage)
+	#health -= damageTaken
+	#print("Scout health: " + str(health))
+	#if(health <= 0):
+		#$DamageTimer.stop()
+		#ouchieMyForehead()
+
+func takeDamage(damage: int):
+	health -= damage
 	if(health <= 0):
-		$DamageTimer.stop()
 		ouchieMyForehead()
 
-
 func _on_range_area_body_entered(body: Node2D) -> void:
+	targets.append(body)
+	$DamageTimer.start()
 	$AnimatedSprite2D.animation = "attack"
 	see_enemy = true
 
 
 func _on_range_area_body_exited(body: Node2D) -> void:
-	$AnimatedSprite2D.animation = "walk"
-	see_enemy = false
+	if(targets.has(body)):
+		targets.remove_at(targets.find(body))
+	if(targets.size() <= 0):
+		$DamageTimer.stop()
+		$AnimatedSprite2D.animation = "walk"
+		see_enemy = false
 
 func ouchieMyForehead():
 	deathTimer = 2.5
@@ -60,14 +73,14 @@ func ouchieMyForehead():
 	get_node("CollisionShape2D").free()
 
 
-func _on_hitbox_area_area_entered(area: Area2D) -> void:
-	if area.get_parent().has_method("WizardDamage"):
-		var node = area.get_parent() as Node
-		damageTaken += node.WizardDamage()
-		$DamageTimer.start()
-
-
-func _on_hitbox_area_area_exited(area: Area2D) -> void:
-	if area.get_parent().has_method("WizardDamage"):
-		var node = area.get_parent() as Node
-		damageTaken -= node.WizardDamage()
+#func _on_hitbox_area_area_entered(area: Area2D) -> void:
+	#if area.get_parent().has_method("WizardDamage"):
+		#var node = area.get_parent() as Node
+		#damageTaken += node.WizardDamage()
+		#$DamageTimer.start()
+#
+#
+#func _on_hitbox_area_area_exited(area: Area2D) -> void:
+	#if area.get_parent().has_method("WizardDamage"):
+		#var node = area.get_parent() as Node
+		#damageTaken -= node.WizardDamage()

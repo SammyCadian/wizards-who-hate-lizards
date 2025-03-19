@@ -1,6 +1,6 @@
 extends Control
 
-signal unitButtonPressed(pressedUnitID: String)
+signal unitButtonPressed(pressedUnitID: String, cost: int)
 
 @export var incomeTime = 2.0 # Timer between getting more magic points
 var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
@@ -15,12 +15,13 @@ var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
 #Holds IDs for units and abilities
 var units = []
 var abilities = []
+var costs = [0, 0, 0, 0, 0, 0]
 
 #Load units in for testing purposes
 func testLoad():
-	receiveUnit(unitOneIcon, "scout")
-	receiveUnit(unitTwoIcon, "rifleman")
-	receiveUnit(unitThreeIcon, "autorifle")
+	receiveUnit(unitOneIcon, "scout", 10)
+	receiveUnit(unitTwoIcon, "rifleman", 20)
+	receiveUnit(unitThreeIcon, "autorifle", 40)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,21 +39,25 @@ func updatePoints():
 	$PointsLabel.text = str(magicPoints)
 
 #Load a unit ID and button icon into the UI
-func receiveUnit(icon: CompressedTexture2D, unitID: String):
+func receiveUnit(icon: CompressedTexture2D, unitID: String, unitCost: int):
 	units.append(unitID)
 	match units.size():
 		1:
 			$Units/Column1/UnitOne.icon = icon
 			$Units/Column1/UnitOne.disabled = false
+			costs[0] = unitCost
 		2:
 			$Units/Column1/UnitTwo.icon = icon
 			$Units/Column1/UnitTwo.disabled = false
+			costs[1] = unitCost
 		3:
 			$Units/Column2/UnitThree.icon = icon
 			$Units/Column2/UnitThree.disabled = false
+			costs[2] = unitCost
 		4:
 			$Units/Column2/UnitFour.icon = icon
 			$Units/Column2/UnitFour.disabled = false
+			costs[3] = unitCost
 	pass
 
 #signal functions
@@ -66,25 +71,23 @@ func _on_income_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_unit_one_pressed() -> void:
-	if (magicPoints >= 10):
-		magicPoints -= 10
-		updatePoints()
-		unitButtonPressed.emit(units[0])
+	if (magicPoints >= costs[0]):
+		unitButtonPressed.emit(units[0], costs[0])
 
 func _on_unit_two_pressed() -> void:
-	if (magicPoints >= 20):
-		magicPoints -= 20
-		updatePoints()
-	unitButtonPressed.emit(units[1])
+	if (magicPoints >= costs[1]):
+		unitButtonPressed.emit(units[1], costs[1])
 
 func _on_unit_three_pressed() -> void:
-	if (magicPoints >= 40):
-		magicPoints -= 40
-		updatePoints()
-	unitButtonPressed.emit(units[2])
+	if (magicPoints >= costs[2]):
+		unitButtonPressed.emit(units[2], costs[2])
 
 func _on_unit_four_pressed() -> void:
-	if (magicPoints >= 100):
-		magicPoints -= 100
-		updatePoints()
-	unitButtonPressed.emit(units[3])
+	if (magicPoints >= costs[3]):
+		unitButtonPressed.emit(units[3], costs[3])
+
+
+func _on_battle_spend_points(cost: int) -> void:
+	magicPoints -= cost
+	updatePoints()
+	pass # Replace with function body.

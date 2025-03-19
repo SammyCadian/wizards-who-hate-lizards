@@ -10,11 +10,13 @@ var bottomLaneEnter = false
 
 # Signal definition to recieve when the player selects a lane
 signal laneSelected(unitName, selectedLane, unitNum)
+signal spendPoints(cost: int)
 signal winCon(side)
 
 # Unit variables
 @export var unitSelected = false
 @export var unitName = "NO_UNIT" # Track the name of what is selected in the UI
+var unitCost = 0
 
 # Camera Variables
 var cursorPos = Vector2(0,0) # Track the cursor position
@@ -42,25 +44,24 @@ func _process(delta):
 	if unitSelected:
 		if Input.is_action_just_pressed("leftMB"):
 			if (selectedLane != "NO_LANE"):
+				spendPoints.emit(unitCost)
 				laneSelected.emit(unitName, selectedLane, 1)
-				unitSelected = false
-				unitName = "NO_UNIT"
-			else:
-				unitSelected = false
-				unitName = "NO_UNIT"
-				
+			unitSelected = false
+			unitName = "NO_UNIT"
+			var unitCost = 0
 
 
-func _on_battle_ui_unit_button_pressed(pressedUnitID: String) -> void:
+func _on_battle_ui_unit_button_pressed(pressedUnitID: String, cost: int) -> void:
 	unitSelected = true
 	unitName = pressedUnitID
+	unitCost = cost
 
 
 func _on_lizard_win_con_area_entered(area: Area2D) -> void:
-	winCon.emit("Wizards")
+	winCon.emit("Lizards")
 	pass # Replace with function body.
 
 
 func _on_wizard_win_con_area_entered(area: Area2D) -> void:
-	winCon.emit("Lizards")
+	winCon.emit("Wizards")
 	pass # Replace with function body.
