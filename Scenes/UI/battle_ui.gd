@@ -5,7 +5,6 @@ signal unitButtonPressed(pressedUnitID: String, cost: int)
 @export var incomeTime = 2.0 # Timer between getting more magic points
 var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
 
-
 # Units in each button, global script should update these as the player unlocks/selects other units outside of battle
 @export var unitOneIcon: CompressedTexture2D
 @export var unitTwoIcon: CompressedTexture2D
@@ -86,8 +85,6 @@ func _on_unit_four_pressed() -> void:
 	if (magicPoints >= costs[3]):
 		unitButtonPressed.emit(units[3], costs[3])
 
-
 func _on_battle_spend_points(cost: int) -> void:
 	magicPoints -= cost
 	updatePoints()
-	pass # Replace with function body.

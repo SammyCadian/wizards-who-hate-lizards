@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckonvx88mks8d"]
 
-[ext_resource type="Script" uid="uid://dahbk8serjvie" path="res://unit_selection.gd" id="1_bxdoy"]
+[ext_resource type="Script" uid="uid://dahbk8serjvie" path="res://Scenes/UI/unit_selection.gd" id="1_bxdoy"]
 [ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
 [ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_0rmpk"]
 [ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="4_jqnbg"]
@@ -12,17 +12,24 @@ unitTwoIcon = ExtResource("3_0rmpk")
 unitThreeIcon = ExtResource("4_jqnbg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 777.0
-offset_bottom = 366.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.5
+offset_top = -182.5
+offset_right = 389.5
+offset_bottom = 182.5
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.435192, 0.435192, 0.435192, 1)
 
 [node name="UnitsForBattle" type="HBoxContainer" parent="."]
-offset_left = 271.0
-offset_top = 251.0
-offset_right = 507.0
-offset_bottom = 306.0
+offset_left = -257.0
+offset_top = 59.0
+offset_right = -21.0
+offset_bottom = 114.0
 
 [node name="Unit1" type="VBoxContainer" parent="UnitsForBattle"]
 layout_mode = 2
@@ -57,10 +64,10 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="All units" type="HBoxContainer" parent="."]
-offset_left = 270.0
-offset_top = 77.0
-offset_right = 506.0
-offset_bottom = 132.0
+offset_left = -258.0
+offset_top = -115.0
+offset_right = -22.0
+offset_bottom = -47.0
 
 [node name="Unit1" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -98,10 +105,10 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="EnterGame" type="Button" parent="."]
-offset_left = 603.0
-offset_top = 258.0
-offset_right = 652.0
-offset_bottom = 301.0
+offset_left = 75.0
+offset_top = 66.0
+offset_right = 202.0
+offset_bottom = 109.0
 text = "Enter the game"
 
 [connection signal="pressed" from="UnitsForBattle/Unit1/Unit1Button" to="." method="_on_unit_1_button_pressed"]

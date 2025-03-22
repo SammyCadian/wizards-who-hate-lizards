@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj8m4a5i6pvkl"]
-
-[ext_resource type="Script" path="res://Scenes/UI/display_manager.gd" id="1_ch4fa"]
-[ext_resource type="PackedScene" uid="uid://dsl6gtr1e6wls" path="res://Scenes/UI/map.tscn" id="1_oa31m"]
-
-[node name="Display Manager" type="Node2D"]
-script = ExtResource("1_ch4fa")
-
-[node name="Map" parent="." instance=ExtResource("1_oa31m")]

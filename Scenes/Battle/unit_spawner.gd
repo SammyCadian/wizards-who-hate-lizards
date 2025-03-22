@@ -20,11 +20,11 @@ func _process(delta: float) -> void:
 	current_enemies = get_child_count()
 	
 	# If there aren't any enemies left, spawns more
-	if(starting_enemies == current_enemies):
-		enemy_spawn_prep($EnemySpawnPoint1, 0)
-		enemy_spawn_prep($EnemySpawnPoint2, 3)
-		enemy_spawn_prep($EnemySpawnPoint3, 0)
-		pass
+	if (get_parent().inBattle):
+		if(starting_enemies == current_enemies):
+			enemy_spawn_prep($EnemySpawnPoint1, 0)
+			enemy_spawn_prep($EnemySpawnPoint2, 3)
+			enemy_spawn_prep($EnemySpawnPoint3, 0)
 
 # Will randomize the type of enemy spawned
 func enemy_spawn_prep(location, amount):

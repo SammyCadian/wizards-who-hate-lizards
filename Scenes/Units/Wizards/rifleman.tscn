@@ -107,7 +107,6 @@ script = ExtResource("1_7owsm")
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_6sc6y")
 animation = &"attack"
-frame_progress = 0.352353
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)

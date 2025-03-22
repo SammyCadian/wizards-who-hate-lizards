@@ -15,6 +15,7 @@ script = ExtResource("1_aqr0y")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Battlefield" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(0, -93)
 scale = Vector2(0.159119, 0.180762)
 texture = ExtResource("1_3qw02")

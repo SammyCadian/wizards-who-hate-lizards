@@ -11,7 +11,7 @@ var unitId = ""
 var cost = 0
 var icon
 
-signal startGame
+signal loadBattle
 
 func _on_unit_1_button_pressed() -> void:
 	if(selected):
@@ -75,17 +75,12 @@ func _on_unit_select_4_pressed() -> void:
 	icon = $"All units/Unit4/UnitSelect4".icon
 	cost = 40
 
-
 func getUnits():
 	return units
 
-
 func _on_enter_game_pressed() -> void:
-	startGame.emit()
-	#get_tree().change_scene_to_file("res://game.tscn")
-
+	loadBattle.emit()
 
 func _on_enter_game_button_up() -> void:
 	visible = false
-	startGame.emit()
-	pass # Replace with function body.
+	loadBattle.emit()
