@@ -25,7 +25,7 @@ func testLoad():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	testLoad()
+	#testLoad()
 	
 	$IncomeTimer.set_wait_time(incomeTime/100)
 	$IncomeTimer.start()

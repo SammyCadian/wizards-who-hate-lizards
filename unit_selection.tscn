@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctmhvm3i7gl60"]
+[gd_scene load_steps=5 format=3 uid="uid://ckonvx88mks8d"]
 
 [ext_resource type="Script" uid="uid://dahbk8serjvie" path="res://unit_selection.gd" id="1_bxdoy"]
 [ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
@@ -69,7 +69,7 @@ size_flags_horizontal = 3
 [node name="UnitSelect1" type="Button" parent="All units/Unit1"]
 layout_mode = 2
 size_flags_vertical = 3
-icon = ExtResource("2_ongp6")
+icon = ExtResource("3_0rmpk")
 
 [node name="Unit2" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -78,7 +78,7 @@ size_flags_horizontal = 3
 [node name="UnitSelect2" type="Button" parent="All units/Unit2"]
 layout_mode = 2
 size_flags_vertical = 3
-icon = ExtResource("3_0rmpk")
+icon = ExtResource("4_jqnbg")
 
 [node name="Unit3" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -112,4 +112,4 @@ text = "Enter the game"
 [connection signal="pressed" from="All units/Unit2/UnitSelect2" to="." method="_on_unit_select_2_pressed"]
 [connection signal="pressed" from="All units/Unit3/UnitSelect3" to="." method="_on_unit_select_3_pressed"]
 [connection signal="pressed" from="All units/Unit4/UnitSelect4" to="." method="_on_unit_select_4_pressed"]
-[connection signal="pressed" from="EnterGame" to="." method="_on_enter_game_pressed"]
+[connection signal="button_up" from="EnterGame" to="." method="_on_enter_game_button_up"]

@@ -3,13 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dt40u850dlxkd" path="res://Scenes/Battle/battle_manager.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://b2wgixh8k2ny6" path="res://global.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://cj8m4a5i6pvkl" path="res://Scenes/UI/display_manager.tscn" id="2_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://ctmhvm3i7gl60" path="res://unit_selection.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://ckonvx88mks8d" path="res://unit_selection.tscn" id="4_fc0e3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_feb5d")
 
 [node name="Display Manager" parent="." instance=ExtResource("2_fc0e3")]
 
-[node name="Battle Manager" parent="." instance=ExtResource("1_80nbo")]
+[node name="BattleManager" parent="." instance=ExtResource("1_80nbo")]
 
 [node name="UnitSelection" parent="." instance=ExtResource("4_fc0e3")]
+
+[connection signal="startGame" from="UnitSelection" to="." method="_on_unit_selection_start_game"]

@@ -5,12 +5,13 @@ extends Node2D
 @export var unitTwoIcon: CompressedTexture2D
 @export var unitThreeIcon: CompressedTexture2D
 
-var units = [[null,"NO_UNIT",0],[null,"NO_UNIT",0],[null,"NO_UNIT",0],[null,"NO_UNIT",0]]
+var units = [[0,"NO_UNIT",0],[0,"NO_UNIT",0],[0,"NO_UNIT",0],[0,"NO_UNIT",0]]
 var selected = false
 var unitId = ""
 var cost = 0
 var icon
 
+signal startGame
 
 func _on_unit_1_button_pressed() -> void:
 	if(selected):
@@ -49,21 +50,21 @@ func _on_unit_4_button_pressed() -> void:
 
 func _on_unit_select_1_pressed() -> void:
 	selected = true
-	unitId = "rifleman"
+	unitId = "scout"
 	icon = $"All units/Unit1/UnitSelect1".icon
 	cost = 10
 	
 
 func _on_unit_select_2_pressed() -> void:
 	selected = true
-	unitId = "normal"
+	unitId = "rifleman"
 	icon = $"All units/Unit2/UnitSelect2".icon
 	cost = 20
 
 
 func _on_unit_select_3_pressed() -> void:
 	selected = true
-	unitId = "autorifleman"
+	unitId = "autorifle"
 	icon = $"All units/Unit3/UnitSelect3".icon
 	cost = 30
 
@@ -80,4 +81,11 @@ func getUnits():
 
 
 func _on_enter_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://game.tscn")
+	startGame.emit()
+	#get_tree().change_scene_to_file("res://game.tscn")
+
+
+func _on_enter_game_button_up() -> void:
+	visible = false
+	startGame.emit()
+	pass # Replace with function body.

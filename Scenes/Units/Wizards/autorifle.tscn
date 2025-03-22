@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://co1e2lije056e"]
+[gd_scene load_steps=26 format=3 uid="uid://co1e2lije056e"]
 
 [ext_resource type="Script" uid="uid://vc63bex6llv2" path="res://Scenes/Units/Wizards/autorifle.gd" id="1_6sc6y"]
 [ext_resource type="Texture2D" uid="uid://tp4dj2k1kox0" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleShooting.png" id="2_a884v"]
+[ext_resource type="Texture2D" uid="uid://hbo0nmbel2a8" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleDie.png" id="3_clyaf"]
 [ext_resource type="Texture2D" uid="uid://cm1rs0528tqg0" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleWalk.png" id="3_euege"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_euege"]
@@ -11,6 +12,42 @@ region = Rect2(0, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_clyaf"]
 atlas = ExtResource("2_a884v")
 region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hokf"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoag6"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03jse"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt5gp"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhttb"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njc4c"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ncd0"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1aav"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiflb"]
+atlas = ExtResource("3_clyaf")
+region = Rect2(1024, 1024, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bad5w"]
 atlas = ExtResource("3_euege")
@@ -49,8 +86,35 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hokf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoag6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03jse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt5gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhttb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njc4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ncd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1aav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uiflb")
+}],
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -92,9 +156,9 @@ script = ExtResource("1_6sc6y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_6sc6y")
-animation = &"walk"
-frame = 5
-frame_progress = 0.658975
+animation = &"death"
+frame = 8
+frame_progress = 1.0
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)
