@@ -1,17 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckonvx88mks8d"]
 
-[ext_resource type="Script" uid="uid://dahbk8serjvie" path="res://Scenes/UI/unit_selection.gd" id="1_bxdoy"]
+[ext_resource type="Script" path="res://Scenes/UI/unit_selection.gd" id="1_bxdoy"]
 [ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
 [ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_0rmpk"]
 [ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="4_jqnbg"]
 
-[node name="Unit Selection" type="Node2D"]
+[node name="Unit Selection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1.80772, 1.80772)
 script = ExtResource("1_bxdoy")
 unitOneIcon = ExtResource("2_ongp6")
 unitTwoIcon = ExtResource("3_0rmpk")
 unitThreeIcon = ExtResource("4_jqnbg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -26,6 +30,7 @@ grow_vertical = 2
 color = Color(0.435192, 0.435192, 0.435192, 1)
 
 [node name="UnitsForBattle" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = -257.0
 offset_top = 59.0
 offset_right = -21.0
@@ -64,6 +69,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="All units" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = -258.0
 offset_top = -115.0
 offset_right = -22.0
@@ -105,6 +111,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="EnterGame" type="Button" parent="."]
+layout_mode = 0
 offset_left = 75.0
 offset_top = 66.0
 offset_right = 202.0

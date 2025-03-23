@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://co1e2lije056e"]
 
-[ext_resource type="Script" uid="uid://vc63bex6llv2" path="res://Scenes/Units/Wizards/autorifle.gd" id="1_6sc6y"]
+[ext_resource type="Script" path="res://Scenes/Units/Wizards/autorifle.gd" id="1_6sc6y"]
 [ext_resource type="Texture2D" uid="uid://tp4dj2k1kox0" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleShooting.png" id="2_a884v"]
 [ext_resource type="Texture2D" uid="uid://hbo0nmbel2a8" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleDie.png" id="3_clyaf"]
 [ext_resource type="Texture2D" uid="uid://cm1rs0528tqg0" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleWalk.png" id="3_euege"]

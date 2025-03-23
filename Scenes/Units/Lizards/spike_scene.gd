@@ -48,6 +48,7 @@ func _on_damage_timer_timeout() -> void:
 func takeDamage(damage: int):
 	health -= damage
 	if(health <= 0):
+		deathTimer <= 0
 		ouchieMyForehead()
 
 func _on_range_area_body_entered(body: Node2D) -> void:
@@ -68,9 +69,10 @@ func _on_range_area_body_exited(body: Node2D) -> void:
 func ouchieMyForehead():
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
-	get_node("RangeArea").free()
-	get_node("HitboxArea").free()
-	get_node("CollisionShape2D").free()
+	if get_node("RangeArea") != null:
+		get_node("RangeArea").free()
+		get_node("HitboxArea").free()
+		get_node("CollisionShape2D").free()
 
 
 #func _on_hitbox_area_area_entered(area: Area2D) -> void:

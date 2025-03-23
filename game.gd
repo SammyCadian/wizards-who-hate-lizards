@@ -7,7 +7,7 @@ func _ready():
 
 # Clear the current scene
 func clearScene():
-	if currScene:
+	if currScene != null:
 		currScene.queue_free()
 
 # Switch and load scenes

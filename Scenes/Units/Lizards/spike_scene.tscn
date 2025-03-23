@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://dw8h0r1xbj0t3"]
 
 [ext_resource type="Texture2D" uid="uid://t3wpfkv8ted1" path="res://Sprites/Units/Lizards/SpikeLizard/SpikeAttack.png" id="1_bwf0y"]
-[ext_resource type="Script" uid="uid://btni6uusa2wsg" path="res://Scenes/Units/Lizards/spike_scene.gd" id="1_cipye"]
+[ext_resource type="Script" path="res://Scenes/Units/Lizards/spike_scene.gd" id="1_cipye"]
 [ext_resource type="Texture2D" uid="uid://m40dii0wit0y" path="res://Sprites/Units/Lizards/SpikeLizard/SpikeDeath.png" id="2_k0vht"]
 [ext_resource type="Texture2D" uid="uid://bsf8ti3h7dqhd" path="res://Sprites/Units/Lizards/SpikeLizard/SpikeWalk.png" id="3_nb6np"]
 

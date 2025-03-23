@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Wizards Who Hate Lizards"
-run/main_scene="uid://byutp7xafqr1g"
-config/features=PackedStringArray("4.4", "Forward Plus")
+run/main_scene="res://game.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]

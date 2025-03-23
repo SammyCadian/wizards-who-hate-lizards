@@ -67,9 +67,10 @@ func takeDamage(damage: int):
 func ouchieMyForehead():
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
-	get_node("RangeArea").free()
-	get_node("HitboxArea").free()
-	get_node("CollisionShape2D").free()
+	if get_node("RangeArea") != null:
+		get_node("RangeArea").free()
+		get_node("HitboxArea").free()
+		get_node("CollisionShape2D").free()
 
 
 #func _on_hitbox_area_area_entered(area: Area2D) -> void:

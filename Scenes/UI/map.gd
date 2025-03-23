@@ -86,7 +86,7 @@ func _map_node_selected():
 		currUnitSelect = unitSelectScene.instantiate()
 		currUnitSelect.name = "unitSelect" # Rename it in the tree
 		currUnitSelect.loadBattle.connect(loadBattle) # Connect the startGame signal
-		currUnitSelect.position = Vector2(0, 300)
+		#currUnitSelect.position = Vector2(0, 300)
 		add_child(currUnitSelect)
 
 # Connected from the unit selection signal, load into battle with the selected units

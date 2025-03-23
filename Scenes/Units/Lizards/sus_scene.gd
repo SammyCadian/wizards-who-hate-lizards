@@ -63,9 +63,10 @@ func _on_range_area_body_exited(body: Node2D) -> void:
 func ouchieMyForehead():
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
-	get_node("RangeArea").free()
-	get_node("HitboxArea").free()
-	get_node("CollisionShape2D").free()
+	if get_node("RangeArea") != null:
+		get_node("RangeArea").free()
+		get_node("HitboxArea").free()
+		get_node("CollisionShape2D").free()
 
 func LizardDamage() -> int:
 	return damage

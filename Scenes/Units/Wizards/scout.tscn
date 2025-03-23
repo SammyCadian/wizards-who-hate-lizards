@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://dhrsqjgxt8sv0"]
 
-[ext_resource type="Script" uid="uid://bjxemw0eiq8aj" path="res://Scenes/Units/Wizards/scout.gd" id="1_cq06d"]
+[ext_resource type="Script" path="res://Scenes/Units/Wizards/scout.gd" id="1_cq06d"]
 [ext_resource type="Texture2D" uid="uid://dpeuiysgcoiq5" path="res://Sprites/Units/Wizards/WizardScout/WizardScoutShooting.png" id="2_cq06d"]
 [ext_resource type="Texture2D" uid="uid://kvqrldw44h5b" path="res://Sprites/Units/Wizards/WizardScout/WizardScoutDie.png" id="3_d0qsf"]
 [ext_resource type="Texture2D" uid="uid://dargjkkowx1tf" path="res://Sprites/Units/Wizards/WizardScout/WizardScoutWalk.png" id="4_4o1ac"]
