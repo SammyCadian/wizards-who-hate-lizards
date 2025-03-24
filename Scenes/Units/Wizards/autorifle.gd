@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var see_enemy = false
 @export var damage = 1
 var health = 30
+var speed = 50
+var speed_multiplier = 1
+var damage_multiplier = 1
+var damage_resistance = 1
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
@@ -30,7 +34,7 @@ func move():
 	if see_enemy:
 		velocity = Vector2(0, 0)   
 	elif !see_enemy:
-		velocity = Vector2(50, 0)  
+		velocity = Vector2(speed, 0)  
 	move_and_slide()
 
 
@@ -83,3 +87,19 @@ func ouchieMyForehead():
 	#if area.get_parent().has_method("LizardDamage"):
 		#var node = area.get_parent() as Node
 		#damageTaken -= node.LizardDamage()
+
+
+func setDamageMultiplier(d):
+	damage_multiplier += d
+	
+
+func setSpeedMultiplier(s):
+	speed_multiplier += s
+	
+	
+func damageResistanceMultiplier(r):
+	damage_resistance -= r
+	
+	
+func healthIncrease(h):
+	health += h
