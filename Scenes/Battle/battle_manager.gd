@@ -4,12 +4,13 @@ var currBattle : Node = null  # Track the current battle
 var battleUI : Node = null  # Track the current battle UI
 @export var inBattle = false
 
+
 # Start the battle from the map selection
 func startBattle(loadedUnits: Array):
 	currBattle = get_parent().loadScene("res://Scenes/Battle/battle.tscn") # Load the battle into the game
 	battleUI = currBattle.get_node("BattleUI") # Update the battle UI
 	currBattle.laneSelected.connect($"Unit Spawner"._on_battle_lane_selected) # Connect the unit spawning signal
-	inBattle = true # Update the inBattle flag for the unit spawner
+	inBattle = true
 	
 	#$Battle/BattleUI.receiveUnit(loadedUnits[0][0], loadedUnits[0][1])
 	

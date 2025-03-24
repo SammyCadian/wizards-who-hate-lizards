@@ -29,7 +29,9 @@ func instMapNode(name, nodeType, mapMarker) -> void:
 	mapNodeInstance.name = name # Name the node for future reference
 	mapNodeInstance.nodeType = nodeType # Set the node type
 	mapNodeInstance.get_node("Label").text = name # Label the node
-	# mapNodeInstance.get_node("Icon").texture = # Set the node icon based on nodeType
+	mapNodeInstance.get_node("Icon").animation = nodeType.to_lower() # Set the node icon based on nodeType
+	if nodeType == "(INVALID)":
+		mapNodeInstance.get_node("Icon").animation = "battle"
 	mapNodeInstance.get_node("Button").pressed.connect(_map_node_selected) # Connect the pressed signal
 	mapNodeArray.append(mapNodeInstance) # Add it to the array
 	mapMarker.add_child(mapNodeInstance) # Add it to the map
@@ -83,6 +85,10 @@ func _map_node_selected():
 	
 	# Display the unit select for battles
 	if selectedMapNode.nodeType == "Battle":
+		selectedMapNode.get_node("Icon").frame = 1
+		get_tree().paused = true
+		await get_tree().create_timer(1.0).timeout # TODO find out why timer breaks unit select :(
+		get_tree().paused = false
 		currUnitSelect = unitSelectScene.instantiate()
 		currUnitSelect.name = "unitSelect" # Rename it in the tree
 		currUnitSelect.loadBattle.connect(loadBattle) # Connect the startGame signal

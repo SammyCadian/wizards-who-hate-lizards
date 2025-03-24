@@ -1,14 +1,116 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmhl2x4wtd3tl"]
+[gd_scene load_steps=13 format=3 uid="uid://bmhl2x4wtd3tl"]
 
-[ext_resource type="Script" uid="uid://cj81t4w50fwg2" path="res://Scenes/UI/map_node.gd" id="1_nprav"]
-[ext_resource type="Texture2D" uid="uid://1hyfmby6yd5s" path="res://icon.svg" id="1_oy1af"]
+[ext_resource type="Script" path="res://Scenes/UI/map_node.gd" id="1_nprav"]
+[ext_resource type="Texture2D" uid="uid://yl3m5ioqdvyd" path="res://Sprites/UI/iconsSheet.png" id="2_yjvj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2ovs"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvftb"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7h3u"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84wwy"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6o72"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7t6i"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvean"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqsqv"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2umwg"]
+atlas = ExtResource("2_yjvj6")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ftxom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2ovs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvftb")
+}],
+"loop": false,
+"name": &"battle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7h3u")
+}],
+"loop": false,
+"name": &"boss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84wwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6o72")
+}],
+"loop": false,
+"name": &"easy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7t6i")
+}],
+"loop": false,
+"name": &"hard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvean")
+}],
+"loop": false,
+"name": &"medium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqsqv")
+}],
+"loop": false,
+"name": &"shop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2umwg")
+}],
+"loop": false,
+"name": &"upgrade",
+"speed": 5.0
+}]
 
 [node name="Map Node" type="Node2D"]
 script = ExtResource("1_nprav")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_oy1af")
+sprite_frames = SubResource("SpriteFrames_ftxom")
+animation = &"battle"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8

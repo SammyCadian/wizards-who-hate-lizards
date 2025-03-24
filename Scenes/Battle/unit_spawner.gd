@@ -16,24 +16,13 @@ func _ready() -> void:
 
 # This loop will function as an enemy AI. It will handle waves
 func _process(delta: float) -> void:
-	# Checks how many enemies there are left
-	current_enemies = get_child_count()
-	
-	# If there aren't any enemies left, spawns more
-	if (get_parent().inBattle):
-		if(starting_enemies == current_enemies):
-			enemy_spawn_prep($EnemySpawnPoint1, 0)
-			enemy_spawn_prep($EnemySpawnPoint2, 3)
-			enemy_spawn_prep($EnemySpawnPoint3, 0)
-
-# Will randomize the type of enemy spawned
-func enemy_spawn_prep(location, amount):
-	var randomType = randi_range(0, 1)
-	match randomType:
-		0:
-			spawn(sus_scene, location, amount)
-		1:
-			spawn(spike_scene, location, amount)
+	pass
+	## Checks how many enemies there are left
+	#current_enemies = get_child_count()
+	#if(starting_enemies == current_enemies):
+		#enemy_spawn_prep($EnemySpawnPoint1, 0)
+		#enemy_spawn_prep($EnemySpawnPoint2, 3)
+		#enemy_spawn_prep($EnemySpawnPoint3, 0)
 
 # General spawner called by enemy AI and battle script
 func spawn(type, location, amount):
@@ -43,7 +32,7 @@ func spawn(type, location, amount):
 		add_child(unit)
 		await get_tree().create_timer(1.0).timeout
 
-func getSpawnPoint(laneID: String):
+func getSpawnPoint(laneID):
 	match (laneID):
 		"TOP_LANE":
 			return $WizSpawnPoint1
@@ -51,6 +40,12 @@ func getSpawnPoint(laneID: String):
 			return $WizSpawnPoint2
 		"BOT_LANE":
 			return $WizSpawnPoint3
+		1:
+			return $EnemySpawnPoint1
+		2:
+			return $EnemySpawnPoint2
+		3:
+			return $EnemySpawnPoint3
 
 func getUnit(unitID: String):
 	match (unitID):
@@ -60,7 +55,16 @@ func getUnit(unitID: String):
 			return rifleman_scene
 		"autorifle":
 			return autorifle_scene
+		"sus":
+			return sus_scene
+		"spike":
+			return spike_scene
 
 func _on_battle_lane_selected(unitName: String, selectedLane: String, unitNum: int) -> void:
 	print(unitName)
 	spawn(getUnit(unitName), getSpawnPoint(selectedLane), unitNum)
+
+func _on_enemy_ai_spawn(unitName, selectedLane, unitNum) -> void:
+	if (get_parent().inBattle):
+		print(unitName)
+		spawn(getUnit(unitName), getSpawnPoint(selectedLane), unitNum)
