@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://5iga6e20ot8s"]
+[gd_scene load_steps=8 format=3 uid="uid://5iga6e20ot8s"]
 
 [ext_resource type="Texture2D" uid="uid://cwryhdn81v2b" path="res://Sprites/Battlefields/BattlefieldTest.png" id="1_3qw02"]
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_aqr0y"]
+[ext_resource type="PackedScene" uid="uid://ctgsyiohrgqae" path="res://Scenes/Abilities/missile_strike.tscn" id="2_ckw75"]
 [ext_resource type="PackedScene" uid="uid://cpy73rsjkhjof" path="res://Scenes/UI/battle_ui.tscn" id="3_aqr0y"]
 [ext_resource type="PackedScene" uid="uid://h1mk235t1xj1" path="res://Scenes/Battle/lane.tscn" id="4_wqxgi"]
 
@@ -11,6 +12,7 @@
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_aqr0y")
+missileAbility = ExtResource("2_ckw75")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -56,6 +58,7 @@ scale = Vector2(2, 12)
 shape = SubResource("RectangleShape2D_o8bsx")
 
 [connection signal="spendPoints" from="." to="BattleUI" method="_on_battle_spend_points"]
+[connection signal="abilityButtonPressed" from="BattleUI" to="." method="_on_battle_ui_ability_button_pressed"]
 [connection signal="unitButtonPressed" from="BattleUI" to="." method="_on_battle_ui_unit_button_pressed"]
 [connection signal="area_entered" from="LizardWinCon" to="." method="_on_lizard_win_con_area_entered"]
 [connection signal="area_entered" from="WizardWinCon" to="." method="_on_wizard_win_con_area_entered"]

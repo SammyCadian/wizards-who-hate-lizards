@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckonvx88mks8d"]
+[gd_scene load_steps=6 format=3 uid="uid://ckonvx88mks8d"]
 
 [ext_resource type="Script" path="res://Scenes/UI/unit_selection.gd" id="1_bxdoy"]
 [ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
 [ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_0rmpk"]
 [ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="4_jqnbg"]
+[ext_resource type="Texture2D" uid="uid://bc4263mf4miwv" path="res://Sprites/UI/ButtonIcons/Wizards/MissileIcon.png" id="5_g8e86"]
 
 [node name="Unit Selection" type="Control"]
 layout_mode = 3
@@ -31,10 +32,11 @@ color = Color(0.435192, 0.435192, 0.435192, 1)
 
 [node name="UnitsForBattle" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -257.0
-offset_top = 59.0
-offset_right = -21.0
-offset_bottom = 114.0
+offset_left = -300.0
+offset_top = 110.0
+offset_right = -64.0
+offset_bottom = 165.0
+metadata/_edit_group_ = true
 
 [node name="Unit1" type="VBoxContainer" parent="UnitsForBattle"]
 layout_mode = 2
@@ -43,6 +45,7 @@ size_flags_horizontal = 3
 [node name="Unit1Button" type="Button" parent="UnitsForBattle/Unit1"]
 layout_mode = 2
 size_flags_vertical = 3
+expand_icon = true
 
 [node name="Unit2" type="VBoxContainer" parent="UnitsForBattle"]
 layout_mode = 2
@@ -51,6 +54,7 @@ size_flags_horizontal = 3
 [node name="Unit2Button" type="Button" parent="UnitsForBattle/Unit2"]
 layout_mode = 2
 size_flags_vertical = 3
+expand_icon = true
 
 [node name="Unit3" type="VBoxContainer" parent="UnitsForBattle"]
 layout_mode = 2
@@ -59,6 +63,7 @@ size_flags_horizontal = 3
 [node name="Unit3Button" type="Button" parent="UnitsForBattle/Unit3"]
 layout_mode = 2
 size_flags_vertical = 3
+expand_icon = true
 
 [node name="Unit4" type="VBoxContainer" parent="UnitsForBattle"]
 layout_mode = 2
@@ -68,12 +73,37 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="AbilitiesForBattle" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 118.0
+offset_bottom = 165.0
+
+[node name="Ability1" type="VBoxContainer" parent="AbilitiesForBattle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability1Button" type="Button" parent="AbilitiesForBattle/Ability1"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_icon = true
+
+[node name="Ability2" type="VBoxContainer" parent="AbilitiesForBattle"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability2Button" type="Button" parent="AbilitiesForBattle/Ability2"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_icon = true
+
 [node name="All units" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -258.0
-offset_top = -115.0
-offset_right = -22.0
-offset_bottom = -47.0
+offset_left = -300.0
+offset_top = -160.0
+offset_right = -64.0
+offset_bottom = -105.0
+metadata/_edit_group_ = true
 
 [node name="Unit1" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -83,6 +113,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 icon = ExtResource("3_0rmpk")
+expand_icon = true
 
 [node name="Unit2" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -92,6 +123,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 icon = ExtResource("4_jqnbg")
+expand_icon = true
 
 [node name="Unit3" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -101,6 +133,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 icon = ExtResource("4_jqnbg")
+expand_icon = true
 
 [node name="Unit4" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -110,20 +143,58 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="AllAbilities" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_top = -160.0
+offset_right = 118.0
+offset_bottom = -50.0
+metadata/_edit_group_ = true
+
+[node name="Ability1" type="VBoxContainer" parent="AllAbilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AbilitySelect1" type="Button" parent="AllAbilities/Ability1"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("5_g8e86")
+expand_icon = true
+
+[node name="AbilitySelect3" type="Button" parent="AllAbilities/Ability1"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_icon = true
+
+[node name="Ability2" type="VBoxContainer" parent="AllAbilities"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AbilitySelect2" type="Button" parent="AllAbilities/Ability2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AbilitySelect4" type="Button" parent="AllAbilities/Ability2"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_icon = true
+
 [node name="EnterGame" type="Button" parent="."]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 66.0
-offset_right = 202.0
-offset_bottom = 109.0
+offset_left = 250.039
+offset_top = 119.488
+offset_right = 377.039
+offset_bottom = 162.488
 text = "Enter the game"
 
 [connection signal="pressed" from="UnitsForBattle/Unit1/Unit1Button" to="." method="_on_unit_1_button_pressed"]
 [connection signal="pressed" from="UnitsForBattle/Unit2/Unit2Button" to="." method="_on_unit_2_button_pressed"]
 [connection signal="pressed" from="UnitsForBattle/Unit3/Unit3Button" to="." method="_on_unit_3_button_pressed"]
 [connection signal="pressed" from="UnitsForBattle/Unit4/Unit4Button" to="." method="_on_unit_4_button_pressed"]
+[connection signal="pressed" from="AbilitiesForBattle/Ability1/Ability1Button" to="." method="_on_ability_1_button_pressed"]
+[connection signal="pressed" from="AbilitiesForBattle/Ability2/Ability2Button" to="." method="_on_ability_2_button_pressed"]
 [connection signal="pressed" from="All units/Unit1/UnitSelect1" to="." method="_on_unit_select_1_pressed"]
 [connection signal="pressed" from="All units/Unit2/UnitSelect2" to="." method="_on_unit_select_2_pressed"]
 [connection signal="pressed" from="All units/Unit3/UnitSelect3" to="." method="_on_unit_select_3_pressed"]
 [connection signal="pressed" from="All units/Unit4/UnitSelect4" to="." method="_on_unit_select_4_pressed"]
+[connection signal="pressed" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_ability_select_1_pressed"]
 [connection signal="button_up" from="EnterGame" to="." method="_on_enter_game_button_up"]

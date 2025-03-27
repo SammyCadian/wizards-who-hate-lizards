@@ -23,6 +23,11 @@ func startBattle(loadedUnits: Array):
 	for i in range(4):
 		if (loadedUnits[i][1] != "NO_UNIT"):
 			battleUI.receiveUnit(loadedUnits[i][0], loadedUnits[i][1], loadedUnits[i][2])
+			
+	for i in range(2):
+		if (loadedUnits[4+i][1] != "NO_ABILITY"):
+			print(loadedUnits[i+4])
+			battleUI.receiveAbility(loadedUnits[i+4][0], loadedUnits[i+4][1], loadedUnits[i+4][2])
 	pass
 
 func _on_battle_win_con(side: Variant) -> void:

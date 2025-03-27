@@ -1,6 +1,7 @@
 extends Control
 
 signal unitButtonPressed(pressedUnitID: String, cost: int)
+signal abilityButtonPressed(pressedAbilityID: String, cost: int)
 
 @export var incomeTime = 2.0 # Timer between getting more magic points
 var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
@@ -59,6 +60,19 @@ func receiveUnit(icon: CompressedTexture2D, unitID: String, unitCost: int):
 			costs[3] = unitCost
 	pass
 
+func receiveAbility(icon: CompressedTexture2D, powerID: String, powerCost: int):
+	abilities.append(powerID)
+	match abilities.size():
+		1:
+			$Abilities/Ability1.icon = icon
+			$Abilities/Ability1.disabled = false
+			costs[4] = powerCost
+		2:
+			$Abilities/Ability2.icon = icon
+			$Abilities/Ability2.disabled = false
+			costs[5] = powerCost
+	pass
+	
 #signal functions
 func _on_income_timer_timeout() -> void:
 	if($IncomeVisual.value == 100):
@@ -88,3 +102,14 @@ func _on_unit_four_pressed() -> void:
 func _on_battle_spend_points(cost: int) -> void:
 	magicPoints -= cost
 	updatePoints()
+
+
+func _on_ability_1_pressed() -> void:
+	if (magicPoints >= costs[4]):
+		abilityButtonPressed.emit(abilities[0], costs[4])
+	pass # Replace with function body.
+
+func _on_ability_2_pressed() -> void:
+	if (magicPoints >= costs[5]):
+		abilityButtonPressed.emit(abilities[1], costs[5])
+	pass # Replace with function body.

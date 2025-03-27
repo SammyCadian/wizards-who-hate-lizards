@@ -131,4 +131,6 @@ offset_bottom = 641.0
 [connection signal="pressed" from="Units/Column1/UnitTwo" to="." method="_on_unit_two_pressed"]
 [connection signal="pressed" from="Units/Column2/UnitThree" to="." method="_on_unit_three_pressed"]
 [connection signal="pressed" from="Units/Column2/UnitFour" to="." method="_on_unit_four_pressed"]
+[connection signal="pressed" from="Abilities/Ability1" to="." method="_on_ability_1_pressed"]
+[connection signal="pressed" from="Abilities/Ability2" to="." method="_on_ability_2_pressed"]
 [connection signal="timeout" from="IncomeTimer" to="." method="_on_income_timer_timeout"]

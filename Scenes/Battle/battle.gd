@@ -13,16 +13,25 @@ signal laneSelected(unitName, selectedLane, unitNum)
 signal spendPoints(cost: int)
 signal winCon(side)
 
+@export var missileAbility: PackedScene
 # Unit variables
 @export var unitSelected = false
 @export var unitName = "NO_UNIT" # Track the name of what is selected in the UI
 var unitCost = 0
+var unitOrAbility = 0
 
 # Camera Variables
 var cursorPos = Vector2(0,0) # Track the cursor position
 
 # Unit Placement
 var selectedLane = "NO_LANE"
+
+func activateTrapCard(abilityID: String, mousePos: Vector2):
+	print(mousePos)
+	if abilityID == "missileLaunch":
+		var newAbility = missileAbility.instantiate()
+		newAbility.setTarget(mousePos)
+		add_child(newAbility)
 
 func _ready():
 	pass
@@ -45,7 +54,11 @@ func _process(delta):
 		if Input.is_action_just_pressed("leftMB"):
 			if (selectedLane != "NO_LANE"):
 				spendPoints.emit(unitCost)
-				laneSelected.emit(unitName, selectedLane, 1)
+				if unitOrAbility == 1:
+					laneSelected.emit(unitName, selectedLane, 1)
+				else:
+					activateTrapCard(unitName, get_global_mouse_position())
+					
 			unitSelected = false
 			unitName = "NO_UNIT"
 			var unitCost = 0
@@ -55,7 +68,14 @@ func _on_battle_ui_unit_button_pressed(pressedUnitID: String, cost: int) -> void
 	unitSelected = true
 	unitName = pressedUnitID
 	unitCost = cost
+	unitOrAbility = 1
 
+func _on_battle_ui_ability_button_pressed(pressedAbilityID: String, cost: int) -> void:
+	unitSelected = true
+	unitName = pressedAbilityID
+	unitCost = cost
+	unitOrAbility = 2
+	pass # Replace with function body.
 
 func _on_lizard_win_con_area_entered(area: Area2D) -> void:
 	winCon.emit("Lizards")
