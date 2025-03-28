@@ -1,9 +1,15 @@
 extends Node2D
 
+var map : Node = null  # Store the map
 var currScene : Node = null  # Track the active scene
 
 func _ready():
+	generateMap()
 	loadStart()
+
+func generateMap():
+	map = load("res://Scenes/UI/map.tscn").instantiate()
+	add_child(map)
 
 # Clear the current scene
 func clearScene():
@@ -31,9 +37,15 @@ func loadStart():
 
 func loadMap():
 	clearScene()
-	$Map.show()
-	$Map.enableButtons()
+	map.show()
 
 func unloadMap():
-	$Map.hide()
-	$Map.disableButtons()
+	map.hide()
+
+func restartGame():
+	# Free the old map and make a new one
+	map.queue_free()
+	generateMap()
+	
+	# Go back to the start menu
+	loadStart()

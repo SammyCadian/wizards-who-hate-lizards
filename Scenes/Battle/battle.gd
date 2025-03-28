@@ -61,7 +61,7 @@ func _process(delta):
 					
 			unitSelected = false
 			unitName = "NO_UNIT"
-			var unitCost = 0
+			unitCost = 0
 
 
 func _on_battle_ui_unit_button_pressed(pressedUnitID: String, cost: int) -> void:

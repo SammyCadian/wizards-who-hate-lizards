@@ -26,11 +26,13 @@ func _process(delta: float) -> void:
 
 # General spawner called by enemy AI and battle script
 func spawn(type, location, amount):
-	for i in amount:
-		var unit = type.instantiate()
-		unit.position = location.position
-		add_child(unit)
-		await get_tree().create_timer(1.0).timeout
+	# Spawn units if a battle is happening
+	if get_parent().inBattle:
+		for i in amount:
+			var unit = type.instantiate()
+			unit.position = location.position
+			get_parent().currBattle.add_child(unit) # Add units as children to the battle scene
+			await get_tree().create_timer(1.0).timeout
 
 func getSpawnPoint(laneID):
 	match (laneID):

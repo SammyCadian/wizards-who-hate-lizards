@@ -104,7 +104,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Map Node" type="Node2D"]
+[node name="Map Node" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_nprav")
 
 [node name="Icon" type="AnimatedSprite2D" parent="."]
@@ -113,6 +115,7 @@ sprite_frames = SubResource("SpriteFrames_ftxom")
 animation = &"battle"
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -131,7 +134,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="DisabledCover" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.121569, 0.121569, 0.121569, 0.709804)
+
 [node name="Button" type="Button" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
