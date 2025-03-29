@@ -6,7 +6,6 @@ var health = 30
 var speed = 50
 var speed_multiplier = 1
 var damage_multiplier = 1
-var damage_resistance = 1
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
@@ -97,10 +96,6 @@ func setDamageMultiplier(d):
 
 func setSpeedMultiplier(s):
 	speed_multiplier += s
-	
-	
-func damageResistanceMultiplier(r):
-	damage_resistance -= r
 	
 	
 func healthIncrease(h):
