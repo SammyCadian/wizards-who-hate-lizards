@@ -18,7 +18,7 @@ func clearScene():
 
 # Switch and load scenes
 # Returns the newly loaded scene if caller needs it (as seen in Battle Manager)
-func loadScene(path : String) -> Node2D:
+func loadScene(path : String) -> Node:
 	# Clear old scene and hide the map
 	clearScene()
 	unloadMap()
@@ -37,9 +37,12 @@ func loadStart():
 
 func loadMap():
 	clearScene()
+	updateWarBonds()
+	showWarBonds()
 	map.show()
 
 func unloadMap():
+	hideWarBonds()
 	map.hide()
 
 func restartGame():
@@ -49,3 +52,12 @@ func restartGame():
 	
 	# Go back to the start menu
 	loadStart()
+
+func showWarBonds():
+	$WarBonds.show()
+	
+func hideWarBonds():
+	$WarBonds.hide()
+
+func updateWarBonds():
+	$WarBonds.text = "WAR BONDS: %s" % Global.PLAYER_WAR_BONDS

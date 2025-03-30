@@ -54,6 +54,7 @@ func lizardsWin():
 	Global.PLAYER_WAR_BONDS = 0
 	Global.BATTLES_WON = 0
 	Global.NODES_COMPLETED = 0
+	Global.boughtItems = []
 	
 	# Instantiate the Game Over UI
 	var gameOverInstance = gameOverScene.instantiate()
