@@ -33,7 +33,7 @@ func move():
 	if see_enemy:
 		velocity = Vector2(0, 0)   
 	elif !see_enemy:
-		velocity = Vector2(speed, 0)  
+		velocity = Vector2(speed * speed_multiplier, 0)  
 	move_and_slide()
 
 
