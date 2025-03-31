@@ -7,16 +7,3 @@
 script = ExtResource("1_7jktm")
 
 [node name="BattleManager" parent="." instance=ExtResource("1_80nbo")]
-
-[node name="WarBonds" type="Label" parent="."]
-visible = false
-z_index = 10
-offset_left = -312.0
-offset_top = -548.0
-offset_right = 312.0
-offset_bottom = -432.0
-theme_override_font_sizes/font_size = 40
-text = "WAR BONDS: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2

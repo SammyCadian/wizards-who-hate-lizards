@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsl6gtr1e6wls"]
 
+[ext_resource type="Texture2D" uid="uid://1hyfmby6yd5s" path="res://icon.svg" id="1_k3vwj"]
 [ext_resource type="Script" path="res://Scenes/UI/map.gd" id="1_yijh4"]
-[ext_resource type="Texture2D" uid="uid://ddngoex8hpksj" path="res://Sprites/UI/NodeMapBackground.png" id="2_2hlxw"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_yijh4")
@@ -9,7 +9,9 @@ script = ExtResource("1_yijh4")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_2hlxw")
+visible = false
+scale = Vector2(10, 6)
+texture = ExtResource("1_k3vwj")
 
 [node name="node0" type="Marker2D" parent="."]
 position = Vector2(-512, 0)
@@ -39,3 +41,14 @@ position = Vector2(384, 0)
 
 [node name="node7" type="Marker2D" parent="."]
 position = Vector2(512, 0)
+
+[node name="WarBonds" type="Label" parent="."]
+offset_left = -168.0
+offset_top = -488.0
+offset_right = 168.0
+offset_bottom = -336.0
+theme_override_font_sizes/font_size = 40
+text = "WAR BONDS: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
