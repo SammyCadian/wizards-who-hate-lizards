@@ -18,7 +18,7 @@ func ADD_WAR_BONDS(amount: int):
 
 
 var damageMultiplier = 1
-var healthBoost = 0
+var healthUpgrade = 0
 
 func setDamageUpgrade(moredamages):
 	damageMultiplier += moredamages
@@ -28,9 +28,9 @@ func getDamageUpgrade():
 	return damageMultiplier
 	
 
-func setHealthBoost(morehealths):
-	healthBoost += morehealths
+func setHealthUpgrade(morehealths):
+	healthUpgrade += morehealths
 	
 	
-func getHealthBoost():
-	return healthBoost
+func getHealthUpgrade():
+	return healthUpgrade

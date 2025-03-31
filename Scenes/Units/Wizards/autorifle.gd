@@ -13,7 +13,7 @@ var targets = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	health += Global.getHealthBoost()
+	health += Global.getHealthUpgrade()
 	damage += Global.getDamageUpgrade()
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()

@@ -47,6 +47,8 @@ func playerWins():
 	var victoryInstance = victoryScene.instantiate()
 	victoryInstance.position = Vector2(0, 0) # Set the position
 	victoryInstance.get_node("Button").pressed.connect(_victory_button) # Connect the pressed signal
+	victoryInstance.get_node("HealthUpgrade").pressed.connect(selectHealthUpgrade)
+	victoryInstance.get_node("DamageUpgrade").pressed.connect(selectDamageUpgrade)
 	currBattle.add_child(victoryInstance)
 	
 func lizardsWin():
@@ -62,8 +64,22 @@ func lizardsWin():
 	gameOverInstance.get_node("Button").pressed.connect(_game_over_button) # Connect the pressed signal
 	currBattle.add_child(gameOverInstance)
 
+var selected
+
 func _victory_button():
+	if selected == "HealthUpgrade":
+		Global.setHealthUpgrade(10)
+	elif selected == "DamageUpgrade":
+		Global.setDamageUpgrade(.2)
 	get_parent().loadMap()
 	
 func _game_over_button():
 	get_parent().restartGame()
+
+func selectHealthUpgrade():
+	selected = "HealthUpgrade"
+
+func selectDamageUpgrade():
+	selected = "DamageUpgrade"
+
+	
