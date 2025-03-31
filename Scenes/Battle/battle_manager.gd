@@ -39,7 +39,7 @@ func _on_battle_win_con(side: Variant) -> void:
 func playerWins():
 	# Update player variables
 	Global.ADD_WAR_BONDS(100)
-	get_parent().get_node("Map").get_node("WarBonds").text = "WAR BONDS: %s" % Global.PLAYER_WAR_BONDS
+	get_parent().updateWarBonds()
 	Global.BATTLES_WON += 1
 	Global.NODES_COMPLETED += 1
 	
