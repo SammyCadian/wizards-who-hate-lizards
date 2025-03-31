@@ -94,7 +94,7 @@ func _on_enter_game_button_up() -> void:
 
 func _on_ability_select_1_pressed() -> void:
 	selected = true
-	unitId = "missileLaunch"
+	unitId = "Missile Launch"
 	icon = $AllAbilities/Ability1/AbilitySelect1.icon
 	cost = 50
 	unitOrAbility = 2

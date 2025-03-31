@@ -31,7 +31,7 @@ var selectedLane = "NO_LANE"
 
 func activateTrapCard(abilityID: String, mousePos: Vector2):
 	print(mousePos)
-	if abilityID == "missileLaunch":
+	if abilityID == "Missile Launch":
 		var newAbility = missileAbility.instantiate()
 		newAbility.setTarget(mousePos)
 		add_child(newAbility)
