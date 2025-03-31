@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var damage = 1
 var health = 30
 var speed = 50
-var speed_multiplier = 1
 var damage_multiplier = 1
 var damageTaken = 0
 #var isDead = false
@@ -14,6 +13,8 @@ var targets = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	health += Global.getHealthBoost()
+	damage += Global.getDamageUpgrade()
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
 
@@ -88,15 +89,3 @@ func ouchieMyForehead():
 	#if area.get_parent().has_method("LizardDamage"):
 		#var node = area.get_parent() as Node
 		#damageTaken -= node.LizardDamage()
-
-
-func setDamageMultiplier(d):
-	damage_multiplier += d
-	
-
-func setSpeedMultiplier(s):
-	speed_multiplier += s
-	
-	
-func healthIncrease(h):
-	health += h

@@ -15,3 +15,22 @@ var BATTLES_WON = 0
 # Add to player war bonds
 func ADD_WAR_BONDS(amount: int):
 	PLAYER_WAR_BONDS += amount
+
+
+var damageMultiplier = 1
+var healthBoost = 0
+
+func setDamageUpgrade(moredamages):
+	damageMultiplier += moredamages
+
+
+func getDamageUpgrade():
+	return damageMultiplier
+	
+
+func setHealthBoost(morehealths):
+	healthBoost += morehealths
+	
+	
+func getHealthBoost():
+	return healthBoost
