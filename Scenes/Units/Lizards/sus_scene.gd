@@ -8,6 +8,8 @@ var deathTimer = 0
 var health = 30
 var damageTaken = 0
 
+var isFriendly = false
+
 var targets = []
 
 func _ready() -> void:

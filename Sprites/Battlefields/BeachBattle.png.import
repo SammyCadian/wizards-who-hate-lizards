@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2h7jxp0wpaux"
-path="res://.godot/imported/NodeMapBackground.png-8ffd53b4fef0d638ea44039d0b8e1a42.ctex"
+uid="uid://cmxfx33hnk0nm"
+path="res://.godot/imported/BeachBattle.png-9ab8d2825c4ba4083a554eb599962ef1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/NodeMapBackground.png"
-dest_files=["res://.godot/imported/NodeMapBackground.png-8ffd53b4fef0d638ea44039d0b8e1a42.ctex"]
+source_file="res://Sprites/Battlefields/BeachBattle.png"
+dest_files=["res://.godot/imported/BeachBattle.png-9ab8d2825c4ba4083a554eb599962ef1.ctex"]
 
 [params]
 

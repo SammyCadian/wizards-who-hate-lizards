@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://h1mk235t1xj1"]
 
-[ext_resource type="Script" uid="uid://du2kw8mus66di" path="res://Scenes/Battle/lane.gd" id="1_iwgww"]
+[ext_resource type="Script" path="res://Scenes/Battle/lane.gd" id="1_iwgww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bixg"]
 size = Vector2(1508, 76)

@@ -13,6 +13,9 @@ signal laneSelected(unitName, selectedLane, unitNum)
 signal spendPoints(cost: int)
 signal winCon(side)
 
+# Signal definition for units entering and leaving a lane
+signal laneTraffic(isFriendly, lane, increment)
+
 @export var missileAbility: PackedScene
 # Unit variables
 @export var unitSelected = false
@@ -34,6 +37,7 @@ func activateTrapCard(abilityID: String, mousePos: Vector2):
 		add_child(newAbility)
 
 func _ready():
+	# TODO Connect signal to enemy ai
 	pass
 
 func _process(delta):
@@ -83,3 +87,22 @@ func _on_lizard_win_con_area_entered(area: Area2D) -> void:
 
 func _on_wizard_win_con_area_entered(area: Area2D) -> void:
 	winCon.emit("Wizards")
+
+
+
+
+## For enemy ai scene: Tracks what units are in each lane
+
+# Sends signal to enemy ai
+func send_laneTraffic_signal(isFriendly, lane, increment):
+	laneTraffic.emit(isFriendly, lane, increment)
+	pass
+	
+# Tracks each lane's entries and exits
+# func _on_top_lane_body_entered(body: Node2D) -> void:
+	#print(body.isFriendly, "TOP", 1)
+	#send_laneTraffic_signal(body.isFriendly, "TOP", 1)
+	
+# func _on_top_lane_body_exited(body: Node2D) -> void:
+	#print(body.isFriendly, "TOP", -1)
+	#send_laneTraffic_signal(body.isFriendly, "TOP", -1)
