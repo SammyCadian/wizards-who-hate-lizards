@@ -18,7 +18,7 @@ var upgradeArray = ["Sale", "Health", "Damage", "Armor"]
 func _ready() -> void:
 	# The start, shop, and boss nodes are always the same
 	instMapNode("Forest", "Battle", $node0).enable() # The first node starts enabled
-	instMapNode("Shop", "Shop", $node3).enable()
+	instMapNode("Shop", "Shop", $node3)
 	instMapNode("Boss", "Boss", $node7)
 	
 	# Randomize the rest of the map
@@ -72,9 +72,10 @@ func randomizeMap() -> void:
 
 # Connected from the unit selection signal, load into battle with the selected units
 func loadBattle():
-	print(currUnitSelect.getUnits())
-	get_parent().get_node("BattleManager").startBattle(currUnitSelect.getUnits())
-	currUnitSelect.queue_free() # Free the unit selection
+	var unitSelect = get_node("unitSelect")
+	print(unitSelect.getUnits())
+	get_parent().get_node("BattleManager").startBattle(unitSelect.getUnits())
+	unitSelect.queue_free() # Free the unit selection
 
 # Signal connect for a map node being pressed
 func _map_node_selected():
@@ -85,10 +86,6 @@ func _map_node_selected():
 	# Display the unit select for battles
 	if selectedMapNode.nodeType == "Battle":
 		handleBattleSelect()
-		
-	# Switch into the shop
-	if selectedMapNode.nodeType == "Shop":
-		handleShopSelect()
 
 # Called when a selected node is a battle
 func handleBattleSelect():
@@ -97,10 +94,6 @@ func handleBattleSelect():
 	await get_tree().create_timer(1.0).timeout # TODO find out why timer breaks unit select :(
 	get_tree().paused = false
 	currUnitSelect = unitSelectScene.instantiate()
+	currUnitSelect.name = "unitSelect" # Rename it in the tree
 	currUnitSelect.loadBattle.connect(loadBattle) # Connect the startGame signal
 	add_child(currUnitSelect)
-
-# Called when a selected node is a shop
-func handleShopSelect():
-	get_parent().loadScene("res://Scenes/UI/shop.tscn")
-	get_parent().showWarBonds()

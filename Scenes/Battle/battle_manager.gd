@@ -39,7 +39,7 @@ func _on_battle_win_con(side: Variant) -> void:
 func playerWins():
 	# Update player variables
 	Global.ADD_WAR_BONDS(100)
-	get_parent().updateWarBonds()
+	get_parent().get_node("Map").get_node("WarBonds").text = "WAR BONDS: %s" % Global.PLAYER_WAR_BONDS
 	Global.BATTLES_WON += 1
 	Global.NODES_COMPLETED += 1
 	
@@ -54,7 +54,6 @@ func lizardsWin():
 	Global.PLAYER_WAR_BONDS = 0
 	Global.BATTLES_WON = 0
 	Global.NODES_COMPLETED = 0
-	Global.boughtItems = []
 	
 	# Instantiate the Game Over UI
 	var gameOverInstance = gameOverScene.instantiate()

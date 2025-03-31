@@ -1,8 +1,5 @@
 extends Node
 
-# Global array to track purchased shop items
-var boughtItems = []
-
 # Global variable to track the player's reward from battle
 var PLAYER_WAR_BONDS = 0
 
