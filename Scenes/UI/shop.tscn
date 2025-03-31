@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://sp2tq3ngw4d0"]
+
+[ext_resource type="Script" path="res://Scenes/UI/shop.gd" id="1_oa8wu"]
+[ext_resource type="Texture2D" uid="uid://1hyfmby6yd5s" path="res://icon.svg" id="1_v8tif"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oa8wu")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(9.875, 6.625)
+texture = ExtResource("1_v8tif")
+
+[node name="item1" type="Marker2D" parent="."]
+position = Vector2(128, -224)
+
+[node name="item2" type="Marker2D" parent="."]
+position = Vector2(384, -224)
+
+[node name="item3" type="Marker2D" parent="."]
+position = Vector2(128, -56)
+
+[node name="item4" type="Marker2D" parent="."]
+position = Vector2(384, -56)
+
+[node name="MapButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -136.0
+offset_top = 344.0
+offset_right = 136.0
+offset_bottom = 397.0
+theme_override_font_sizes/font_size = 25
+text = "Return to Map"
+
+[node name="BuyButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 352.0
+offset_bottom = 288.0
+theme_override_font_sizes/font_size = 70
+disabled = true
+text = "BUY"
+
+[connection signal="pressed" from="MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
