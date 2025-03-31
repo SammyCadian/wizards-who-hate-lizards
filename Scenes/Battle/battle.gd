@@ -61,6 +61,7 @@ func _process(delta):
 				if unitOrAbility == 1:
 					laneSelected.emit(unitName, selectedLane, 1)
 				else:
+					Global.boughtItems[unitName] = Global.boughtItems.get(unitName) - 1
 					activateTrapCard(unitName, get_global_mouse_position())
 					
 			unitSelected = false

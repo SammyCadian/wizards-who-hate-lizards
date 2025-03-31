@@ -1,7 +1,12 @@
 extends Node
 
 # Global array to track purchased shop items
-var boughtItems = []
+var boughtItems = {
+	"missileLaunch":1,
+	"flameRain":0,
+	"anitDyingCircle":0,
+	"shotgun":0
+}
 
 # Global variable to track the player's reward from battle
 var PLAYER_WAR_BONDS = 0

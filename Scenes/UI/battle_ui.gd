@@ -105,7 +105,7 @@ func _on_battle_spend_points(cost: int) -> void:
 
 
 func _on_ability_1_pressed() -> void:
-	if (magicPoints >= costs[4]):
+	if (magicPoints >= costs[4] && Global.boughtItems.get(abilities[0]) > 0):
 		abilityButtonPressed.emit(abilities[0], costs[4])
 	pass # Replace with function body.
 
