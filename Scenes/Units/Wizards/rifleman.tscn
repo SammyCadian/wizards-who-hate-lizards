@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddgw8akh4iuwq"]
+[gd_scene load_steps=24 format=3 uid="uid://ddgw8akh4iuwq"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/rifleman.gd" id="1_7owsm"]
 [ext_resource type="Texture2D" uid="uid://badpqktslru2s" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanShoot.png" id="2_67k6v"]
 [ext_resource type="Texture2D" uid="uid://di2o38ep7qiuu" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanWalk.png" id="3_8txdn"]
+[ext_resource type="Texture2D" uid="uid://diobggamlpqt2" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanDie.png" id="3_xiq17"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pson"]
 atlas = ExtResource("2_67k6v")
@@ -19,6 +20,26 @@ region = Rect2(0, 512, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2huwf"]
 atlas = ExtResource("2_67k6v")
 region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hkjw"]
+atlas = ExtResource("3_xiq17")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2t1c"]
+atlas = ExtResource("3_xiq17")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jmgk"]
+atlas = ExtResource("3_xiq17")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xq1t"]
+atlas = ExtResource("3_xiq17")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tixp3"]
+atlas = ExtResource("3_xiq17")
+region = Rect2(0, 1024, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tu5rj"]
 atlas = ExtResource("3_8txdn")
@@ -63,8 +84,23 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hkjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2t1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jmgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xq1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tixp3")
+}],
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -106,7 +142,7 @@ script = ExtResource("1_7owsm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_6sc6y")
-animation = &"attack"
+animation = &"death"
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)

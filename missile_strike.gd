@@ -18,7 +18,6 @@ func setTarget(target: Vector2):
 func _ready() -> void:
 	$AnimatedSprite2D.play("Missile")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if timeTracker < travelTime:
