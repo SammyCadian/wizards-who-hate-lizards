@@ -11,18 +11,24 @@ var mapNodeArray = [] # Store all map nodes in an array
 # Make an rng object for randomizing the map
 var rng = RandomNumberGenerator.new()
 
-# Define arrays with all possible random values
-var battleArray = ["Tundra", "Mountains", "Beach", "City"]
-var upgradeArray = ["Sale", "Health", "Damage", "Armor"]
+# Dictionary for each battle name and node pair
+@onready var battleDict = {"Willow" : $willowNode, "Barn" : $barnNode, "Mountain" : $mountainNode, 
+"Beach" : $beachNode, "Forest1" : $forestNode, "Forest2" : $forestNode2, "Rock" : $rockNode, 
+"Pond" : $pondNode, "Plains" : $plainsNode, "Boss" : $bossNode}
 
-func _ready() -> void:
-	# The start, shop, and boss nodes are always the same
-	instMapNode("Forest", "Battle", $node0).enable() # The first node starts enabled
-	instMapNode("Shop", "Shop", $node3).enable()
-	instMapNode("Boss", "Boss", $node7)
+func _ready() -> void:	
+	# Add the starting battle
+	instMapNode("Barn", "Battle", battleDict["Barn"]).enable()
+	mapNodeArray[0].show()
 	
-	# Randomize the rest of the map
+	# Randomize the map
 	randomizeMap()
+	
+	# Add the shops and boss to the node map and array
+	mapNodeArray.insert(2, instMapNode("Shop", "Shop", $shopNode1))
+	mapNodeArray.insert(4, instMapNode("Shop", "Shop", $shopNode2))
+	mapNodeArray.insert(7, instMapNode("Shop", "Shop", $shopNode3))
+	mapNodeArray.append(instMapNode("???", "Boss", battleDict["Boss"]))
 	
 func instMapNode(name, nodeType, mapMarker) -> Control:
 	var mapNodeInstance = mapNodeScene.instantiate()
@@ -30,45 +36,47 @@ func instMapNode(name, nodeType, mapMarker) -> Control:
 	mapNodeInstance.nodeType = nodeType # Set the node type
 	mapNodeInstance.get_node("Label").text = name # Label the node
 	
-	# Set the node icon based on nodeType
-	mapNodeInstance.get_node("Icon").animation = nodeType.to_lower()
-	
+	mapNodeInstance.get_node("Icon").animation = nodeType.to_lower() # Set the node icon based on nodeType
 	mapNodeInstance.get_node("Button").pressed.connect(_map_node_selected) # Connect the pressed signal
-	mapNodeArray.append(mapNodeInstance) # Add it to the array
+	
+	if (nodeType == "Battle"):
+		mapNodeArray.append(mapNodeInstance) # Add it to the array
 	mapMarker.add_child(mapNodeInstance) # Add it to the map
 	
 	return mapNodeInstance
 
-# Randomize all of the upgrade nodes on the map
-func randomizeUpgrades() -> void:
-	var randomIndex = rng.randi_range(0, upgradeArray.size() - 1)
-	var nodeType = "Upgrade"
-	instMapNode(upgradeArray.pop_at(randomIndex) + " Upgrade", nodeType, $topPathNode1)
-	
-	randomIndex = rng.randi_range(0, upgradeArray.size() - 1)
-	instMapNode(upgradeArray.pop_at(randomIndex) + " Upgrade", nodeType, $bottomPathNode1)
-	
-	randomIndex = rng.randi_range(0, upgradeArray.size() - 1)
-	instMapNode(upgradeArray.pop_at(randomIndex) + " Upgrade", nodeType, $node5)
-
 # Randomize all of the battle nodes on the map
 func randomizeBattles() -> void:
-	var randomIndex = rng.randi_range(0, battleArray.size() - 1)
+	var randomIndex = rng.randi_range(0, 1)
 	var nodeType = "Battle"
-	instMapNode(battleArray.pop_at(randomIndex) + " Battle", nodeType, $topPathNode2)
 	
-	randomIndex = rng.randi_range(0, battleArray.size() - 1)
-	instMapNode(battleArray.pop_at(randomIndex) + " Battle", nodeType, $bottomPathNode2)
+	# Randomize all battle pairs
+	if (randomIndex == 1):
+		instMapNode("Willow", nodeType, battleDict["Willow"])
+	else:
+		instMapNode("Forest", nodeType, battleDict["Forest1"])
 	
-	randomIndex = rng.randi_range(0, battleArray.size() - 1)
-	instMapNode(battleArray.pop_at(randomIndex) + " Battle", nodeType, $node4)
+	randomIndex = rng.randi_range(0, 1)
+	if (randomIndex == 1):
+		instMapNode("They're in the trees!", nodeType, battleDict["Forest2"])
+	else:
+		instMapNode("Mountain", nodeType, battleDict["Mountain"])
 	
-	instMapNode(battleArray.pop_front() + " Battle", nodeType, $node6)
+	randomIndex = rng.randi_range(0, 1)
+	if (randomIndex == 1):
+		instMapNode("Rock", nodeType, battleDict["Rock"])
+	else:
+		instMapNode("Beach", nodeType, battleDict["Beach"])
+	
+	randomIndex = rng.randi_range(0, 1)
+	if (randomIndex == 1):
+		instMapNode("Plains", nodeType, battleDict["Plains"])
+	else:
+		instMapNode("Pond", nodeType, battleDict["Pond"])
 
 # Call the randomization functions
 func randomizeMap() -> void:
 	randomizeBattles()
-	randomizeUpgrades()
 
 # Connected from the unit selection signal, load into battle with the selected units
 func loadBattle():
@@ -104,3 +112,18 @@ func handleBattleSelect():
 func handleShopSelect():
 	get_parent().loadScene("res://Scenes/UI/shop.tscn")
 	get_parent().showWarBonds()
+
+# After a node is visited, the next one is made available
+func progressMap():
+	# Update the battle node icons to reflect difficulty
+	if (Global.BATTLES_WON == 2):
+		for mapNode in mapNodeArray:
+			if (mapNode.nodeType == "Battle" && !mapNode.is_visible()):
+				mapNode.get_node("Icon").animation = "medium"
+	if (Global.BATTLES_WON == 4):
+		mapNodeArray[mapNodeArray.size() - 3].get_node("Icon").animation = "hard"
+	
+	# Disable the visited node and show the next one
+	mapNodeArray[Global.NODES_COMPLETED - 1].disable()
+	mapNodeArray[Global.NODES_COMPLETED].show()
+	mapNodeArray[Global.NODES_COMPLETED].enable()

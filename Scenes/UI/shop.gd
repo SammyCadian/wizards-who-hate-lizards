@@ -6,7 +6,7 @@ var shopItemScene = preload("res://Scenes/UI/shop_item.tscn")
 @export var selectedItem =  null # Track the currently selected item
 
 # Store all possible shop items in an array
-var shopItems = ["Missle", "Fireball Rain", "PLACEHOLDER3", "PLACEHOLDER4"]
+var shopItems = ["Missile Launch", "Flame Rain", "Anti-Dying Circle", "Shotgun"]
 
 func _ready() -> void:
 	# Get each item properties and instantiate them in the shop
@@ -14,11 +14,10 @@ func _ready() -> void:
 		# Get the items properties
 		var itemName = shopItems[i]
 		var itemMarker = get_node("item" + str(i + 1))
-		var boughtFlag = Global.boughtItems.has(itemName)
 		
-		instShopItem(itemName, itemMarker, boughtFlag)
+		instShopItem(itemName, itemMarker)
 	
-func instShopItem(name, itemMarker : Marker2D, boughtFlag : bool) -> Control:
+func instShopItem(name, itemMarker : Marker2D) -> Control:
 	var shopItemInstance = shopItemScene.instantiate()
 	shopItemInstance.name = name # Name the ability for future reference
 	shopItemInstance.get_node("Name").text = name # Set the ability name
@@ -26,11 +25,7 @@ func instShopItem(name, itemMarker : Marker2D, boughtFlag : bool) -> Control:
 	# shopItemInstance.get_node("Icon").texture = name # Set the icon based on the name
 	
 	shopItemInstance.get_node("Button").pressed.connect(_shop_item_selected) # Connect the pressed signal
-	itemMarker.add_child(shopItemInstance) # Add it to the map
-	
-	# Enable the item if it wasn't bought already
-	if !boughtFlag:
-		shopItemInstance.enable()
+	itemMarker.add_child(shopItemInstance) # Add it to the shop
 	
 	return shopItemInstance
 
@@ -46,17 +41,17 @@ func buyItem():
 		
 		# Update player variables
 		Global.PLAYER_WAR_BONDS -= 100
-		Global.boughtItems.append(selectedItem.name)
-		
-		# Clear the item selection
-		selectedItem.disable()
-		$BuyButton.disabled = true
-		selectedItem = null
+		Global.boughtItems[selectedItem.name] += 1
 		get_parent().updateWarBonds()
 	else:
 		print("Cannot buy " + selectedItem.name + "!")
 
 func _on_map_button_pressed() -> void:
+	# Track the progress on the map
+	Global.NODES_COMPLETED += 1
+	get_parent().get_node("Map").progressMap()
+	
+	# Load the map
 	get_parent().loadMap()
 
 func _on_buy_button_pressed() -> void:

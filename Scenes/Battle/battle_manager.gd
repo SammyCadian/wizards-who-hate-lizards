@@ -45,6 +45,9 @@ func playerWins():
 	Global.BATTLES_WON += 1
 	Global.NODES_COMPLETED += 1
 	
+	# Track the progress on the map
+	get_parent().get_node("Map").progressMap()
+	
 	# Instantiate the Victory UI
 	var victoryInstance = victoryScene.instantiate()
 	victoryInstance.position = Vector2(0, 0) # Set the position
@@ -55,10 +58,7 @@ func playerWins():
 	
 func lizardsWin():
 	# Reset player variables
-	Global.PLAYER_WAR_BONDS = 0
-	Global.BATTLES_WON = 0
-	Global.NODES_COMPLETED = 0
-	Global.boughtItems = []
+	Global.resetPlayer()
 	
 	# Instantiate the Game Over UI
 	var gameOverInstance = gameOverScene.instantiate()

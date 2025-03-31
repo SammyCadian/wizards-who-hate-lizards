@@ -3,7 +3,9 @@ extends Control
 @export var nodeType = ""
 
 func _ready() -> void:
-	disable() # Start disabled in the map
+	# Start disabled and hidden in the map
+	disable()
+	hide()
 
 func _on_button_pressed() -> void:
 	get_parent().get_parent().selectedMapNode = self

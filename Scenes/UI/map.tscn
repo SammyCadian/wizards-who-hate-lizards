@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsl6gtr1e6wls"]
 
 [ext_resource type="Script" path="res://Scenes/UI/map.gd" id="1_yijh4"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rqn4k"]
-load_path = "res://.godot/imported/NodeMapBackground.png-8ffd53b4fef0d638ea44039d0b8e1a42.ctex"
+[ext_resource type="Texture2D" uid="uid://cr40o5l2rhpur" path="res://Sprites/UI/NodeMapBackground.png" id="2_btcxg"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_yijh4")
@@ -11,33 +9,43 @@ script = ExtResource("1_yijh4")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = SubResource("CompressedTexture2D_rqn4k")
+texture = ExtResource("2_btcxg")
 
-[node name="node0" type="Marker2D" parent="."]
-position = Vector2(-512, 0)
+[node name="barnNode" type="Marker2D" parent="."]
+position = Vector2(-328, 64)
 
-[node name="topPathNode1" type="Marker2D" parent="."]
-position = Vector2(-384, -128)
+[node name="willowNode" type="Marker2D" parent="."]
+position = Vector2(-672, 176)
 
-[node name="topPathNode2" type="Marker2D" parent="."]
-position = Vector2(-128, -128)
+[node name="forestNode" type="Marker2D" parent="."]
+position = Vector2(-112, 96)
 
-[node name="bottomPathNode1" type="Marker2D" parent="."]
-position = Vector2(-384, 128)
+[node name="shopNode1" type="Marker2D" parent="."]
+position = Vector2(-224, 272)
 
-[node name="bottomPathNode2" type="Marker2D" parent="."]
-position = Vector2(-128, 128)
+[node name="beachNode" type="Marker2D" parent="."]
+position = Vector2(16, 432)
 
-[node name="node3" type="Marker2D" parent="."]
+[node name="mountainNode" type="Marker2D" parent="."]
+position = Vector2(32, -112)
 
-[node name="node4" type="Marker2D" parent="."]
-position = Vector2(128, 0)
+[node name="shopNode2" type="Marker2D" parent="."]
+position = Vector2(80, 280)
 
-[node name="node5" type="Marker2D" parent="."]
-position = Vector2(256, 0)
+[node name="forestNode2" type="Marker2D" parent="."]
+position = Vector2(112, 56)
 
-[node name="node6" type="Marker2D" parent="."]
-position = Vector2(384, 0)
+[node name="rockNode" type="Marker2D" parent="."]
+position = Vector2(360, 432)
 
-[node name="node7" type="Marker2D" parent="."]
-position = Vector2(512, 0)
+[node name="plainsNode" type="Marker2D" parent="."]
+position = Vector2(384, 192)
+
+[node name="pondNode" type="Marker2D" parent="."]
+position = Vector2(368, 40)
+
+[node name="shopNode3" type="Marker2D" parent="."]
+position = Vector2(712, 408)
+
+[node name="bossNode" type="Marker2D" parent="."]
+position = Vector2(736, 112)

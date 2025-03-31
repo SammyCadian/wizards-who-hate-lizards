@@ -18,7 +18,6 @@ func _ready() -> void:
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(deathTimer > 0):
@@ -56,7 +55,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		$DamageTimer.stop()
 		$AnimatedSprite2D.animation = "walk"
 		see_enemy = false
-
 
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
