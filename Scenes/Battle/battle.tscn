@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_aqr0y"]
 [ext_resource type="PackedScene" uid="uid://ctgsyiohrgqae" path="res://Scenes/Abilities/missile_strike.tscn" id="2_ckw75"]
 [ext_resource type="PackedScene" uid="uid://cpy73rsjkhjof" path="res://Scenes/UI/battle_ui.tscn" id="3_aqr0y"]
-[ext_resource type="Texture2D" uid="uid://cmxfx33hnk0nm" path="res://Sprites/Battlefields/BeachBattle.png" id="3_qnmmw"]
+[ext_resource type="Texture2D" uid="uid://o3aeygkoaedp" path="res://Sprites/Battlefields/ForestBattle.png" id="3_rf7mn"]
 [ext_resource type="PackedScene" uid="uid://h1mk235t1xj1" path="res://Scenes/Battle/lane.tscn" id="4_wqxgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqxgi"]
@@ -20,8 +20,8 @@ missileAbility = ExtResource("2_ckw75")
 [node name="Battlefield2" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(0, -162)
-scale = Vector2(0.565, 0.565)
-texture = ExtResource("3_qnmmw")
+scale = Vector2(0.825, 0.825)
+texture = ExtResource("3_rf7mn")
 
 [node name="Battlefield" type="Sprite2D" parent="."]
 visible = false
@@ -38,15 +38,15 @@ offset_bottom = -349.0
 
 [node name="topLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, -83)
-collision_mask = 7
+collision_mask = 6
 
 [node name="middleLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, 9)
-collision_mask = 7
+collision_mask = 6
 
 [node name="bottomLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, 98)
-collision_mask = 7
+collision_mask = 6
 
 [node name="LizardWinCon" type="Area2D" parent="."]
 position = Vector2(-775, 8)
@@ -73,5 +73,9 @@ shape = SubResource("RectangleShape2D_o8bsx")
 [connection signal="unitButtonPressed" from="BattleUI" to="." method="_on_battle_ui_unit_button_pressed"]
 [connection signal="body_entered" from="topLane" to="." method="_on_top_lane_body_entered"]
 [connection signal="body_exited" from="topLane" to="." method="_on_top_lane_body_exited"]
+[connection signal="body_entered" from="middleLane" to="." method="_on_middle_lane_body_entered"]
+[connection signal="body_exited" from="middleLane" to="." method="_on_middle_lane_body_exited"]
+[connection signal="body_entered" from="bottomLane" to="." method="_on_bottom_lane_body_entered"]
+[connection signal="body_exited" from="bottomLane" to="." method="_on_bottom_lane_body_exited"]
 [connection signal="area_entered" from="LizardWinCon" to="." method="_on_lizard_win_con_area_entered"]
 [connection signal="area_entered" from="WizardWinCon" to="." method="_on_wizard_win_con_area_entered"]

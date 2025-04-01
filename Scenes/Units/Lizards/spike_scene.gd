@@ -7,7 +7,7 @@ var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
 
-var isFriendly = false
+var is_friendly = false
 
 var targets = []
 

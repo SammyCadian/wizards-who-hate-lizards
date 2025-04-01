@@ -8,6 +8,7 @@ var damage_multiplier = 1
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
+var is_friendly = true
 
 var targets = []
 

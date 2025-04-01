@@ -22,6 +22,7 @@ signal laneTraffic(isFriendly, lane, increment)
 @export var unitName = "NO_UNIT" # Track the name of what is selected in the UI
 var unitCost = 0
 var unitOrAbility = 0
+var isFriendly = true
 
 # Camera Variables
 var cursorPos = Vector2(0,0) # Track the cursor position
@@ -97,13 +98,22 @@ func _on_wizard_win_con_area_entered(area: Area2D) -> void:
 # Sends signal to enemy ai
 func send_laneTraffic_signal(isFriendly, lane, increment):
 	laneTraffic.emit(isFriendly, lane, increment)
-	pass
-	
-# Tracks each lane's entries and exits
-# func _on_top_lane_body_entered(body: Node2D) -> void:
-	#print(body.isFriendly, "TOP", 1)
-	#send_laneTraffic_signal(body.isFriendly, "TOP", 1)
-	
-# func _on_top_lane_body_exited(body: Node2D) -> void:
-	#print(body.isFriendly, "TOP", -1)
-	#send_laneTraffic_signal(body.isFriendly, "TOP", -1)
+
+# Tracks each lane's entries and exits (top middle and bottom)
+func _on_top_lane_body_entered(body: Node2D) -> void:
+	send_laneTraffic_signal(body.is_friendly, "TOP", 1)
+
+func _on_top_lane_body_exited(body: Node2D) -> void:
+	send_laneTraffic_signal(body.is_friendly, "TOP", -1)
+
+func _on_middle_lane_body_entered(body: Node2D) -> void:
+	send_laneTraffic_signal(body.is_friendly, "MID", 1)
+
+func _on_middle_lane_body_exited(body: Node2D) -> void:
+	send_laneTraffic_signal(body.is_friendly, "MID", -1)
+
+func _on_bottom_lane_body_entered(body: Node2D) -> void:
+	send_laneTraffic_signal(body.is_friendly, "BOT", 1)
+
+func _on_bottom_lane_body_exited(body: Node2D) -> void:
+	send_laneTraffic_signal(body.is_friendly, "BOT", -1)

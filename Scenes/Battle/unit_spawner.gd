@@ -42,11 +42,11 @@ func getSpawnPoint(laneID):
 			return $WizSpawnPoint2
 		"BOT_LANE":
 			return $WizSpawnPoint3
-		1:
+		"TOP":
 			return $EnemySpawnPoint1
-		2:
+		"MID":
 			return $EnemySpawnPoint2
-		3:
+		"BOT":
 			return $EnemySpawnPoint3
 
 func getUnit(unitID: String):
@@ -63,10 +63,8 @@ func getUnit(unitID: String):
 			return spike_scene
 
 func _on_battle_lane_selected(unitName: String, selectedLane: String, unitNum: int) -> void:
-	print(unitName)
 	spawn(getUnit(unitName), getSpawnPoint(selectedLane), unitNum)
 
 func _on_enemy_ai_spawn(unitName, selectedLane, unitNum) -> void:
 	if (get_parent().inBattle):
-		print(unitName)
 		spawn(getUnit(unitName), getSpawnPoint(selectedLane), unitNum)
