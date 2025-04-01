@@ -7,6 +7,7 @@ var battleUI : Node = null  # Track the current battle UI
 # Preload nodes for instantation
 var victoryScene = preload("res://Scenes/UI/victory_ui.tscn")
 var gameOverScene = preload("res://Scenes/UI/game_over.tscn")
+var victoryInstance
 
 # Start the battle from the map selection
 func startBattle(loadedUnits: Array):
@@ -49,7 +50,7 @@ func playerWins():
 	get_parent().get_node("Map").progressMap()
 	
 	# Instantiate the Victory UI
-	var victoryInstance = victoryScene.instantiate()
+	victoryInstance = victoryScene.instantiate()
 	victoryInstance.position = Vector2(0, 0) # Set the position
 	victoryInstance.get_node("Button").pressed.connect(_victory_button) # Connect the pressed signal
 	victoryInstance.get_node("HealthUpgrade").pressed.connect(selectHealthUpgrade)
@@ -74,6 +75,7 @@ func _victory_button():
 	elif selected == "DamageUpgrade":
 		Global.setDamageUpgrade(.2)
 	if selected == "":
+		victoryInstance.nuhUhProtocol()
 		print("Please select an upgrade")
 	else:
 		selected = ""

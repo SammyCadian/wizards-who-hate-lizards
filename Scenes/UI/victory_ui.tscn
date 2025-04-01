@@ -94,6 +94,29 @@ text = "Choose an Upgrade"
 horizontal_alignment = 2
 vertical_alignment = 3
 
+[node name="NuhUhTimer" type="Timer" parent="."]
+
+[node name="Nuhuh" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -371.0
+offset_top = -55.0
+offset_right = -120.0
+offset_bottom = -32.0
+scale = Vector2(2.90934, 2.90934)
+text = "PICK AN UPGRADE YOU GOOBER"
+
+[node name="ColorRect" type="ColorRect" parent="Nuhuh"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -7.0
+offset_right = 255.0
+offset_bottom = 33.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HealthUpgrade" to="." method="_on_health_upgrade_pressed"]
 [connection signal="pressed" from="DamageUpgrade" to="." method="_on_damage_upgrade_pressed"]
+[connection signal="timeout" from="NuhUhTimer" to="." method="_on_nuh_uh_timer_timeout"]

@@ -143,7 +143,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6yiv"]
-size = Vector2(20, 1.9)
+size = Vector2(27.4, 1.9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_628q2"]
 
@@ -163,7 +163,7 @@ position = Vector2(-1, 1)
 collision_mask = 2
 
 [node name="Range" type="CollisionShape2D" parent="RangeArea"]
-position = Vector2(216, 18)
+position = Vector2(290, 18)
 scale = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_d6yiv")
 
