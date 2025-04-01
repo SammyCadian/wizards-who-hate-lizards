@@ -66,14 +66,19 @@ func lizardsWin():
 	gameOverInstance.get_node("Button").pressed.connect(_game_over_button) # Connect the pressed signal
 	currBattle.add_child(gameOverInstance)
 
-var selected
+var selected = ""
 
 func _victory_button():
 	if selected == "HealthUpgrade":
 		Global.setHealthUpgrade(10)
 	elif selected == "DamageUpgrade":
 		Global.setDamageUpgrade(.2)
-	get_parent().loadMap()
+	if selected == "":
+		print("Please select an upgrade")
+	else:
+		selected = ""
+		get_parent().loadMap()
+		
 	
 func _game_over_button():
 	get_parent().restartGame()
