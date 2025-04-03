@@ -120,17 +120,44 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UnitDescription" type="HFlowContainer" parent="."]
+[node name="UnitDescription" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 412.0
 offset_top = 506.0
-offset_right = 612.0
+offset_right = 610.0
 offset_bottom = 641.0
 
+[node name="Name" type="Label" parent="UnitDescription"]
+layout_mode = 2
+text = "Placeholder Title"
+autowrap_mode = 1
+
+[node name="Description" type="Label" parent="UnitDescription"]
+layout_mode = 2
+text = "Placeholder Description"
+autowrap_mode = 2
+
+[node name="Cost" type="Label" parent="UnitDescription"]
+layout_mode = 2
+text = "Placeholder price"
+autowrap_mode = 1
+
+[connection signal="mouse_entered" from="Units/Column1/UnitOne" to="." method="_on_unit_one_mouse_entered"]
+[connection signal="mouse_exited" from="Units/Column1/UnitOne" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Units/Column1/UnitOne" to="." method="_on_unit_one_pressed"]
+[connection signal="mouse_entered" from="Units/Column1/UnitTwo" to="." method="_on_unit_two_mouse_entered"]
+[connection signal="mouse_exited" from="Units/Column1/UnitTwo" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Units/Column1/UnitTwo" to="." method="_on_unit_two_pressed"]
+[connection signal="mouse_entered" from="Units/Column2/UnitThree" to="." method="_on_unit_three_mouse_entered"]
+[connection signal="mouse_exited" from="Units/Column2/UnitThree" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Units/Column2/UnitThree" to="." method="_on_unit_three_pressed"]
+[connection signal="mouse_entered" from="Units/Column2/UnitFour" to="." method="_on_unit_four_mouse_entered"]
+[connection signal="mouse_exited" from="Units/Column2/UnitFour" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Units/Column2/UnitFour" to="." method="_on_unit_four_pressed"]
+[connection signal="mouse_entered" from="Abilities/Ability1" to="." method="_on_ability_1_mouse_entered"]
+[connection signal="mouse_exited" from="Abilities/Ability1" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Abilities/Ability1" to="." method="_on_ability_1_pressed"]
+[connection signal="mouse_entered" from="Abilities/Ability2" to="." method="_on_ability_2_mouse_entered"]
+[connection signal="mouse_exited" from="Abilities/Ability2" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Abilities/Ability2" to="." method="_on_ability_2_pressed"]
 [connection signal="timeout" from="IncomeTimer" to="." method="_on_income_timer_timeout"]

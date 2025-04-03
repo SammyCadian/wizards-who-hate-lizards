@@ -16,6 +16,11 @@ var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
 var units = []
 var abilities = []
 var costs = [0, 0, 0, 0, 0, 0]
+var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..",
+					"autorifle":"I just work here..",
+					"rifleman":"I don't know the difference between these units",
+					# Ability Descriptions
+					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes"}
 
 #Load units in for testing purposes
 func testLoad():
@@ -26,7 +31,7 @@ func testLoad():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#testLoad()
-	
+	$UnitDescription.hide()
 	$IncomeTimer.set_wait_time(incomeTime/100)
 	$IncomeTimer.start()
 	updatePoints()
@@ -107,9 +112,44 @@ func _on_battle_spend_points(cost: int) -> void:
 func _on_ability_1_pressed() -> void:
 	if (magicPoints >= costs[4] && Global.boughtItems.get(abilities[0]) > 0):
 		abilityButtonPressed.emit(abilities[0], costs[4])
-	pass # Replace with function body.
 
 func _on_ability_2_pressed() -> void:
 	if (magicPoints >= costs[5]):
 		abilityButtonPressed.emit(abilities[1], costs[5])
-	pass # Replace with function body.
+
+## TO DISPLAY DESCRIPTIONS
+# Takes input to display description
+func show_description(name, cost):
+	$UnitDescription/Name.text = name[0].to_upper() + name.substr(1,-1)
+	$UnitDescription/Description.text = descriptions[name]
+	$UnitDescription/Cost.text = "Cost: "+str(cost)
+	$UnitDescription.show()
+
+# Unit/ability hover signals
+func _on_unit_one_mouse_entered() -> void:
+	if(units.size() > 0):
+		show_description(units[0], costs[0])
+
+func _on_unit_two_mouse_entered() -> void:
+	if(units.size() > 1):
+		show_description(units[1], costs[1])
+
+func _on_unit_three_mouse_entered() -> void:
+	if(units.size() > 2):
+		show_description(units[2], costs[2])
+
+func _on_unit_four_mouse_entered() -> void:
+	if(units.size() > 3):
+		show_description(units[3], costs[3])
+
+func _on_ability_1_mouse_entered() -> void:
+	if(abilities.size() > 0):
+		show_description(abilities[0], costs[4])
+
+func _on_ability_2_mouse_entered() -> void:
+	if(abilities.size() > 1):
+		show_description(abilities[1], costs[5])
+
+# Units/abilities unhover signal
+func _on_button_mouse_exited() -> void:
+	$UnitDescription.hide()
