@@ -5,6 +5,8 @@ extends Node2D
 @export var scout_scene: PackedScene
 @export var rifleman_scene: PackedScene
 @export var autorifle_scene: PackedScene
+@export var sniper_scene: PackedScene
+@export var hoplite_scene: PackedScene
 
 var starting_enemies:int # How many enemies we start with
 var current_enemies: int # How many enemies there are currently
@@ -57,10 +59,15 @@ func getUnit(unitID: String):
 			return rifleman_scene
 		"autorifle":
 			return autorifle_scene
+		"sniper":
+			return sniper_scene
+		"hoplite":
+			return hoplite_scene
 		"sus":
 			return sus_scene
 		"spike":
 			return spike_scene
+		
 
 func _on_battle_lane_selected(unitName: String, selectedLane: String, unitNum: int) -> void:
 	spawn(getUnit(unitName), getSpawnPoint(selectedLane), unitNum)

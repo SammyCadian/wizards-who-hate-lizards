@@ -19,6 +19,8 @@ var costs = [0, 0, 0, 0, 0, 0]
 var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..",
 					"autorifle":"I just work here..",
 					"rifleman":"I don't know the difference between these units",
+					"sniper":"Shoots very far",
+					"hoplite":"Runs very fast",
 					# Ability Descriptions
 					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes"}
 

@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @onready var see_enemy = false
-@export var damage = 1
+@export var damage = 15
 var health = 20
-var speed = 100
+var speed = 50
 var damage_multiplier = 1
 var damageTaken = 0
 #var isDead = false
@@ -18,6 +18,7 @@ func _ready() -> void:
 	damage += Global.getDamageUpgrade()
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -57,18 +58,16 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		$AnimatedSprite2D.animation = "walk"
 		see_enemy = false
 
+
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
 		targets[0].takeDamage(damage)
-	#health -= damageTaken
-	#print("Scout health: " + str(health))
-	#if(health <= 0):
-		#ouchieMyForehead()
-
+		
 func takeDamage(damage: int):
 	health -= damage
 	if(health <= 0):
 		ouchieMyForehead()
+
 
 func ouchieMyForehead():
 	deathTimer = 2.5

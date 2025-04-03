@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://diqlvj73qjhx5"]
+[gd_scene load_steps=10 format=3 uid="uid://diqlvj73qjhx5"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/unit_spawner.gd" id="1_gc3y3"]
 [ext_resource type="PackedScene" uid="uid://c5mdfaipfun23" path="res://Scenes/Units/Lizards/sus_scene.tscn" id="2_bdpr3"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dhrsqjgxt8sv0" path="res://Scenes/Units/Wizards/scout.tscn" id="3_oeoac"]
 [ext_resource type="PackedScene" uid="uid://ddgw8akh4iuwq" path="res://Scenes/Units/Wizards/rifleman.tscn" id="4_bdpr3"]
 [ext_resource type="PackedScene" uid="uid://co1e2lije056e" path="res://Scenes/Units/Wizards/autorifle.tscn" id="4_sxex5"]
+[ext_resource type="PackedScene" uid="uid://bna85mfcqwi75" path="res://Scenes/Units/Wizards/sniper.tscn" id="7_kploo"]
 [ext_resource type="PackedScene" uid="uid://cx288yw6kmco8" path="res://Scenes/Battle/enemy_ai.tscn" id="7_uwm7n"]
+[ext_resource type="PackedScene" uid="uid://wg47gug4qmtq" path="res://Scenes/Units/Wizards/hoplite.tscn" id="8_dao72"]
 
 [node name="Unit Spawner" type="Node2D"]
 script = ExtResource("1_gc3y3")
@@ -15,6 +17,8 @@ spike_scene = ExtResource("3_i3vrk")
 scout_scene = ExtResource("3_oeoac")
 rifleman_scene = ExtResource("4_bdpr3")
 autorifle_scene = ExtResource("4_sxex5")
+sniper_scene = ExtResource("7_kploo")
+hoplite_scene = ExtResource("8_dao72")
 
 [node name="EnemySpawnPoint1" type="Marker2D" parent="."]
 position = Vector2(720, -90)

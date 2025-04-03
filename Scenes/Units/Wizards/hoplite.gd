@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @onready var see_enemy = false
-@export var damage = 1
-var health = 20
-var speed = 100
+@export var damage = 5
+var health = 40
+var speed = 50
 var damage_multiplier = 1
 var damageTaken = 0
 #var isDead = false
@@ -59,7 +59,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
-		targets[0].takeDamage(damage)
+		var targetAmount = min(targets.size(), 3)
+		for i in range(targetAmount):
+			targets[i].takeDamage(damage)
 	#health -= damageTaken
 	#print("Scout health: " + str(health))
 	#if(health <= 0):

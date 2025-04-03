@@ -76,10 +76,27 @@ func _on_unit_select_3_pressed() -> void:
 
 func _on_unit_select_4_pressed() -> void:
 	selected = true
-	unitId = "someone"
-	icon = $"All units/Unit4/UnitSelect4".icon
+	unitId = "sniper"
+	icon = $"All units/Unit1/UnitSelect4".icon
 	cost = 40
 	unitOrAbility = 1
+	
+	
+func _on_unit_select_5_pressed() -> void:
+	selected = true
+	unitId = "hoplite"
+	icon = $"All units/Unit2/UnitSelect5".icon
+	cost = 40
+	unitOrAbility = 1
+
+
+func _on_unit_select_6_pressed() -> void:
+	selected = true
+	unitId = "someone"
+	icon = $"All units/Unit3/UnitSelect6".icon
+	cost = 40
+	unitOrAbility = 1
+
 
 func getUnits():
 	return units
