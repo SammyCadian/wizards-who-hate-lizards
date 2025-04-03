@@ -1,47 +1,139 @@
-[gd_scene load_steps=3 format=3 uid="uid://sp2tq3ngw4d0"]
+[gd_scene load_steps=13 format=3 uid="uid://sp2tq3ngw4d0"]
 
 [ext_resource type="Script" path="res://Scenes/UI/shop.gd" id="1_oa8wu"]
-[ext_resource type="Texture2D" uid="uid://1hyfmby6yd5s" path="res://icon.svg" id="1_v8tif"]
+[ext_resource type="AudioStream" uid="uid://fedxuypkt716" path="res://Music/shopTheme.wav" id="3_25rfe"]
+[ext_resource type="Texture2D" uid="uid://bypmxy42bikwf" path="res://Sprites/Shop/shopAnimation.png" id="3_epfy7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2alx2"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvbb4"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffew5"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0t71"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs7l1"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(7680, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn2sc"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(9600, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfsfy"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(11520, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_027qd"]
+atlas = ExtResource("3_epfy7")
+region = Rect2(13440, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sq0pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2alx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvbb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffew5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0t71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs7l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn2sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfsfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_027qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfsfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn2sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs7l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0t71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffew5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvbb4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_oa8wu")
 
-[node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(9.875, 6.625)
-texture = ExtResource("1_v8tif")
+[node name="ShopKeeper" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sq0pv")
+autoplay = "default"
+frame = 7
+frame_progress = 0.134962
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_25rfe")
+volume_db = 2.0
+autoplay = true
 
 [node name="item1" type="Marker2D" parent="."]
-position = Vector2(128, -224)
+position = Vector2(256, -232)
 
 [node name="item2" type="Marker2D" parent="."]
-position = Vector2(384, -224)
+position = Vector2(576, -232)
 
 [node name="item3" type="Marker2D" parent="."]
-position = Vector2(128, -56)
+position = Vector2(256, -56)
 
 [node name="item4" type="Marker2D" parent="."]
-position = Vector2(384, -56)
+position = Vector2(576, -56)
 
 [node name="MapButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = -136.0
-offset_top = 344.0
+offset_top = 443.0
 offset_right = 136.0
-offset_bottom = 397.0
+offset_bottom = 496.0
 theme_override_font_sizes/font_size = 25
 text = "Return to Map"
 
 [node name="BuyButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 96.0
-offset_right = 352.0
-offset_bottom = 288.0
+offset_left = 320.0
+offset_top = 272.0
+offset_right = 512.0
+offset_bottom = 464.0
 theme_override_font_sizes/font_size = 70
 disabled = true
 text = "BUY"
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="MapButton" to="." method="_on_map_button_pressed"]
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

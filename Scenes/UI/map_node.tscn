@@ -112,7 +112,7 @@ script = ExtResource("1_nprav")
 [node name="Icon" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ftxom")
-animation = &"medium"
+animation = &"battle"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
