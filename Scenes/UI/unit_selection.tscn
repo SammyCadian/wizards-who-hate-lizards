@@ -196,17 +196,50 @@ offset_right = 377.039
 offset_bottom = 162.488
 text = "Enter the game"
 
+[node name="UnitDescription" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -298.0
+offset_top = -9.0
+offset_right = -10.0
+offset_bottom = 105.0
+
+[node name="Name" type="Label" parent="UnitDescription"]
+layout_mode = 2
+text = "Name"
+
+[node name="Description" type="Label" parent="UnitDescription"]
+layout_mode = 2
+text = "Description"
+
+[node name="Cost" type="Label" parent="UnitDescription"]
+layout_mode = 2
+text = "Cost"
+
 [connection signal="pressed" from="UnitsForBattle/Unit1/Unit1Button" to="." method="_on_unit_1_button_pressed"]
 [connection signal="pressed" from="UnitsForBattle/Unit2/Unit2Button" to="." method="_on_unit_2_button_pressed"]
 [connection signal="pressed" from="UnitsForBattle/Unit3/Unit3Button" to="." method="_on_unit_3_button_pressed"]
 [connection signal="pressed" from="UnitsForBattle/Unit4/Unit4Button" to="." method="_on_unit_4_button_pressed"]
 [connection signal="pressed" from="AbilitiesForBattle/Ability1/Ability1Button" to="." method="_on_ability_1_button_pressed"]
 [connection signal="pressed" from="AbilitiesForBattle/Ability2/Ability2Button" to="." method="_on_ability_2_button_pressed"]
+[connection signal="mouse_entered" from="All units/Unit1/UnitSelect1" to="." method="_on_unit_select_1_mouse_entered"]
+[connection signal="mouse_exited" from="All units/Unit1/UnitSelect1" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="All units/Unit1/UnitSelect1" to="." method="_on_unit_select_1_pressed"]
+[connection signal="mouse_entered" from="All units/Unit1/UnitSelect4" to="." method="_on_unit_select_4_mouse_entered"]
+[connection signal="mouse_exited" from="All units/Unit1/UnitSelect4" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="All units/Unit1/UnitSelect4" to="." method="_on_unit_select_4_pressed"]
+[connection signal="mouse_entered" from="All units/Unit2/UnitSelect2" to="." method="_on_unit_select_2_mouse_entered"]
+[connection signal="mouse_exited" from="All units/Unit2/UnitSelect2" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="All units/Unit2/UnitSelect2" to="." method="_on_unit_select_2_pressed"]
+[connection signal="mouse_entered" from="All units/Unit2/UnitSelect5" to="." method="_on_unit_select_5_mouse_entered"]
+[connection signal="mouse_exited" from="All units/Unit2/UnitSelect5" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="All units/Unit2/UnitSelect5" to="." method="_on_unit_select_5_pressed"]
+[connection signal="mouse_entered" from="All units/Unit3/UnitSelect3" to="." method="_on_unit_select_3_mouse_entered"]
+[connection signal="mouse_exited" from="All units/Unit3/UnitSelect3" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="All units/Unit3/UnitSelect3" to="." method="_on_unit_select_3_pressed"]
+[connection signal="mouse_entered" from="All units/Unit3/UnitSelect6" to="." method="_on_unit_select_6_mouse_entered"]
+[connection signal="mouse_exited" from="All units/Unit3/UnitSelect6" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="All units/Unit3/UnitSelect6" to="." method="_on_unit_select_6_pressed"]
+[connection signal="mouse_entered" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_ability_select_1_mouse_entered"]
+[connection signal="mouse_exited" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_ability_select_1_pressed"]
 [connection signal="button_up" from="EnterGame" to="." method="_on_enter_game_button_up"]

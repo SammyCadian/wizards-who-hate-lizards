@@ -15,6 +15,20 @@ var unitOrAbility = 0
 
 signal loadBattle
 
+var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..",
+					"autorifle":"I just work here..",
+					"rifleman":"I don't know the difference between these units",
+					"sniper":"Shoots very far",
+					"hoplite":"Runs very fast",
+					"someone":"This is someone",
+					# Ability Descriptions
+					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes"}
+					
+					
+func _ready() -> void:
+	$UnitDescription.hide()
+					
+
 func _on_unit_1_button_pressed() -> void:
 	if(selected && unitOrAbility == 1):
 		$UnitsForBattle/Unit1/Unit1Button.icon = icon
@@ -133,3 +147,42 @@ func _on_ability_2_button_pressed() -> void:
 		units[5][1] = unitId
 		units[5][2] = cost
 	selected = false
+
+
+func show_description(name, cost):
+	$UnitDescription/Name.text = name[0].to_upper() + name.substr(1,-1)
+	$UnitDescription/Description.text = descriptions[name]
+	$UnitDescription/Cost.text = "Cost: "+str(cost)
+	$UnitDescription.show()
+	
+
+func _on_unit_select_1_mouse_entered() -> void:
+	show_description("scout", 10)
+
+
+func _on_unit_select_2_mouse_entered() -> void:
+	show_description("rifleman", 20)
+
+
+func _on_unit_select_3_mouse_entered() -> void:
+	show_description("autorifle", 30)
+
+
+func _on_unit_select_4_mouse_entered() -> void:
+	show_description("sniper", 40)
+
+
+func _on_unit_select_5_mouse_entered() -> void:
+	show_description("hoplite", 40)
+
+
+func _on_unit_select_6_mouse_entered() -> void:
+	show_description("someone", 40)
+
+
+func _on_ability_select_1_mouse_entered() -> void:
+	show_description("Missile Launch", 50)
+
+
+func _on_button_mouse_exited() -> void:
+	$UnitDescription.hide()
