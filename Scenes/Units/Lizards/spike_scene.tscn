@@ -164,7 +164,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_patrw"]
-size = Vector2(457.625, 24)
+size = Vector2(457.625, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s63m3"]
 size = Vector2(24.5, 25)
@@ -175,7 +175,6 @@ size = Vector2(25, 25)
 [node name="Spike" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_cipye")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3.05176e-05)

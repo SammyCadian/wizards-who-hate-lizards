@@ -21,8 +21,10 @@ var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..
 					"rifleman":"I don't know the difference between these units",
 					"sniper":"Shoots very far",
 					"hoplite":"Runs very fast",
+					"caster":"Shadow Wizard Money gang - We love casting spells",
 					# Ability Descriptions
-					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes"}
+					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
+					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)"}
 
 #Load units in for testing purposes
 func testLoad():

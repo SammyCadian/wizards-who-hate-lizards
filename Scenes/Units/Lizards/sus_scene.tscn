@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://c5mdfaipfun23"]
 
-[ext_resource type="Script" uid="uid://cr6ge8sgb11gl" path="res://Scenes/Units/Lizards/sus_scene.gd" id="1_c3cw4"]
+[ext_resource type="Script" path="res://Scenes/Units/Lizards/sus_scene.gd" id="1_c3cw4"]
 [ext_resource type="Texture2D" uid="uid://b0tjcxsg2n2mf" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusAttack.png" id="2_h7yft"]
 [ext_resource type="Texture2D" uid="uid://0w8p07kiowv0" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusDeath.png" id="3_pm5im"]
 [ext_resource type="Texture2D" uid="uid://c7uda4nvu01t5" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusWalk.png" id="4_o6c7k"]
@@ -136,7 +136,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3cw4"]
-size = Vector2(457.625, 24)
+size = Vector2(457.625, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5jua"]
 size = Vector2(24.5, 25)
@@ -147,7 +147,6 @@ size = Vector2(25, 25)
 [node name="Sus" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_c3cw4")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.187, 0.187)

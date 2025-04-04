@@ -5,7 +5,7 @@ var boughtItems = {
 	"Missile Launch" : 1,
 	"Flame Rain" : 0,
 	"Anti-Dying Circle" : 0,
-	"Shotgun" : 0
+	"Shotgun" : 5
 }
 
 # Global variable to track the player's reward from battle

@@ -14,6 +14,7 @@ var targets = []
 func _ready() -> void:
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+	z_index = global_position.y + 200
 	
 	
 func _process(delta: float) -> void:

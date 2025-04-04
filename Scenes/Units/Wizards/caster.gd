@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var see_enemy = false
 @export var damage = 1
+@export var fireBall: PackedScene
 var health = 30
 var speed = 50
 var damage_multiplier = 1
@@ -51,8 +52,7 @@ func _on_range_area_body_entered(body: Node2D) -> void:
 	$AnimatedSprite2D.animation = "attack"
 	see_enemy = true
 
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_range_area_body_exited(body: Node2D) -> void:
 	if(targets.has(body)):
 		targets.remove_at(targets.find(body))
 	if(targets.size() <= 0):
@@ -60,10 +60,11 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		$AnimatedSprite2D.animation = "walk"
 		see_enemy = false
 
-
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
-		targets[0].takeDamage(damage)
+		var newProj = fireBall.instantiate()
+		newProj.setTarget(targets[0].position)
+		get_parent().add_child(newProj)
 		
 func takeDamage(damage: int):
 	health -= damage
@@ -78,16 +79,3 @@ func ouchieMyForehead():
 		get_node("RangeArea").free()
 		get_node("HitboxArea").free()
 		get_node("CollisionShape2D").free()
-
-
-#func _on_hitbox_area_area_entered(area: Area2D) -> void:
-	#if area.get_parent().has_method("LizardDamage"):
-		#var node = area.get_parent() as Node
-		#damageTaken += node.LizardDamage()
-		#$DamageTimer.start()
-#
-#
-#func _on_hitbox_area_area_exited(area: Area2D) -> void:
-	#if area.get_parent().has_method("LizardDamage"):
-		#var node = area.get_parent() as Node
-		#damageTaken -= node.LizardDamage()

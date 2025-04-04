@@ -16,6 +16,8 @@ var targets = []
 func _ready() -> void:
 	health += Global.getHealthUpgrade()
 	damage *= Global.getDamageUpgrade()
+	speed += 10 * RandomNumberGenerator.new().randf()
+	z_index = global_position.y + 200
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
 

@@ -17,6 +17,7 @@ signal winCon(side)
 signal laneTraffic(isFriendly, lane, increment)
 
 @export var missileAbility: PackedScene
+@export var shotgunAbility: PackedScene
 # Unit variables
 @export var unitSelected = false
 @export var unitName = "NO_UNIT" # Track the name of what is selected in the UI
@@ -32,10 +33,15 @@ var selectedLane = "NO_LANE"
 
 func activateTrapCard(abilityID: String, mousePos: Vector2):
 	print(mousePos)
-	if abilityID == "Missile Launch":
-		var newAbility = missileAbility.instantiate()
-		newAbility.setTarget(mousePos)
-		add_child(newAbility)
+	match abilityID:
+		"Missile Launch":
+			var newAbility = missileAbility.instantiate()
+			newAbility.setTarget(mousePos)
+			add_child(newAbility)
+		"Shotgun":
+			var newAbility = shotgunAbility.instantiate()
+			newAbility.setTarget(mousePos)
+			add_child(newAbility)
 
 func _ready():
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckonvx88mks8d"]
+[gd_scene load_steps=10 format=3 uid="uid://ckonvx88mks8d"]
 
 [ext_resource type="Script" path="res://Scenes/UI/unit_selection.gd" id="1_bxdoy"]
 [ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d8nw7a146le4" path="res://Sprites/UI/ButtonIcons/Wizards/SniperIcon.png" id="5_lneam"]
 [ext_resource type="Texture2D" uid="uid://ccrddgfliiaxb" path="res://Sprites/UI/ButtonIcons/Wizards/HopliteAnim.png" id="6_drrn2"]
 [ext_resource type="Texture2D" uid="uid://dwxjquoumg6h4" path="res://Sprites/UI/ButtonIcons/Wizards/CasterIcon.png" id="7_ynns1"]
+[ext_resource type="Texture2D" uid="uid://ngihjo7ftu7g" path="res://Sprites/UI/ButtonIcons/Wizards/ShotgunIcon.png" id="9_veat3"]
 
 [node name="Unit Selection" type="Control"]
 layout_mode = 3
@@ -157,8 +158,8 @@ icon = ExtResource("7_ynns1")
 [node name="AllAbilities" type="HBoxContainer" parent="."]
 layout_mode = 2
 offset_top = -160.0
-offset_right = 118.0
-offset_bottom = -50.0
+offset_right = 141.0
+offset_bottom = -19.0
 metadata/_edit_group_ = true
 
 [node name="Ability1" type="VBoxContainer" parent="AllAbilities"]
@@ -174,6 +175,7 @@ expand_icon = true
 [node name="AbilitySelect3" type="Button" parent="AllAbilities/Ability1"]
 layout_mode = 2
 size_flags_vertical = 3
+icon = ExtResource("9_veat3")
 expand_icon = true
 
 [node name="Ability2" type="VBoxContainer" parent="AllAbilities"]
@@ -243,4 +245,6 @@ text = "Cost"
 [connection signal="mouse_entered" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_ability_select_1_mouse_entered"]
 [connection signal="mouse_exited" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_ability_select_1_pressed"]
+[connection signal="mouse_entered" from="AllAbilities/Ability1/AbilitySelect3" to="." method="_on_ability_select_3_mouse_entered"]
+[connection signal="pressed" from="AllAbilities/Ability1/AbilitySelect3" to="." method="_on_ability_select_3_pressed"]
 [connection signal="button_up" from="EnterGame" to="." method="_on_enter_game_button_up"]

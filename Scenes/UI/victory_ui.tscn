@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/victory_ui.gd" id="1_0j63b"]
 
 [node name="VictoryUI" type="Control"]
+z_index = 2000
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

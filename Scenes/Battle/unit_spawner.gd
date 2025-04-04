@@ -7,6 +7,7 @@ extends Node2D
 @export var autorifle_scene: PackedScene
 @export var sniper_scene: PackedScene
 @export var hoplite_scene: PackedScene
+@export var caster_scene: PackedScene
 
 var starting_enemies:int # How many enemies we start with
 var current_enemies: int # How many enemies there are currently
@@ -32,7 +33,8 @@ func spawn(type, location, amount):
 	if get_parent().inBattle:
 		for i in amount:
 			var unit = type.instantiate()
-			unit.position = location.position
+			var randPrecent = RandomNumberGenerator.new().randf()
+			unit.position = location.position + Vector2(0, -30 * randPrecent)
 			get_parent().currBattle.add_child(unit) # Add units as children to the battle scene
 			await get_tree().create_timer(1.0).timeout
 
@@ -63,6 +65,8 @@ func getUnit(unitID: String):
 			return sniper_scene
 		"hoplite":
 			return hoplite_scene
+		"caster":
+			return caster_scene
 		"sus":
 			return sus_scene
 		"spike":

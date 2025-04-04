@@ -20,9 +20,10 @@ var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..
 					"rifleman":"I don't know the difference between these units",
 					"sniper":"Shoots very far",
 					"hoplite":"Runs very fast",
-					"someone":"This is someone",
+					"caster":"Shadow Wizard Money gang - We love casting spells",
 					# Ability Descriptions
-					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes"}
+					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
+					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)"}
 					
 					
 func _ready() -> void:
@@ -106,9 +107,9 @@ func _on_unit_select_5_pressed() -> void:
 
 func _on_unit_select_6_pressed() -> void:
 	selected = true
-	unitId = "someone"
+	unitId = "caster"
 	icon = $"All units/Unit3/UnitSelect6".icon
-	cost = 40
+	cost = 120
 	unitOrAbility = 1
 
 
@@ -129,8 +130,13 @@ func _on_ability_select_1_pressed() -> void:
 	icon = $AllAbilities/Ability1/AbilitySelect1.icon
 	cost = 50
 	unitOrAbility = 2
-	pass # Replace with function body.
 
+func _on_ability_select_3_pressed() -> void:
+	selected = true
+	unitId = "Shotgun"
+	icon = $AllAbilities/Ability1/AbilitySelect3.icon
+	cost = 80
+	unitOrAbility = 2
 
 func _on_ability_1_button_pressed() -> void:
 	if(selected && unitOrAbility == 2):
@@ -177,12 +183,14 @@ func _on_unit_select_5_mouse_entered() -> void:
 
 
 func _on_unit_select_6_mouse_entered() -> void:
-	show_description("someone", 40)
+	show_description("caster", 120)
 
 
 func _on_ability_select_1_mouse_entered() -> void:
 	show_description("Missile Launch", 50)
 
+func _on_ability_select_3_mouse_entered() -> void:
+	show_description("Shotgun", 80)
 
 func _on_button_mouse_exited() -> void:
 	$UnitDescription.hide()
