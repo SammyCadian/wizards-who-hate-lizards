@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckonvx88mks8d"]
+[gd_scene load_steps=9 format=3 uid="uid://ckonvx88mks8d"]
 
 [ext_resource type="Script" path="res://Scenes/UI/unit_selection.gd" id="1_bxdoy"]
 [ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
 [ext_resource type="Texture2D" uid="uid://ck7xbeysukqg3" path="res://Sprites/UI/ButtonIcons/Wizards/BasicIcon.png" id="3_0rmpk"]
 [ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="4_jqnbg"]
 [ext_resource type="Texture2D" uid="uid://bc4263mf4miwv" path="res://Sprites/UI/ButtonIcons/Wizards/MissileIcon.png" id="5_g8e86"]
+[ext_resource type="Texture2D" uid="uid://d8nw7a146le4" path="res://Sprites/UI/ButtonIcons/Wizards/SniperIcon.png" id="5_lneam"]
+[ext_resource type="Texture2D" uid="uid://ccrddgfliiaxb" path="res://Sprites/UI/ButtonIcons/Wizards/HopliteAnim.png" id="6_drrn2"]
+[ext_resource type="Texture2D" uid="uid://dwxjquoumg6h4" path="res://Sprites/UI/ButtonIcons/Wizards/CasterIcon.png" id="7_ynns1"]
 
 [node name="Unit Selection" type="Control"]
 layout_mode = 3
@@ -101,7 +104,7 @@ expand_icon = true
 layout_mode = 0
 offset_left = -300.0
 offset_top = -160.0
-offset_right = -64.0
+offset_right = -80.0
 offset_bottom = -20.0
 metadata/_edit_group_ = true
 
@@ -118,6 +121,7 @@ expand_icon = true
 [node name="UnitSelect4" type="Button" parent="All units/Unit1"]
 layout_mode = 2
 size_flags_vertical = 3
+icon = ExtResource("5_lneam")
 
 [node name="Unit2" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -132,6 +136,7 @@ expand_icon = true
 [node name="UnitSelect5" type="Button" parent="All units/Unit2"]
 layout_mode = 2
 size_flags_vertical = 3
+icon = ExtResource("6_drrn2")
 
 [node name="Unit3" type="VBoxContainer" parent="All units"]
 layout_mode = 2
@@ -140,12 +145,13 @@ size_flags_horizontal = 3
 [node name="UnitSelect3" type="Button" parent="All units/Unit3"]
 layout_mode = 2
 size_flags_vertical = 3
-icon = ExtResource("4_jqnbg")
+icon = ExtResource("2_ongp6")
 expand_icon = true
 
 [node name="UnitSelect6" type="Button" parent="All units/Unit3"]
 layout_mode = 2
 size_flags_vertical = 3
+icon = ExtResource("7_ynns1")
 
 [node name="AllAbilities" type="HBoxContainer" parent="."]
 layout_mode = 2

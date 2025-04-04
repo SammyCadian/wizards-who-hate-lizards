@@ -73,7 +73,7 @@ func takeDamage(damage: int):
 		ouchieMyForehead()
 
 func ouchieMyForehead():
-	deathTimer = 2.5
+	deathTimer = 4.5
 	velocity = Vector2(0, 0)
 	if get_node("RangeArea") != null:
 		get_node("RangeArea").free()
