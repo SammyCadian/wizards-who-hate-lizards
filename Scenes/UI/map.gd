@@ -35,7 +35,6 @@ func instMapNode(name, nodeType, mapMarker) -> Control:
 	mapNodeInstance.name = name # Name the node for future reference
 	mapNodeInstance.nodeType = nodeType # Set the node type
 	mapNodeInstance.get_node("Label").text = name # Label the node
-	
 	mapNodeInstance.get_node("Icon").animation = nodeType.to_lower() # Set the node icon based on nodeType
 	mapNodeInstance.get_node("Button").pressed.connect(_map_node_selected) # Connect the pressed signal
 	
@@ -81,7 +80,7 @@ func randomizeMap() -> void:
 # Connected from the unit selection signal, load into battle with the selected units
 func loadBattle():
 	print(currUnitSelect.getUnits())
-	get_parent().get_node("BattleManager").startBattle(currUnitSelect.getUnits())
+	get_parent().get_node("BattleManager").startBattle(currUnitSelect.getUnits(), selectedMapNode.name)
 	currUnitSelect.queue_free() # Free the unit selection
 
 # Signal connect for a map node being pressed

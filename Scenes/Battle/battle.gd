@@ -38,7 +38,6 @@ func activateTrapCard(abilityID: String, mousePos: Vector2):
 		add_child(newAbility)
 
 func _ready():
-	# TODO Connect signal to enemy ai
 	pass
 
 func _process(delta):
