@@ -13,10 +13,12 @@ func _on_button_pressed() -> void:
 
 func disable():
 	$DisabledCover.show()
+	$RedX.show()
 	$Button.hide()
 	$Button.disabled = true
 	
 func enable():
 	$DisabledCover.hide()
+	$RedX.hide()
 	$Button.show()
 	$Button.disabled = false

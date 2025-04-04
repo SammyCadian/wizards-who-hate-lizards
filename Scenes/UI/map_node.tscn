@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmhl2x4wtd3tl"]
+[gd_scene load_steps=14 format=3 uid="uid://bmhl2x4wtd3tl"]
 
 [ext_resource type="Script" path="res://Scenes/UI/map_node.gd" id="1_nprav"]
 [ext_resource type="Texture2D" uid="uid://yl3m5ioqdvyd" path="res://Sprites/UI/iconsSheet.png" id="2_yjvj6"]
+[ext_resource type="Texture2D" uid="uid://b480gkn463o2i" path="res://Sprites/UI/RedX.png" id="3_cpn5m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n2ovs"]
 atlas = ExtResource("2_yjvj6")
@@ -149,6 +150,11 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.121569, 0.121569, 0.121569, 0.709804)
+
+[node name="RedX" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 3.8147e-06)
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("3_cpn5m")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
