@@ -75,6 +75,7 @@ size_flags_horizontal = 3
 [node name="Unit4Button" type="Button" parent="UnitsForBattle/Unit4"]
 layout_mode = 2
 size_flags_vertical = 3
+expand_icon = true
 
 [node name="AbilitiesForBattle" type="HBoxContainer" parent="."]
 layout_mode = 0
