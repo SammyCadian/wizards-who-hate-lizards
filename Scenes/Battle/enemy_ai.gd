@@ -36,13 +36,13 @@ func decide_type():
 	var type = rng.randi_range(0, 1)
 	match type:
 		0:
-			return "sus"
+			return "Sus"
 		1:
-			return "spike"
+			return "Spike"
 		2:
-			return "liz3"
+			return "Liz3"
 		3:
-			return "liz4"
+			return "Liz4"
 	print("No Unit")
 
 # Randomizes number of troops spawned at once

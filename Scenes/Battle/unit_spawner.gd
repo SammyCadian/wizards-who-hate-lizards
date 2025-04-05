@@ -55,21 +55,21 @@ func getSpawnPoint(laneID):
 
 func getUnit(unitID: String):
 	match (unitID):
-		"scout":
+		"Scout":
 			return scout_scene
-		"rifleman":
+		"Rifleman":
 			return rifleman_scene
-		"autorifle":
+		"Autorifle":
 			return autorifle_scene
-		"sniper":
+		"Sniper":
 			return sniper_scene
-		"hoplite":
+		"Hoplite":
 			return hoplite_scene
-		"caster":
+		"Caster":
 			return caster_scene
-		"sus":
+		"Sus":
 			return sus_scene
-		"spike":
+		"Spike":
 			return spike_scene
 		
 

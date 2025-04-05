@@ -125,18 +125,35 @@ offset_bottom = 641.0
 
 [node name="Name" type="Label" parent="UnitDescription"]
 layout_mode = 2
-text = "Placeholder Title"
+text = "Title"
 autowrap_mode = 1
 
 [node name="Description" type="Label" parent="UnitDescription"]
 layout_mode = 2
-text = "Placeholder Description"
+theme_override_font_sizes/font_size = 13
+text = "Description"
 autowrap_mode = 2
 
-[node name="Cost" type="Label" parent="UnitDescription"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitDescription"]
 layout_mode = 2
-text = "Placeholder price"
-autowrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitDescription/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cost" type="Label" parent="UnitDescription/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Cost"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UnitDescription/HBoxContainer"]
+layout_mode = 2
+
+[node name="UsesLeft" type="Label" parent="UnitDescription/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Uses Left
+"
 
 [connection signal="mouse_entered" from="Units/Column1/UnitOne" to="." method="_on_unit_one_mouse_entered"]
 [connection signal="mouse_exited" from="Units/Column1/UnitOne" to="." method="_on_button_mouse_exited"]
