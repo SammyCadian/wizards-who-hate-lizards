@@ -107,9 +107,9 @@ expand_icon = true
 
 [node name="All units" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -329.697
+offset_left = -329.0
 offset_top = -133.87
-offset_right = -109.697
+offset_right = -109.0
 offset_bottom = 6.12976
 metadata/_edit_group_ = true
 
@@ -160,10 +160,10 @@ icon = ExtResource("7_ynns1")
 
 [node name="AllAbilities" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_left = -329.697
-offset_top = 23.2337
-offset_right = -188.697
-offset_bottom = 164.234
+offset_left = -329.0
+offset_top = 32.085
+offset_right = -213.0
+offset_bottom = 148.085
 metadata/_edit_group_ = true
 
 [node name="Ability1" type="VBoxContainer" parent="AllAbilities"]
@@ -190,6 +190,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 icon = ExtResource("10_s7clk")
+expand_icon = true
 
 [node name="AbilitySelect4" type="Button" parent="AllAbilities/Ability2"]
 layout_mode = 2
@@ -249,24 +250,25 @@ offset_left = 131.104
 offset_top = 8.85094
 offset_right = 261.104
 offset_bottom = 31.8509
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Abilities Loadout"
 
 [node name="Wizards" type="Label" parent="."]
 layout_mode = 0
-offset_left = -353.484
-offset_top = -33.191
-offset_right = -291.484
-offset_bottom = -10.191
-rotation = 4.71239
+offset_left = -325.0
+offset_top = -159.317
+offset_right = -263.0
+offset_bottom = -136.317
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Wizards"
 
 [node name="Abilities" type="Label" parent="."]
 layout_mode = 0
-offset_left = -352.931
-offset_top = 123.913
-offset_right = -290.931
-offset_bottom = 146.913
-rotation = 4.71239
+offset_left = -325.0
+offset_top = 7.191
+offset_right = -263.0
+offset_bottom = 30.191
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Abilities"
 
 [node name="UnitsLoadout" type="Label" parent="."]
@@ -275,6 +277,7 @@ offset_left = 138.296
 offset_top = -87.4035
 offset_right = 247.296
 offset_bottom = -64.4029
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Units Loadout"
 
 [node name="ChooseYourLoadout" type="Label" parent="."]
