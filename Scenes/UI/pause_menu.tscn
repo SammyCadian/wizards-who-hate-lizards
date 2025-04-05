@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/pause_menu.gd" id="1_0ix31"]
 
 [node name="Pause Menu" type="Control"]
+z_index = 2000
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_0ix31")

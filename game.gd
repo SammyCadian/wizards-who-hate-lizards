@@ -65,6 +65,17 @@ func pauseGame():
 	add_child(pauseInstance)
 	inMenu = true
 
+# Pause all node trees
+func zaWarudo(isPaused : bool):
+	if isPaused:
+		print("Time is frozen!")
+		$BattleManager.process_mode = Node.PROCESS_MODE_DISABLED
+		get_node("Map").process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		print("Time will now resume!")
+		$BattleManager.process_mode = Node.PROCESS_MODE_INHERIT
+		get_node("Map").process_mode = Node.PROCESS_MODE_INHERIT
+
 func showWarBonds():
 	$WarBonds.show()
 	
