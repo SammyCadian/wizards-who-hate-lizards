@@ -65,6 +65,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
+		$AudioStreamPlayer2D.play()
 		var targetAmount = min(targets.size(), 3)
 		for i in range(targetAmount):
 			targets[i].takeDamage(damage)

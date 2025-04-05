@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://wg47gug4qmtq"]
+[gd_scene load_steps=41 format=3 uid="uid://wg47gug4qmtq"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/hoplite.gd" id="1_0tjoi"]
 [ext_resource type="Texture2D" uid="uid://c2dpksaudhqmt" path="res://Sprites/Units/Wizards/WizardHoplite/WizardGuardsmanAttack.png" id="2_vmjca"]
 [ext_resource type="Texture2D" uid="uid://nb87vlsregve" path="res://Sprites/Units/Wizards/WizardHoplite/WizardGuardsmanDie.png" id="3_kpbhq"]
 [ext_resource type="Texture2D" uid="uid://manx5l3b7rtx" path="res://Sprites/Units/Wizards/WizardHoplite/WizardGuardsmanWalk.png" id="4_8dt7s"]
+[ext_resource type="AudioStream" uid="uid://sbvh53714spf" path="res://Sound Effects/laser-energy-sword-swipe-betacut-1-00-00.mp3" id="5_gwe4h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7308k"]
 atlas = ExtResource("2_vmjca")
@@ -254,7 +255,8 @@ script = ExtResource("1_0tjoi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_6sc6y")
-animation = &"death"
+animation = &"attack"
+frame_progress = 0.420717
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)
@@ -266,7 +268,7 @@ scale = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_d6yiv")
 
 [node name="DamageTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 20)
@@ -280,6 +282,9 @@ collision_layer = 4
 position = Vector2(-5, 20)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_47y6h")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gwe4h")
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]

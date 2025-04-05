@@ -21,6 +21,7 @@ position = Vector2(576, 568)
 texture = ExtResource("1_4jryg")
 
 [node name="Units" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 687.0
 offset_top = 507.0
 offset_right = 817.0
@@ -70,6 +71,7 @@ disabled = true
 expand_icon = true
 
 [node name="Abilities" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 825.0
 offset_top = 507.0
 offset_right = 890.0
@@ -105,6 +107,7 @@ texture_under = ExtResource("3_flsy5")
 texture_progress = ExtResource("4_5yivv")
 
 [node name="PointsLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 630.0
 offset_top = 525.0
 offset_right = 670.0
@@ -114,6 +117,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UnitDescription" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 412.0
 offset_top = 506.0
 offset_right = 610.0
