@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.play("explosion")
 		$AnimatedSprite2D.position = Vector2.ZERO
 		for i in range(explodableUnits.size()):
-			explodableUnits[i].takeDamage(3000)
+			explodableUnits[i].takeDamage(10 * Global.getDamageUpgrade())
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

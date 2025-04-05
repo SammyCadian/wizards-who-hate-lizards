@@ -72,7 +72,7 @@ var selected = ""
 
 func _victory_button():
 	if selected == "HealthUpgrade":
-		Global.setHealthUpgrade(10)
+		Global.setHealthUpgrade(.2)
 	elif selected == "DamageUpgrade":
 		Global.setDamageUpgrade(.2)
 	if selected == "":

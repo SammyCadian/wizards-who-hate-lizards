@@ -32,7 +32,7 @@ func resetPlayer():
 	boughtItems["Shotgun"] = 0
 
 var damageMultiplier = 1
-var healthUpgrade = 0
+var healthUpgrade = 1
 
 func setDamageUpgrade(moredamages):
 	damageMultiplier += moredamages

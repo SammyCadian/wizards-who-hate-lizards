@@ -19,7 +19,7 @@ var targets = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	health += Global.getHealthUpgrade()
+	health *= Global.getHealthUpgrade()
 	damage *= Global.getDamageUpgrade()
 	speed += 10 * RandomNumberGenerator.new().randf()
 	z_index = global_position.y + 200
