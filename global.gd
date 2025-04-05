@@ -4,7 +4,7 @@ extends Node
 var boughtItems = {
 	"Missile Launch" : 1,
 	"Flame Rain" : 0,
-	"Anti-Dying Circle" : 0,
+	"Anti-Dying Circle" : 5,
 	"Shotgun" : 5
 }
 

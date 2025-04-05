@@ -3,7 +3,7 @@ extends Control
 signal unitButtonPressed(pressedUnitID: String, cost: int)
 signal abilityButtonPressed(pressedAbilityID: String, cost: int)
 
-@export var incomeTime = 2.0 # Timer between getting more magic points
+@export var incomeTime = .5 # Timer between getting more magic points
 var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
 
 # Units in each button, global script should update these as the player unlocks/selects other units outside of battle
@@ -24,7 +24,8 @@ var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..
 					"caster":"Shadow Wizard Money gang - We love casting spells",
 					# Ability Descriptions
 					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
-					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)"}
+					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)",
+					"Anti-Dying Circle":"Manifest a big ol' anti death circle! note: does not prevent intense injury"}
 
 #Load units in for testing purposes
 func testLoad():

@@ -43,7 +43,7 @@ func activateTrapCard(abilityID: String, mousePos: Vector2):
 			var newAbility = shotgunAbility.instantiate()
 			newAbility.setTarget(mousePos)
 			add_child(newAbility)
-		"Shotgun":
+		"Anti-Dying Circle":
 			var newAbility = antideathAbility.instantiate()
 			newAbility.setTarget(mousePos)
 			add_child(newAbility)
