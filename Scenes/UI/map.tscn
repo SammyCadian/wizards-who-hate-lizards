@@ -6,8 +6,6 @@
 [node name="Map" type="Node2D"]
 script = ExtResource("1_yijh4")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_btcxg")
 

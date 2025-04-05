@@ -1,15 +1,13 @@
 extends Control
 
-func _ready() -> void:
-	get_parent().zaWarudo(true)
-
 func _on_resume_pressed() -> void:
-	get_parent().inMenu = false
-	get_parent().zaWarudo(false)
-	queue_free()
+	get_parent().resumeGame()
 
 func _on_restart_pressed() -> void:
 	get_parent().zaWarudo(false)
+	get_parent().get_node("BattleManager").inBattle = false
+	get_parent().get_node("Camera2D").set_zoom(Vector2(0.6, 0.6))
+	get_parent().paused = false
 	get_parent().restartGame()
 	queue_free()
 
