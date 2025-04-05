@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dhrsqjgxt8sv0" path="res://Scenes/Units/Wizards/scout.tscn" id="3_oeoac"]
 [ext_resource type="PackedScene" uid="uid://ddgw8akh4iuwq" path="res://Scenes/Units/Wizards/rifleman.tscn" id="4_bdpr3"]
 [ext_resource type="PackedScene" uid="uid://co1e2lije056e" path="res://Scenes/Units/Wizards/autorifle.tscn" id="4_sxex5"]
-[ext_resource type="PackedScene" path="res://Scenes/Units/Wizards/sniper.tscn" id="7_kploo"]
+[ext_resource type="PackedScene" uid="uid://bna85mfcqwi75" path="res://Scenes/Units/Wizards/sniper.tscn" id="7_kploo"]
 [ext_resource type="PackedScene" uid="uid://cx288yw6kmco8" path="res://Scenes/Battle/enemy_ai.tscn" id="7_uwm7n"]
-[ext_resource type="PackedScene" path="res://Scenes/Units/Wizards/hoplite.tscn" id="8_dao72"]
-[ext_resource type="PackedScene" path="res://Scenes/Units/Wizards/caster.tscn" id="9_cd2ee"]
+[ext_resource type="PackedScene" uid="uid://wg47gug4qmtq" path="res://Scenes/Units/Wizards/hoplite.tscn" id="8_dao72"]
+[ext_resource type="PackedScene" uid="uid://yibjyqw6jeqi" path="res://Scenes/Units/Wizards/caster.tscn" id="9_cd2ee"]
 
 [node name="Unit Spawner" type="Node2D"]
 script = ExtResource("1_gc3y3")

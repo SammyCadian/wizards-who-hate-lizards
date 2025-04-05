@@ -9,6 +9,10 @@ var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
 var is_friendly = true
+var antideath = false
+
+func setAntiDeath(killable: bool):
+	antideath = killable
 
 var targets = []
 
@@ -68,7 +72,10 @@ func _on_damage_timer_timeout() -> void:
 func takeDamage(damage: int):
 	health -= damage
 	if(health <= 0):
-		ouchieMyForehead()
+		if antideath:
+			health = 1
+		else:
+			ouchieMyForehead()
 
 
 func ouchieMyForehead():

@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://g5yfsxmc1pss"]
+
+[ext_resource type="Script" path="res://Scenes/Abilities/anti_dying_circle.gd" id="1_0xaxd"]
+[ext_resource type="Texture2D" uid="uid://b0awttaluqyln" path="res://Sprites/Abilities/MagicCircleAlt.png" id="2_35jw4"]
+[ext_resource type="Texture2D" uid="uid://ve3ltqveb2h0" path="res://Sprites/Abilities/MagicCircle.png" id="3_fppvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpxe2"]
+atlas = ExtResource("2_35jw4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k2ce"]
+atlas = ExtResource("2_35jw4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e85yp"]
+atlas = ExtResource("2_35jw4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejywb"]
+atlas = ExtResource("2_35jw4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fxj6"]
+atlas = ExtResource("2_35jw4")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uspqp"]
+atlas = ExtResource("3_fppvq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5gja"]
+atlas = ExtResource("3_fppvq")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg2l3"]
+atlas = ExtResource("3_fppvq")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mckio"]
+atlas = ExtResource("3_fppvq")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uneko"]
+atlas = ExtResource("3_fppvq")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nef0d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpxe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k2ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e85yp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ejywb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fxj6")
+}],
+"loop": false,
+"name": &"alt",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uspqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5gja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg2l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mckio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uneko")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3hv7"]
+radius = 80.0
+height = 266.0
+
+[node name="AntiDyingCircle" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_0xaxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nef0d")
+animation = &"alt"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k3hv7")
+
+[node name="LifeSpanTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="LifeSpanTimer" to="." method="_on_life_span_timer_timeout"]
