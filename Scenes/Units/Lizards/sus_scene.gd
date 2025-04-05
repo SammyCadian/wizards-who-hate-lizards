@@ -5,7 +5,7 @@ extends CharacterBody2D
 #var isDead = false
 var deathTimer = 0
 @onready var see_enemy = false
-var health = 30
+var health = 15
 var damageTaken = 0
 
 var is_friendly = false

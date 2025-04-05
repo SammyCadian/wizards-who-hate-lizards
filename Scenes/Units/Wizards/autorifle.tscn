@@ -159,7 +159,7 @@ y_sort_enabled = true
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_6sc6y")
 animation = &"attack"
-frame_progress = 0.495821
+frame_progress = 0.48217
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)
