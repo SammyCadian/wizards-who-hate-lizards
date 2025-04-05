@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2s1c473hghy2"
+path="res://.godot/imported/AutoRifleShot.mp3-391836af9518bc8e6b8811baaae4a58b.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/AutoRifleShot.mp3"
+dest_files=["res://.godot/imported/AutoRifleShot.mp3-391836af9518bc8e6b8811baaae4a58b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://bna85mfcqwi75"]
+[gd_scene load_steps=40 format=3 uid="uid://bna85mfcqwi75"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/sniper.gd" id="1_ibd27"]
 [ext_resource type="Texture2D" uid="uid://bavx8hqylq1cm" path="res://Sprites/Units/Wizards/WizardSniper/WizardSniperShooting.png" id="2_b7ebj"]
 [ext_resource type="Texture2D" uid="uid://evp2ntl717k0" path="res://Sprites/Units/Wizards/WizardSniper/WizardSniperDie.png" id="3_gb5p3"]
 [ext_resource type="Texture2D" uid="uid://b47ptv8i0qsv7" path="res://Sprites/Units/Wizards/WizardSniper/WizardSniperWalk.png" id="4_1j2fd"]
+[ext_resource type="AudioStream" uid="uid://decbpy6jhnvt7" path="res://Sound Effects/magicGunshot.mp3" id="5_bj3d6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0w068"]
 atlas = ExtResource("2_b7ebj")
@@ -273,6 +274,9 @@ collision_layer = 4
 position = Vector2(-5, 20)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_47y6h")
+
+[node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bj3d6")
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]

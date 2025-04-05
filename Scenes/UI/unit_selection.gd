@@ -87,7 +87,7 @@ func _on_unit_select_3_pressed() -> void:
 	selected = true
 	unitId = "autorifle"
 	icon = $"All units/Unit3/UnitSelect3".icon
-	cost = 30
+	cost = 50
 	unitOrAbility = 1
 
 
@@ -95,7 +95,7 @@ func _on_unit_select_4_pressed() -> void:
 	selected = true
 	unitId = "sniper"
 	icon = $"All units/Unit1/UnitSelect4".icon
-	cost = 40
+	cost = 80
 	unitOrAbility = 1
 	
 	
@@ -188,11 +188,11 @@ func _on_unit_select_2_mouse_entered() -> void:
 
 
 func _on_unit_select_3_mouse_entered() -> void:
-	show_description("autorifle", 30)
+	show_description("autorifle", 50)
 
 
 func _on_unit_select_4_mouse_entered() -> void:
-	show_description("sniper", 40)
+	show_description("sniper", 80)
 
 
 func _on_unit_select_5_mouse_entered() -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://co1e2lije056e"]
+[gd_scene load_steps=27 format=3 uid="uid://co1e2lije056e"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/autorifle.gd" id="1_6sc6y"]
 [ext_resource type="Texture2D" uid="uid://tp4dj2k1kox0" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleShooting.png" id="2_a884v"]
 [ext_resource type="Texture2D" uid="uid://hbo0nmbel2a8" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleDie.png" id="3_clyaf"]
 [ext_resource type="Texture2D" uid="uid://cm1rs0528tqg0" path="res://Sprites/Units/Wizards/WizardAutoRifle/WizardAutoRifleWalk.png" id="3_euege"]
+[ext_resource type="AudioStream" uid="uid://2s1c473hghy2" path="res://Sound Effects/AutoRifleShot.mp3" id="5_8rq1s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_euege"]
 atlas = ExtResource("2_a884v")
@@ -84,7 +85,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -143,7 +144,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6yiv"]
-size = Vector2(27.4, 2.7)
+size = Vector2(21.1, 2.7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_628q2"]
 
@@ -158,18 +159,19 @@ y_sort_enabled = true
 scale = Vector2(0.187, 0.187)
 sprite_frames = SubResource("SpriteFrames_6sc6y")
 animation = &"attack"
+frame_progress = 0.495821
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(-1, 1)
 collision_mask = 2
 
 [node name="Range" type="CollisionShape2D" parent="RangeArea"]
-position = Vector2(290, 17)
+position = Vector2(227, 17)
 scale = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_d6yiv")
 
 [node name="DamageTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 20)
@@ -183,6 +185,12 @@ collision_layer = 4
 position = Vector2(-5, 20)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_47y6h")
+
+[node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8rq1s")
+volume_db = -20.0
+pitch_scale = 4.0
+parameters/looping = true
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]
