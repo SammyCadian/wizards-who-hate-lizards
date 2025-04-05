@@ -58,7 +58,7 @@ shotgunAbility = ExtResource("3_7ct5m")
 position = Vector2(0, -162)
 scale = Vector2(0.825, 0.825)
 sprite_frames = SubResource("SpriteFrames_r3juu")
-animation = &"beach"
+animation = &"_default"
 
 [node name="BattleUI" parent="." instance=ExtResource("3_aqr0y")]
 offset_left = -576.0

@@ -2,10 +2,15 @@ extends Node2D
 
 var map : Node = null  # Store the map
 var currScene : Node = null  # Track the active scene
+@export var inMenu : bool = false # Flag to indicate if the user is in a menu
 
 func _ready():
 	generateMap()
 	loadStart()
+	
+func _process(delta):
+	if (!inMenu  && Input.is_action_just_pressed("Escape")):
+		pauseGame()
 
 func generateMap():
 	map = load("res://Scenes/UI/map.tscn").instantiate()
@@ -13,6 +18,7 @@ func generateMap():
 
 # Clear the current scene
 func clearScene():
+	inMenu = false
 	if currScene != null:
 		currScene.queue_free()
 
@@ -34,6 +40,7 @@ func loadScene(path : String) -> Node:
 func loadStart():
 	unloadMap()
 	loadScene("res://Scenes/UI/start_menu.tscn")
+	inMenu = true
 
 func loadMap():
 	clearScene()
@@ -52,6 +59,11 @@ func restartGame():
 	
 	# Go back to the start menu
 	loadStart()
+	
+func pauseGame():
+	var pauseInstance = load("res://Scenes/UI/pause_menu.tscn").instantiate()
+	add_child(pauseInstance)
+	inMenu = true
 
 func showWarBonds():
 	$WarBonds.show()
