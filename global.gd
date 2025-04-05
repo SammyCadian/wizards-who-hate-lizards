@@ -3,7 +3,7 @@ extends Node
 # Global dictionary to track purchased shop items
 var boughtItems = {
 	"Missile Launch" : 1,
-	"Flame Rain" : 0,
+	"Flame Rain" : 3,
 	"Anti-Dying Circle" : 5,
 	"Shotgun" : 5
 }

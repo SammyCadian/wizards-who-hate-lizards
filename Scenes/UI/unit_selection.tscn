@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckonvx88mks8d"]
+[gd_scene load_steps=12 format=3 uid="uid://ckonvx88mks8d"]
 
 [ext_resource type="Script" path="res://Scenes/UI/unit_selection.gd" id="1_bxdoy"]
 [ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="2_ongp6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dwxjquoumg6h4" path="res://Sprites/UI/ButtonIcons/Wizards/CasterIcon.png" id="7_ynns1"]
 [ext_resource type="Texture2D" uid="uid://ngihjo7ftu7g" path="res://Sprites/UI/ButtonIcons/Wizards/ShotgunIcon.png" id="9_veat3"]
 [ext_resource type="Texture2D" uid="uid://cfmxedrcwjy47" path="res://Sprites/UI/ButtonIcons/Wizards/AntiDeathIcon.png" id="10_s7clk"]
+[ext_resource type="Texture2D" uid="uid://dnoarlpv5n2yd" path="res://Sprites/UI/ButtonIcons/Wizards/FlameRainIcon.png" id="11_vm3kj"]
 
 [node name="Unit Selection" type="Control"]
 layout_mode = 3
@@ -191,6 +192,7 @@ icon = ExtResource("10_s7clk")
 [node name="AbilitySelect4" type="Button" parent="AllAbilities/Ability2"]
 layout_mode = 2
 size_flags_vertical = 3
+icon = ExtResource("11_vm3kj")
 expand_icon = true
 
 [node name="EnterGame" type="Button" parent="."]
@@ -251,4 +253,6 @@ text = "Cost"
 [connection signal="pressed" from="AllAbilities/Ability1/AbilitySelect3" to="." method="_on_ability_select_3_pressed"]
 [connection signal="mouse_entered" from="AllAbilities/Ability2/AbilitySelect2" to="." method="_on_ability_select_2_mouse_entered"]
 [connection signal="pressed" from="AllAbilities/Ability2/AbilitySelect2" to="." method="_on_ability_select_2_pressed"]
+[connection signal="mouse_entered" from="AllAbilities/Ability2/AbilitySelect4" to="." method="_on_ability_select_4_mouse_entered"]
+[connection signal="pressed" from="AllAbilities/Ability2/AbilitySelect4" to="." method="_on_ability_select_4_pressed"]
 [connection signal="button_up" from="EnterGame" to="." method="_on_enter_game_button_up"]

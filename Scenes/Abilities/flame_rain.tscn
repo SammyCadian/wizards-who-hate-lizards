@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0mve30crj0ma"]
+
+[ext_resource type="Script" path="res://Scenes/Abilities/flame_rain.gd" id="1_jkqvu"]
+[ext_resource type="PackedScene" uid="uid://vu47kvvgvwgf" path="res://Scenes/Abilities/fireball.tscn" id="2_8lqlg"]
+
+[node name="FlameRain" type="Node2D"]
+script = ExtResource("1_jkqvu")
+projectile = ExtResource("2_8lqlg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="DeletionTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DeletionTimer" to="." method="_on_deletion_timer_timeout"]

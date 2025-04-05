@@ -24,7 +24,8 @@ var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..
 					# Ability Descriptions
 					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
 					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)",
-					"Anti-Dying Circle":"Manifest a big ol' anti death circle! note: does not prevent intense injury"}
+					"Anti-Dying Circle":"Manifest a big ol' anti death circle! note: does not prevent injury",
+					"Flame Rain":"Summon a rain of fireballs to destroy your enemies!"}
 					
 					
 func _ready() -> void:
@@ -129,7 +130,7 @@ func _on_ability_select_1_pressed() -> void:
 	selected = true
 	unitId = "Missile Launch"
 	icon = $AllAbilities/Ability1/AbilitySelect1.icon
-	cost = 50
+	cost = 80
 	unitOrAbility = 2
 
 func _on_ability_select_3_pressed() -> void:
@@ -143,6 +144,13 @@ func _on_ability_select_2_pressed() -> void:
 	selected = true
 	unitId = "Anti-Dying Circle"
 	icon = $AllAbilities/Ability2/AbilitySelect2.icon
+	cost = 50
+	unitOrAbility = 2
+	
+func _on_ability_select_4_pressed() -> void:
+	selected = true
+	unitId = "Flame Rain"
+	icon = $AllAbilities/Ability2/AbilitySelect4.icon
 	cost = 50
 	unitOrAbility = 2
 
@@ -196,13 +204,17 @@ func _on_unit_select_6_mouse_entered() -> void:
 
 
 func _on_ability_select_1_mouse_entered() -> void:
-	show_description("Missile Launch", 50)
+	show_description("Missile Launch", 80)
 
 func _on_ability_select_3_mouse_entered() -> void:
 	show_description("Shotgun", 80)
 	
 func _on_ability_select_2_mouse_entered() -> void:
 	show_description("Anti-Dying Circle", 50)
+	
+func _on_ability_select_4_mouse_entered() -> void:
+	show_description("Flame Rain", 50)
 
+	
 func _on_button_mouse_exited() -> void:
 	$UnitDescription.hide()

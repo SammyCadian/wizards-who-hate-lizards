@@ -19,6 +19,7 @@ signal laneTraffic(isFriendly, lane, increment)
 @export var missileAbility: PackedScene
 @export var shotgunAbility: PackedScene
 @export var antideathAbility: PackedScene
+@export var flamerainAbility: PackedScene
 # Unit variables
 @export var unitSelected = false
 @export var unitName = "NO_UNIT" # Track the name of what is selected in the UI
@@ -45,6 +46,10 @@ func activateTrapCard(abilityID: String, mousePos: Vector2):
 			add_child(newAbility)
 		"Anti-Dying Circle":
 			var newAbility = antideathAbility.instantiate()
+			newAbility.setTarget(mousePos)
+			add_child(newAbility)
+		"Flame Rain":
+			var newAbility = flamerainAbility.instantiate()
 			newAbility.setTarget(mousePos)
 			add_child(newAbility)
 
