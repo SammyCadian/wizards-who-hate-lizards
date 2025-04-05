@@ -15,12 +15,12 @@ var unitOrAbility = 0
 
 signal loadBattle
 
-var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..",
-					"autorifle":"I just work here..",
-					"rifleman":"I don't know the difference between these units",
-					"sniper":"Shoots very far",
-					"hoplite":"Runs very fast",
-					"caster":"Shadow Wizard Money gang - We love casting spells",
+var descriptions = {"Scout":"A basic wizard with a gun. That walk speed though..",
+					"Autorifle":"I just work here..",
+					"Rifleman":"I don't know the difference between these units",
+					"Sniper":"Shoots very far",
+					"Hoplite":"Runs very fast",
+					"Caster":"Shadow Wizard Money gang - We love casting spells",
 					# Ability Descriptions
 					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
 					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)",
@@ -30,7 +30,7 @@ var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..
 					
 func _ready() -> void:
 	$UnitDescription.hide()
-					
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.hide()
 
 func _on_unit_1_button_pressed() -> void:
 	if(selected && unitOrAbility == 1):
@@ -69,7 +69,7 @@ func _on_unit_4_button_pressed() -> void:
 
 func _on_unit_select_1_pressed() -> void:
 	selected = true
-	unitId = "scout"
+	unitId = "Scout"
 	icon = $"All units/Unit1/UnitSelect1".icon
 	cost = 10
 	unitOrAbility = 1
@@ -77,7 +77,7 @@ func _on_unit_select_1_pressed() -> void:
 
 func _on_unit_select_2_pressed() -> void:
 	selected = true
-	unitId = "rifleman"
+	unitId = "Rifleman"
 	icon = $"All units/Unit2/UnitSelect2".icon
 	cost = 20
 	unitOrAbility = 1
@@ -85,7 +85,7 @@ func _on_unit_select_2_pressed() -> void:
 
 func _on_unit_select_3_pressed() -> void:
 	selected = true
-	unitId = "autorifle"
+	unitId = "Autorifle"
 	icon = $"All units/Unit3/UnitSelect3".icon
 	cost = 50
 	unitOrAbility = 1
@@ -93,7 +93,7 @@ func _on_unit_select_3_pressed() -> void:
 
 func _on_unit_select_4_pressed() -> void:
 	selected = true
-	unitId = "sniper"
+	unitId = "Sniper"
 	icon = $"All units/Unit1/UnitSelect4".icon
 	cost = 80
 	unitOrAbility = 1
@@ -101,7 +101,7 @@ func _on_unit_select_4_pressed() -> void:
 	
 func _on_unit_select_5_pressed() -> void:
 	selected = true
-	unitId = "hoplite"
+	unitId = "Hoplite"
 	icon = $"All units/Unit2/UnitSelect5".icon
 	cost = 40
 	unitOrAbility = 1
@@ -109,7 +109,7 @@ func _on_unit_select_5_pressed() -> void:
 
 func _on_unit_select_6_pressed() -> void:
 	selected = true
-	unitId = "caster"
+	unitId = "Caster"
 	icon = $"All units/Unit3/UnitSelect6".icon
 	cost = 120
 	unitOrAbility = 1
@@ -173,18 +173,21 @@ func _on_ability_2_button_pressed() -> void:
 
 
 func show_description(name, cost):
-	$UnitDescription/Name.text = name[0].to_upper() + name.substr(1,-1)
+	$UnitDescription/Name.text = name
 	$UnitDescription/Description.text = descriptions[name]
-	$UnitDescription/Cost.text = "Cost: "+str(cost)
+	$UnitDescription/HBoxContainer/HBoxContainer/Cost.text = "Battle cost: "+str(cost)
 	$UnitDescription.show()
 	
+func show_uses_left(name):
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.text = str(Global.boughtItems[name]) + " left"
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.show()
 
 func _on_unit_select_1_mouse_entered() -> void:
-	show_description("scout", 10)
+	show_description("Scout", 10)
 
 
 func _on_unit_select_2_mouse_entered() -> void:
-	show_description("rifleman", 20)
+	show_description("Rifleman", 20)
 
 
 func _on_unit_select_3_mouse_entered() -> void:
@@ -194,27 +197,31 @@ func _on_unit_select_3_mouse_entered() -> void:
 func _on_unit_select_4_mouse_entered() -> void:
 	show_description("sniper", 80)
 
-
 func _on_unit_select_5_mouse_entered() -> void:
-	show_description("hoplite", 40)
+	show_description("Hoplite", 40)
 
 
 func _on_unit_select_6_mouse_entered() -> void:
-	show_description("caster", 120)
+	show_description("Caster", 120)
 
 
 func _on_ability_select_1_mouse_entered() -> void:
-	show_description("Missile Launch", 80)
-
-func _on_ability_select_3_mouse_entered() -> void:
-	show_description("Shotgun", 80)
+	show_description("Missile Launch", 50)
+	show_uses_left("Missile Launch")
 	
 func _on_ability_select_2_mouse_entered() -> void:
 	show_description("Anti-Dying Circle", 50)
-	
+	show_uses_left("Anti-Dying Circle")
+
+func _on_ability_select_3_mouse_entered() -> void:
+	show_description("Shotgun", 80)
+	show_uses_left("Shotgun")
+
 func _on_ability_select_4_mouse_entered() -> void:
-	show_description("Flame Rain", 50)
+	show_description("Missile Launch", 80)
+	show_uses_left("Missile Launch")
 
 	
 func _on_button_mouse_exited() -> void:
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.hide()
 	$UnitDescription.hide()

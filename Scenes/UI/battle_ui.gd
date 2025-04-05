@@ -16,12 +16,12 @@ var magicPoints = 80 # Track the number of magic points, as displayed in the U.I
 var units = []
 var abilities = []
 var costs = [0, 0, 0, 0, 0, 0]
-var descriptions = {"scout":"A basic wizard with a gun. That walk speed though..",
-					"autorifle":"I just work here..",
-					"rifleman":"I don't know the difference between these units",
-					"sniper":"Shoots very far",
-					"hoplite":"Runs very fast",
-					"caster":"Shadow Wizard Money gang - We love casting spells",
+var descriptions = {"Scout":"A basic wizard with a gun. That walk speed though..",
+					"Autorifle":"I just work here..",
+					"Rifleman":"I don't know the difference between these units",
+					"Sniper":"Shoots very far",
+					"Hoplite":"Runs very fast",
+					"Caster":"Shadow Wizard Money gang - We love casting spells",
 					# Ability Descriptions
 					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
 					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)",
@@ -38,6 +38,7 @@ func testLoad():
 func _ready() -> void:
 	#testLoad()
 	$UnitDescription.hide()
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.hide()
 	$IncomeTimer.set_wait_time(incomeTime/100)
 	$IncomeTimer.start()
 	updatePoints()
@@ -126,11 +127,15 @@ func _on_ability_2_pressed() -> void:
 ## TO DISPLAY DESCRIPTIONS
 # Takes input to display description
 func show_description(name, cost):
-	$UnitDescription/Name.text = name[0].to_upper() + name.substr(1,-1)
+	$UnitDescription/Name.text = name
 	$UnitDescription/Description.text = descriptions[name]
-	$UnitDescription/Cost.text = "Cost: "+str(cost)
+	$UnitDescription/HBoxContainer/HBoxContainer/Cost.text = "Cost: "+str(cost)
 	$UnitDescription.show()
-
+	
+func show_uses_left(name):
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.text = str(Global.boughtItems[name]) + " left"
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.show()
+	
 # Unit/ability hover signals
 func _on_unit_one_mouse_entered() -> void:
 	if(units.size() > 0):
@@ -151,11 +156,14 @@ func _on_unit_four_mouse_entered() -> void:
 func _on_ability_1_mouse_entered() -> void:
 	if(abilities.size() > 0):
 		show_description(abilities[0], costs[4])
+		show_uses_left(abilities[0])
 
 func _on_ability_2_mouse_entered() -> void:
 	if(abilities.size() > 1):
 		show_description(abilities[1], costs[5])
+		show_uses_left(abilities[1])
 
 # Units/abilities unhover signal
 func _on_button_mouse_exited() -> void:
 	$UnitDescription.hide()
+	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.hide()

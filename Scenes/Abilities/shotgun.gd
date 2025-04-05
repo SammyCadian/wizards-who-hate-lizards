@@ -6,6 +6,7 @@ var fireReady
 
 func setTarget(target: Vector2):
 	position = target
+	z_index = 1500 + global_position.y
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

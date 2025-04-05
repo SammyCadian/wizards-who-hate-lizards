@@ -34,14 +34,14 @@ offset_right = 389.5
 offset_bottom = 182.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.435192, 0.435192, 0.435192, 1)
+color = Color(0.353221, 0.299319, 0.257377, 1)
 
 [node name="UnitsForBattle" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -300.0
-offset_top = 110.0
-offset_right = -64.0
-offset_bottom = 165.0
+offset_left = 46.4674
+offset_top = -64.1692
+offset_right = 341.467
+offset_bottom = 4.8308
 metadata/_edit_group_ = true
 
 [node name="Unit1" type="VBoxContainer" parent="UnitsForBattle"]
@@ -82,9 +82,10 @@ expand_icon = true
 
 [node name="AbilitiesForBattle" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_top = 110.0
-offset_right = 118.0
-offset_bottom = 165.0
+offset_left = 136.636
+offset_top = 32.0846
+offset_right = 254.636
+offset_bottom = 87.0846
 
 [node name="Ability1" type="VBoxContainer" parent="AbilitiesForBattle"]
 layout_mode = 2
@@ -106,10 +107,10 @@ expand_icon = true
 
 [node name="All units" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -300.0
-offset_top = -160.0
-offset_right = -80.0
-offset_bottom = -20.0
+offset_left = -329.697
+offset_top = -133.87
+offset_right = -109.697
+offset_bottom = 6.12976
 metadata/_edit_group_ = true
 
 [node name="Unit1" type="VBoxContainer" parent="All units"]
@@ -159,9 +160,10 @@ icon = ExtResource("7_ynns1")
 
 [node name="AllAbilities" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_top = -160.0
-offset_right = 141.0
-offset_bottom = -19.0
+offset_left = -329.697
+offset_top = 23.2337
+offset_right = -188.697
+offset_bottom = 164.234
 metadata/_edit_group_ = true
 
 [node name="Ability1" type="VBoxContainer" parent="AllAbilities"]
@@ -197,18 +199,18 @@ expand_icon = true
 
 [node name="EnterGame" type="Button" parent="."]
 layout_mode = 0
-offset_left = 250.039
-offset_top = 119.488
-offset_right = 377.039
-offset_bottom = 162.488
+offset_left = 133.317
+offset_top = 105.658
+offset_right = 260.317
+offset_bottom = 148.658
 text = "Enter the game"
 
 [node name="UnitDescription" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -298.0
-offset_top = -9.0
-offset_right = -10.0
-offset_bottom = 105.0
+offset_left = -144.934
+offset_top = 18.2551
+offset_right = 87.066
+offset_bottom = 132.255
 
 [node name="Name" type="Label" parent="UnitDescription"]
 layout_mode = 2
@@ -216,11 +218,73 @@ text = "Name"
 
 [node name="Description" type="Label" parent="UnitDescription"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 13
 text = "Description"
+autowrap_mode = 2
 
-[node name="Cost" type="Label" parent="UnitDescription"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitDescription"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitDescription/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cost" type="Label" parent="UnitDescription/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
 text = "Cost"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UnitDescription/HBoxContainer"]
+layout_mode = 2
+
+[node name="UsesLeft" type="Label" parent="UnitDescription/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Uses Left
+"
+
+[node name="AbilitiesLoadout" type="Label" parent="."]
+layout_mode = 2
+offset_left = 131.104
+offset_top = 8.85094
+offset_right = 261.104
+offset_bottom = 31.8509
+text = "Abilities Loadout"
+
+[node name="Wizards" type="Label" parent="."]
+layout_mode = 0
+offset_left = -353.484
+offset_top = -33.191
+offset_right = -291.484
+offset_bottom = -10.191
+rotation = 4.71239
+text = "Wizards"
+
+[node name="Abilities" type="Label" parent="."]
+layout_mode = 0
+offset_left = -352.931
+offset_top = 123.913
+offset_right = -290.931
+offset_bottom = 146.913
+rotation = 4.71239
+text = "Abilities"
+
+[node name="UnitsLoadout" type="Label" parent="."]
+layout_mode = 0
+offset_left = 138.296
+offset_top = -87.4035
+offset_right = 247.296
+offset_bottom = -64.4029
+text = "Units Loadout"
+
+[node name="ChooseYourLoadout" type="Label" parent="."]
+layout_mode = 0
+offset_left = -108.424
+offset_top = -178.125
+offset_right = 108.576
+offset_bottom = -148.125
+theme_override_font_sizes/font_size = 21
+text = "Choose Your Loadout"
 
 [connection signal="pressed" from="UnitsForBattle/Unit1/Unit1Button" to="." method="_on_unit_1_button_pressed"]
 [connection signal="pressed" from="UnitsForBattle/Unit2/Unit2Button" to="." method="_on_unit_2_button_pressed"]
@@ -250,9 +314,12 @@ text = "Cost"
 [connection signal="mouse_exited" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="AllAbilities/Ability1/AbilitySelect1" to="." method="_on_ability_select_1_pressed"]
 [connection signal="mouse_entered" from="AllAbilities/Ability1/AbilitySelect3" to="." method="_on_ability_select_3_mouse_entered"]
+[connection signal="mouse_exited" from="AllAbilities/Ability1/AbilitySelect3" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="AllAbilities/Ability1/AbilitySelect3" to="." method="_on_ability_select_3_pressed"]
 [connection signal="mouse_entered" from="AllAbilities/Ability2/AbilitySelect2" to="." method="_on_ability_select_2_mouse_entered"]
+[connection signal="mouse_exited" from="AllAbilities/Ability2/AbilitySelect2" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="AllAbilities/Ability2/AbilitySelect2" to="." method="_on_ability_select_2_pressed"]
 [connection signal="mouse_entered" from="AllAbilities/Ability2/AbilitySelect4" to="." method="_on_ability_select_4_mouse_entered"]
+[connection signal="mouse_exited" from="AllAbilities/Ability2/AbilitySelect4" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="AllAbilities/Ability2/AbilitySelect4" to="." method="_on_ability_select_4_pressed"]
 [connection signal="button_up" from="EnterGame" to="." method="_on_enter_game_button_up"]
