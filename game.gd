@@ -18,10 +18,10 @@ func _process(delta):
 			resumeGame()
 	
 	if ($BattleManager.inBattle):
-		if (Input.is_action_pressed("cameraLeft")):
+		if (Input.is_action_pressed("cameraLeft") && $Camera2D.position.x != -50):
 			$Camera2D.position.x -= 5
 			
-		if (Input.is_action_pressed("cameraRight")):
+		if (Input.is_action_pressed("cameraRight")  && $Camera2D.position.x != 50):
 			$Camera2D.position.x += 5
 
 func generateMap():

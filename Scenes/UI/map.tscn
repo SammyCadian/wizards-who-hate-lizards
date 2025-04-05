@@ -12,7 +12,7 @@ texture = ExtResource("2_btcxg")
 [node name="barnNode" type="Marker2D" parent="."]
 position = Vector2(-328, 64)
 
-[node name="willowNode" type="Marker2D" parent="."]
+[node name="magnoliaNode" type="Marker2D" parent="."]
 position = Vector2(-672, 176)
 
 [node name="forestNode" type="Marker2D" parent="."]

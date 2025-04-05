@@ -3,6 +3,7 @@ extends Node2D
 @export var inBattle = false
 @export var currBattle : Node = null  # Track the current battle
 var battleUI : Node = null  # Track the current battle UI
+@onready var camera : Camera2D = get_parent().get_node("Camera2D")
 
 # Preload nodes for instantation
 var victoryScene = preload("res://Scenes/UI/victory_ui.tscn")
@@ -16,7 +17,7 @@ func startBattle(loadedUnits: Array, location: String):
 	currBattle.laneSelected.connect($"Unit Spawner"._on_battle_lane_selected) # Connect the unit spawning signal
 	currBattle.laneTraffic.connect($"Unit Spawner"/"Enemy AI"._on_battle_lane_traffic) # Connect the unit tracker signal
 	currBattle.winCon.connect(_on_battle_win_con) # Connect the battle win/lose signal
-	currBattle.get_node("Background").animation = "_default" #location.to_lower() # Set the battle background
+	currBattle.get_node("Background").animation = location.to_lower() # Set the battle background
 	battleCamera(true) # Turn on the battle camera
 	currBattle.reparent(self)
 	inBattle = true
@@ -32,8 +33,6 @@ func startBattle(loadedUnits: Array, location: String):
 
 # Adjust the camera's zoom for battle
 func battleCamera(isOn : bool):
-	var camera = get_parent().get_node("Camera2D") # Get the game's camera
-
 	if isOn:
 		camera.set_zoom(Vector2(0.86, 0.86))
 	else:
@@ -52,6 +51,9 @@ func _on_battle_win_con(side: Variant) -> void:
 			
 
 func playerWins():
+	# Reset the camera position
+	camera.position = Vector2(0, 0)
+	
 	# Update player variables
 	Global.ADD_WAR_BONDS(100)
 	get_parent().updateWarBonds()
@@ -70,6 +72,9 @@ func playerWins():
 	currBattle.add_child(victoryInstance)
 	
 func lizardsWin():
+	# Reset the camera position
+	camera.position = Vector2(0, 0)	
+
 	# Reset player variables
 	Global.resetPlayer()
 	

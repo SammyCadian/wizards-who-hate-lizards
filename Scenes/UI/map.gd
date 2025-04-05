@@ -12,7 +12,7 @@ var mapNodeArray = [] # Store all map nodes in an array
 var rng = RandomNumberGenerator.new()
 
 # Dictionary for each battle name and node pair
-@onready var battleDict = {"Willow" : $willowNode, "Barn" : $barnNode, "Mountain" : $mountainNode, 
+@onready var battleDict = {"Magnolia" : $magnoliaNode, "Barn" : $barnNode, "Mountain" : $mountainNode, 
 "Beach" : $beachNode, "Forest1" : $forestNode, "Forest2" : $forestNode2, "Rock" : $rockNode, 
 "Pond" : $pondNode, "Plains" : $plainsNode, "Boss" : $bossNode}
 
@@ -51,7 +51,7 @@ func randomizeBattles() -> void:
 	
 	# Randomize all battle pairs
 	if (randomIndex == 1):
-		instMapNode("Willow", nodeType, battleDict["Willow"])
+		instMapNode("Magnolia", nodeType, battleDict["Magnolia"])
 	else:
 		instMapNode("Forest", nodeType, battleDict["Forest1"])
 	
