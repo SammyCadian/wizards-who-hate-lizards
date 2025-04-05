@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var damage = 1
 @onready var see_enemy = false
-var health = 30
+var health = 10
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
@@ -31,7 +31,7 @@ func move():
 	if see_enemy:
 		velocity = Vector2(0, 0)   
 	elif !see_enemy:
-		velocity = Vector2(-50, 0)  
+		velocity = Vector2(-70, 0)  
 	move_and_slide()
 
 

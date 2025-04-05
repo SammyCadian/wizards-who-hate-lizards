@@ -2,6 +2,7 @@ extends Node2D
 
 @export var sus_scene: PackedScene
 @export var spike_scene: PackedScene
+@export var ghost_scene: PackedScene
 @export var scout_scene: PackedScene
 @export var rifleman_scene: PackedScene
 @export var autorifle_scene: PackedScene
@@ -71,6 +72,8 @@ func getUnit(unitID: String):
 			return sus_scene
 		"Spike":
 			return spike_scene
+		"Ghost":
+			return ghost_scene
 		
 
 func _on_battle_lane_selected(unitName: String, selectedLane: String, unitNum: int) -> void:

@@ -33,21 +33,21 @@ func spawn_or_no_spawn() -> bool:
 
 # Randomizes type of troop spawned
 func decide_type():
-	var type = rng.randi_range(0, 1)
+	var type = rng.randi_range(0, 2)
 	match type:
 		0:
 			return "Sus"
 		1:
 			return "Spike"
 		2:
-			return "Liz3"
+			return "Ghost"
 		3:
 			return "Liz4"
 	print("No Unit")
 
 # Randomizes number of troops spawned at once
-func decide_amount():
-	return rng.randi_range(min_amount, max_amount)
+func decide_amount(multiplier):
+	return rng.randi_range(multiplier*min_amount, multiplier*max_amount)
 
 # Choose a lane based off of whether or not a lizard is already there
 func decide_lane():
@@ -75,7 +75,14 @@ func change_iteration_delay(delay: float):
 
 func _on_iteration_delay_timeout() -> void:
 	if (spawn_or_no_spawn()):
-		send_spawn_signal(decide_type(), decide_lane(), decide_amount())
+		var type = decide_type()
+		var lane = decide_lane()
+		var amount
+		if type == "Ghost":
+			amount = decide_amount(3)
+		else:
+			amount = decide_amount(1)
+		send_spawn_signal(type, lane, amount)
 
 
 # Recieves lane traffic signal from battle scene
