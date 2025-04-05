@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var damage = 1
 @onready var see_enemy = false
-var health = 30
+var health = 20
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0

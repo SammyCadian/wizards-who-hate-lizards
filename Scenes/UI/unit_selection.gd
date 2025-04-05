@@ -191,11 +191,11 @@ func _on_unit_select_2_mouse_entered() -> void:
 
 
 func _on_unit_select_3_mouse_entered() -> void:
-	show_description("autorifle", 50)
+	show_description("Autorifle", 50)
 
 
 func _on_unit_select_4_mouse_entered() -> void:
-	show_description("sniper", 80)
+	show_description("Sniper", 80)
 
 func _on_unit_select_5_mouse_entered() -> void:
 	show_description("Hoplite", 40)

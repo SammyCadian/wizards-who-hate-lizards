@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var see_enemy = false
 @export var damage = 1
+var shooting = false
+var wasshooting = false
 var health = 10
 var speed = 80
 var damage_multiplier = 1
@@ -27,6 +29,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if shooting != wasshooting:
+		if shooting:
+			$Gunshot.play(0.0)
+		wasshooting = shooting
 	if(deathTimer > 0):
 		$AnimatedSprite2D.animation = "death"
 		deathTimer -= delta
@@ -51,6 +57,7 @@ func WizardDamage() -> int:
 func _on_range_area_body_entered(body: Node2D) -> void:
 	targets.append(body)
 	$DamageTimer.start()
+	shooting = true
 	$AnimatedSprite2D.animation = "attack"
 	see_enemy = true
 
@@ -59,13 +66,15 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if(targets.has(body)):
 		targets.remove_at(targets.find(body))
 	if(targets.size() <= 0):
+		$Gunshot.stop()
+		shooting = false
 		$DamageTimer.stop()
 		$AnimatedSprite2D.animation = "walk"
 		see_enemy = false
 
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
-		$AudioStreamPlayer2D.play()
+		$Gunshot.play(0.0)
 		targets[0].takeDamage(damage)
 	#health -= damageTaken
 	#print("Scout health: " + str(health))
