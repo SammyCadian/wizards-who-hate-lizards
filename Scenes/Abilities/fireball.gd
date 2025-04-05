@@ -14,7 +14,7 @@ func setTarget(target: Vector2):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if RandomNumberGenerator.new().randf() > 0.95:
+	if RandomNumberGenerator.new().randf() > 0.99:
 		$AnimatedSprite2D.play("secret")
 	else:
 		$AnimatedSprite2D.play("default")
