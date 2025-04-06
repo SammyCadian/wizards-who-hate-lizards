@@ -31,6 +31,13 @@ var descriptions = {"Scout":"A basic wizard with a gun. That walk speed though..
 func _ready() -> void:
 	$UnitDescription.hide()
 	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.hide()
+	
+	# Enable buttons of unlocked units
+	$"All units/Unit2/UnitSelect2".disabled = !Global.unlockedUnits.has(2)
+	$"All units/Unit3/UnitSelect3".disabled = !Global.unlockedUnits.has(3)
+	$"All units/Unit1/UnitSelect4".disabled = !Global.unlockedUnits.has(4)
+	$"All units/Unit2/UnitSelect5".disabled = !Global.unlockedUnits.has(5)
+	$"All units/Unit3/UnitSelect6".disabled = !Global.unlockedUnits.has(6)
 
 func _on_unit_1_button_pressed() -> void:
 	if(selected && unitOrAbility == 1):

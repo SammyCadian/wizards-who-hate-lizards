@@ -1,0 +1,264 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvwt07uksjh4u"]
+
+[ext_resource type="Script" path="res://Scenes/UI/unlock_ui.gd" id="1_11s7u"]
+[ext_resource type="Texture2D" uid="uid://d16t6tiqbm3tp" path="res://Sprites/UI/ButtonIcons/Wizards/RifleIcon.png" id="2_rpm65"]
+[ext_resource type="Texture2D" uid="uid://b1gbqcv7e8t4t" path="res://Sprites/UI/ButtonIcons/Wizards/AutoRifleIcon.png" id="3_bt0ux"]
+[ext_resource type="Texture2D" uid="uid://d8nw7a146le4" path="res://Sprites/UI/ButtonIcons/Wizards/SniperIcon.png" id="4_ap041"]
+[ext_resource type="Texture2D" uid="uid://ccrddgfliiaxb" path="res://Sprites/UI/ButtonIcons/Wizards/HopliteAnim.png" id="5_mq246"]
+[ext_resource type="Texture2D" uid="uid://dwxjquoumg6h4" path="res://Sprites/UI/ButtonIcons/Wizards/CasterIcon.png" id="6_vm16d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bmx43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rpm65")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bt0ux")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ap041")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mq246")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vm16d")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}]
+
+[node name="UnlockUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_11s7u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.207843, 0.207843, 0.54902)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -312.0
+offset_top = -269.0
+offset_right = 312.0
+offset_bottom = -81.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Select Your New Unit!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Continue" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = 141.0
+offset_right = 143.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
+[node name="ChosenUnit" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -51.5
+offset_right = 51.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.860369, 0.860369, 0.860369, 1)
+
+[node name="UnitIcon" type="AnimatedSprite2D" parent="ChosenUnit"]
+position = Vector2(51.5, 51.5)
+scale = Vector2(1.71667, 1.71667)
+sprite_frames = SubResource("SpriteFrames_bmx43")
+animation = &"3"
+
+[node name="UnitName" type="Label" parent="ChosenUnit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = 62.5
+offset_right = 134.5
+offset_bottom = 134.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "NAME
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Option1" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -267.0
+offset_top = -97.0
+offset_right = -164.0
+offset_bottom = 6.0
+color = Color(0.860369, 0.860369, 0.860369, 1)
+
+[node name="UnitIcon" type="AnimatedSprite2D" parent="Option1"]
+position = Vector2(51.5, 51.5)
+scale = Vector2(1.71667, 1.71667)
+sprite_frames = SubResource("SpriteFrames_bmx43")
+animation = &"3"
+
+[node name="UnitName" type="Label" parent="Option1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = 40.0
+offset_right = 135.5
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "NAME
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button1" type="Button" parent="Option1"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -83.5
+offset_right = 162.5
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Option2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = -97.0
+offset_right = 283.0
+offset_bottom = 6.0
+color = Color(0.860369, 0.860369, 0.860369, 1)
+
+[node name="UnitIcon" type="AnimatedSprite2D" parent="Option2"]
+position = Vector2(51.5, 51.5)
+scale = Vector2(1.71667, 1.71667)
+sprite_frames = SubResource("SpriteFrames_bmx43")
+animation = &"3"
+
+[node name="UnitName" type="Label" parent="Option2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = 40.0
+offset_right = 135.5
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "NAME
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="Option2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -83.5
+offset_right = 162.5
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Continue" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Option1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Option2/Button2" to="." method="_on_button_2_pressed"]

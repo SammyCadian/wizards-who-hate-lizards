@@ -5,7 +5,7 @@ extends CharacterBody2D
 var shooting = false
 var wasshooting = false
 var health = 10
-var speed = 800
+var speed = 1000
 var damage_multiplier = 1
 var damageTaken = 0
 #var isDead = false

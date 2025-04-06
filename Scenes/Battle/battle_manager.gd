@@ -106,6 +106,7 @@ func _victory_button():
 	else:
 		selected = ""
 		battleCamera(false) # Turn off the battle camera
+		get_parent().get_node("Map").unlockUnit()
 		get_parent().loadMap()
 		
 	
@@ -118,5 +119,4 @@ func selectHealthUpgrade():
 
 func selectDamageUpgrade():
 	selected = "DamageUpgrade"
-
 	

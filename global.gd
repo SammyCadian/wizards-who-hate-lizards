@@ -8,6 +8,9 @@ var boughtItems = {
 	"Shotgun" : 5
 }
 
+# Global array to track unlocked units
+var unlockedUnits = []
+
 # Global variable to track the player's reward from battle
 var PLAYER_WAR_BONDS = 0
 

@@ -86,6 +86,14 @@ animations = [{
 "loop": true,
 "name": &"rock",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rf7mn")
+}],
+"loop": true,
+"name": &"they\'re in the trees!",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqxgi"]
@@ -109,7 +117,7 @@ offset_bottom = -272.0
 position = Vector2(0, -82)
 scale = Vector2(0.825, 0.825)
 sprite_frames = SubResource("SpriteFrames_r3juu")
-animation = &"forest"
+animation = &"they\'re in the trees!"
 
 [node name="topLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, -3)

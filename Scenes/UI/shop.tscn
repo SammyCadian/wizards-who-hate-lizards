@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://sp2tq3ngw4d0"]
+[gd_scene load_steps=15 format=3 uid="uid://sp2tq3ngw4d0"]
 
 [ext_resource type="Script" path="res://Scenes/UI/shop.gd" id="1_oa8wu"]
 [ext_resource type="AudioStream" uid="uid://fedxuypkt716" path="res://Music/shopTheme.wav" id="3_25rfe"]
 [ext_resource type="Texture2D" uid="uid://bypmxy42bikwf" path="res://Sprites/Shop/shopAnimation.png" id="3_epfy7"]
+[ext_resource type="AudioStream" uid="uid://cxem0ccauq6k1" path="res://Sound Effects/buyItem.wav" id="4_1ums1"]
+[ext_resource type="AudioStream" uid="uid://bf6gpyr2cb536" path="res://Sound Effects/cantBuy.wav" id="5_1dhjg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2alx2"]
 atlas = ExtResource("3_epfy7")
@@ -102,17 +104,25 @@ stream = ExtResource("3_25rfe")
 volume_db = 2.0
 autoplay = true
 
+[node name="BuyItemSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-248, 280)
+stream = ExtResource("4_1ums1")
+
+[node name="CantBuySound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-248, 280)
+stream = ExtResource("5_1dhjg")
+
 [node name="item1" type="Marker2D" parent="."]
-position = Vector2(256, -232)
+position = Vector2(256, -320)
 
 [node name="item2" type="Marker2D" parent="."]
-position = Vector2(576, -232)
+position = Vector2(576, -320)
 
 [node name="item3" type="Marker2D" parent="."]
-position = Vector2(256, -56)
+position = Vector2(256, 0)
 
 [node name="item4" type="Marker2D" parent="."]
-position = Vector2(576, -56)
+position = Vector2(576, 0)
 
 [node name="MapButton" type="Button" parent="."]
 layout_mode = 0
@@ -132,6 +142,63 @@ offset_bottom = 464.0
 theme_override_font_sizes/font_size = 70
 disabled = true
 text = "BUY"
+
+[node name="Description" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -760.0
+offset_top = 343.0
+offset_right = -288.0
+offset_bottom = 495.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemName" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -760.0
+offset_top = 280.0
+offset_right = -392.0
+offset_bottom = 335.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Amount" type="Label" parent="."]
+visible = false
+offset_left = -365.0
+offset_top = 280.0
+offset_right = -77.0
+offset_bottom = 335.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "(You Have: %)"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CantBuyLabel" type="Label" parent="."]
+visible = false
+offset_left = 204.0
+offset_top = 216.0
+offset_right = 628.0
+offset_bottom = 271.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "CANNOT BUY ITEM!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="MapButton" to="." method="_on_map_button_pressed"]
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

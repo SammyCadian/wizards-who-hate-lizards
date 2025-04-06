@@ -126,6 +126,7 @@ expand_icon = true
 [node name="UnitSelect4" type="Button" parent="All units/Unit1"]
 layout_mode = 2
 size_flags_vertical = 3
+disabled = true
 icon = ExtResource("5_lneam")
 
 [node name="Unit2" type="VBoxContainer" parent="All units"]
@@ -135,12 +136,14 @@ size_flags_horizontal = 3
 [node name="UnitSelect2" type="Button" parent="All units/Unit2"]
 layout_mode = 2
 size_flags_vertical = 3
+disabled = true
 icon = ExtResource("4_jqnbg")
 expand_icon = true
 
 [node name="UnitSelect5" type="Button" parent="All units/Unit2"]
 layout_mode = 2
 size_flags_vertical = 3
+disabled = true
 icon = ExtResource("6_drrn2")
 
 [node name="Unit3" type="VBoxContainer" parent="All units"]
@@ -150,12 +153,14 @@ size_flags_horizontal = 3
 [node name="UnitSelect3" type="Button" parent="All units/Unit3"]
 layout_mode = 2
 size_flags_vertical = 3
+disabled = true
 icon = ExtResource("2_ongp6")
 expand_icon = true
 
 [node name="UnitSelect6" type="Button" parent="All units/Unit3"]
 layout_mode = 2
 size_flags_vertical = 3
+disabled = true
 icon = ExtResource("7_ynns1")
 
 [node name="AllAbilities" type="HBoxContainer" parent="."]

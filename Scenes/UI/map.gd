@@ -97,13 +97,9 @@ func _map_node_selected():
 	if selectedMapNode.nodeType == "Shop":
 		handleShopSelect()
 		
+	# Switch into the boss
 	if selectedMapNode.nodeType == "Boss":
 		handleBossSelect()
-
-func handleBossSelect():
-	currUnitSelect = unitSelectScene.instantiate()
-	currUnitSelect.loadBattle.connect(loadBattle) # Connect the startGame signal
-	add_child(currUnitSelect)
 	
 # Called when a selected node is a battle
 func handleBattleSelect():
@@ -120,6 +116,11 @@ func handleShopSelect():
 	get_parent().loadScene("res://Scenes/UI/shop.tscn")
 	get_parent().showWarBonds()
 
+func handleBossSelect():
+	currUnitSelect = unitSelectScene.instantiate()
+	currUnitSelect.loadBattle.connect(loadBattle) # Connect the startGame signal
+	add_child(currUnitSelect)
+
 # After a node is visited, the next one is made available
 func progressMap():
 	# Update the battle node icons to reflect difficulty
@@ -134,3 +135,8 @@ func progressMap():
 	mapNodeArray[Global.NODES_COMPLETED - 1].disable()
 	mapNodeArray[Global.NODES_COMPLETED].show()
 	mapNodeArray[Global.NODES_COMPLETED].enable()
+
+# Display a popup for unlocking a new unit
+func unlockUnit():
+	var unlockInstance = load("res://Scenes/UI/unlock_ui.tscn").instantiate()
+	add_child(unlockInstance)
