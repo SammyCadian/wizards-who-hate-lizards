@@ -82,7 +82,7 @@ func playerWins():
 		Global.NODES_COMPLETED += 1
 		
 		# Track the progress on the map
-		get_parent().get_node("Map").progressMap()
+		get_parent().map.progressMap()
 		
 		# Instantiate the Victory UI
 		victoryInstance = victoryScene.instantiate()
@@ -115,7 +115,7 @@ func _victory_button():
 	else:
 		selected = ""
 		battleCamera(false) # Turn off the battle camera
-		get_parent().get_node("Map").unlockUnit()
+		get_parent().map.unlockUnit()
 		get_parent().loadMap()
 		
 	

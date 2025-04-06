@@ -1,6 +1,6 @@
 extends Node2D
 
-var map : Node = null  # Store the map
+@export var map : Node = null  # Store the map
 var currScene : Node = null  # Track the active scene
 var pauseInstance : Node = null # Track the current pause menu
 @export var inMenu : bool = false # Flag to indicate if the user is in a menu
