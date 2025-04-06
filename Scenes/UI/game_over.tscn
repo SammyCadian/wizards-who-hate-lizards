@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/game_over.gd" id="1_so556"]
 
 [node name="GameOver" type="Control"]
+z_index = 2500
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,9 +26,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -695.0
-offset_top = -280.5
+offset_top = -491.0
 offset_right = 695.0
-offset_bottom = 280.5
+offset_bottom = 389.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.207843, 0.207843, 0.207843, 0.54902)
