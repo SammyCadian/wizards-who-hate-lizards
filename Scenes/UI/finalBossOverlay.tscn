@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd0bo61g21jlb"]
+
+[ext_resource type="Script" path="res://tutorial.gd" id="1_hujue"]
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_hujue")
+
+[node name="Button" type="Button" parent="."]
+z_index = 5
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -160.0
+offset_right = 77.5
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "DEATH TO LIZARDS"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -89.5
+offset_right = 189.5
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The UFO had a portal to lizard home planet!
+
+This is our chance to destroy the alien threat
+once and for all!
+
+We've set up a dark arts bomb strong enough 
+to shatter the planet, defend it until it detonates!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
