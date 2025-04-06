@@ -5,6 +5,9 @@ extends Node2D
 @export var min_amount = 1
 @export var max_amount = 3
 
+#Allows the first battle spawns 
+var do_first_spawn
+
 #RNG!!
 var rng = RandomNumberGenerator.new()
 
@@ -17,11 +20,27 @@ signal spawn(type, lane, amount)
 func _ready() -> void:
 	$"Iteration Delay".paused = true
 	$"Iteration Delay".wait_time = iteration_delay
+	do_first_spawn = true
 
 func _process(delta: float) -> void:
 	if (get_parent().get_parent().inBattle == true):
+		if do_first_spawn:
+			initial_spawns()
+			do_first_spawn = false
 		$"Iteration Delay".paused = false
+	else:
+		do_first_spawn = true
 
+
+#Spawn initial in three lanes
+func initial_spawns():
+	print("should spawn")
+	send_spawn_signal()
+	await get_tree().create_timer(0.8).timeout
+	send_spawn_signal()
+	await get_tree().create_timer(0.8).timeout
+	send_spawn_signal()
+	await get_tree().create_timer(0.8).timeout
 
 # 66/33 chance in spawn favor. Decides whether or not to spawn in enemies
 func spawn_or_no_spawn() -> bool:
@@ -64,7 +83,14 @@ func decide_lane():
 	return best_lane
 
 
-func send_spawn_signal(type, lane, amount) -> void:
+func send_spawn_signal() -> void:
+	var type = decide_type()
+	var lane = decide_lane()
+	var amount
+	if type == "Ghost":
+		amount = decide_amount(3)
+	else:
+		amount = decide_amount(1)
 	spawn.emit(type, lane, amount)
 
 
@@ -75,14 +101,7 @@ func change_iteration_delay(delay: float):
 
 func _on_iteration_delay_timeout() -> void:
 	if (spawn_or_no_spawn()):
-		var type = decide_type()
-		var lane = decide_lane()
-		var amount
-		if type == "Ghost":
-			amount = decide_amount(3)
-		else:
-			amount = decide_amount(1)
-		send_spawn_signal(type, lane, amount)
+		send_spawn_signal()
 
 
 # Recieves lane traffic signal from battle scene

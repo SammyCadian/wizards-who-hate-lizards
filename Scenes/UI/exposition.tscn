@@ -30,8 +30,8 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="BarnEntry" type="Sprite2D" parent="ColorRect"]
-position = Vector2(960, 644)
-scale = Vector2(2.44329, 3.08073)
+position = Vector2(962.125, 644)
+scale = Vector2(2.81424, 3.08073)
 texture = ExtResource("1_kcgqy")
 
 [node name="Button" type="Button" parent="ColorRect"]
