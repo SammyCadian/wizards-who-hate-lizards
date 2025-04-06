@@ -95,6 +95,10 @@ func zaWarudo(isPaused : bool):
 		print("Time will now resume!")
 		$BattleManager.process_mode = Node.PROCESS_MODE_INHERIT
 
+func undoPause():
+	print("starting")
+	zaWarudo(false)
+
 func showWarBonds():
 	$WarBonds.show()
 	
