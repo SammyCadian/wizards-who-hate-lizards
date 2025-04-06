@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr23s22jn2fav"]
+
+[ext_resource type="Texture2D" uid="uid://4f4a4ab3k3b8" path="res://Sprites/UI/BarnEntry.png" id="1_kcgqy"]
+
+[node name="Exposition" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -11.0
+offset_top = -12.0
+offset_right = 1159.0
+offset_bottom = 657.0
+color = Color(0, 0, 0, 1)
+
+[node name="BarnEntry" type="Sprite2D" parent="."]
+position = Vector2(576, 381)
+scale = Vector2(1.39583, 1.50521)
+texture = ExtResource("1_kcgqy")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 499.0
+offset_top = 572.0
+offset_right = 648.0
+offset_bottom = 603.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Let's get to work"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 317.0
+offset_top = 63.0
+offset_right = 835.0
+offset_bottom = 216.0
+text = "Humanity is locked into a war with a lizard alien species,
+and is losing. An alien lizard UFO has crashed out in the wilderness,
+command wants to capture it.
+
+Your elite arcane infantry unit has been dispatched
+to seize and secure the downed UFO."
+horizontal_alignment = 1
+vertical_alignment = 1
