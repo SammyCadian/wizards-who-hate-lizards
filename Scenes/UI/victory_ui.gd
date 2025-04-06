@@ -1,5 +1,10 @@
 extends Control
 
+func _ready() -> void:
+	$Button.disabled = true
+	await get_tree().create_timer(3.0).timeout
+	$Button.disabled = false
+
 func _on_button_pressed() -> void:
 	pass
 
