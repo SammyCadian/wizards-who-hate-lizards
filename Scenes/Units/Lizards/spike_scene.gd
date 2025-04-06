@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var damage = 1
 @onready var see_enemy = false
+var shooting = false
+var wasshooting = false
 var health = 20
 var damageTaken = 0
 #var isDead = false
@@ -21,6 +23,10 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	if shooting != wasshooting:
+		if shooting:
+			$Gunshot.play(0.0)
+		wasshooting = shooting
 	if(deathTimer > 0):
 		$AnimatedSprite2D.animation = "death"
 		deathTimer -= delta
@@ -44,6 +50,7 @@ func LizardDamage() -> int:
 
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
+		$Gunshot.play(0.0)
 		targets[0].takeDamage(damage)
 	#health -= damageTaken
 	#print("Scout health: " + str(health))
@@ -60,6 +67,7 @@ func takeDamage(damage: int):
 func _on_range_area_body_entered(body: Node2D) -> void:
 	targets.append(body)
 	$DamageTimer.start()
+	shooting = true
 	$AnimatedSprite2D.animation = "attack"
 	see_enemy = true
 
@@ -69,6 +77,8 @@ func _on_range_area_body_exited(body: Node2D) -> void:
 		targets.remove_at(targets.find(body))
 	if(targets.size() <= 0):
 		$DamageTimer.stop()
+		$Gunshot.stop()
+		shooting = false
 		$AnimatedSprite2D.animation = "walk"
 		see_enemy = false
 
