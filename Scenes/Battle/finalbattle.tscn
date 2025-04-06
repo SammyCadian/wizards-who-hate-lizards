@@ -1,0 +1,172 @@
+[gd_scene load_steps=16 format=3 uid="uid://vh8fqpi5li3"]
+
+[ext_resource type="Script" path="res://Scenes/Battle/finalbattle.gd" id="1_khrc1"]
+[ext_resource type="PackedScene" uid="uid://ctgsyiohrgqae" path="res://Scenes/Abilities/missile_strike.tscn" id="2_etg4l"]
+[ext_resource type="PackedScene" uid="uid://576hs27a5s18" path="res://Scenes/Abilities/shotgun.tscn" id="3_i5fb2"]
+[ext_resource type="PackedScene" uid="uid://g5yfsxmc1pss" path="res://Scenes/Abilities/anti_dying_circle.tscn" id="4_eu0gb"]
+[ext_resource type="PackedScene" uid="uid://b0mve30crj0ma" path="res://Scenes/Abilities/flame_rain.tscn" id="5_4odir"]
+[ext_resource type="PackedScene" uid="uid://cpy73rsjkhjof" path="res://Scenes/UI/battle_ui.tscn" id="6_nxkdg"]
+[ext_resource type="Texture2D" uid="uid://o3aeygkoaedp" path="res://Sprites/Battlefields/ForestBattle.png" id="7_o0t2k"]
+[ext_resource type="Texture2D" uid="uid://7mbnf7keee22" path="res://Sprites/Battlefields/PlainsBackground.png" id="8_bhpry"]
+[ext_resource type="Texture2D" uid="uid://cmxfx33hnk0nm" path="res://Sprites/Battlefields/BeachBattle.png" id="9_rna6k"]
+[ext_resource type="Texture2D" uid="uid://dcqju63xhao1h" path="res://Sprites/Battlefields/MagnoliaBattle.png" id="10_3y1we"]
+[ext_resource type="Texture2D" uid="uid://b8t6wxomlfpkt" path="res://Sprites/Battlefields/RockyBattle.png" id="11_u2xcu"]
+[ext_resource type="PackedScene" uid="uid://h1mk235t1xj1" path="res://Scenes/Battle/lane.tscn" id="12_2dgwi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3juu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_o0t2k")
+}],
+"loop": true,
+"name": &"_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bhpry")
+}],
+"loop": true,
+"name": &"barn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_rna6k")
+}],
+"loop": true,
+"name": &"beach",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_o0t2k")
+}],
+"loop": true,
+"name": &"forest1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_o0t2k")
+}],
+"loop": true,
+"name": &"forest2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_3y1we")
+}],
+"loop": true,
+"name": &"magnolia",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_u2xcu")
+}],
+"loop": true,
+"name": &"mountain",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bhpry")
+}],
+"loop": true,
+"name": &"plains",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_rna6k")
+}],
+"loop": true,
+"name": &"pond",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_u2xcu")
+}],
+"loop": true,
+"name": &"rock",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqxgi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wl8c"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_khrc1")
+missileAbility = ExtResource("2_etg4l")
+shotgunAbility = ExtResource("3_i5fb2")
+antideathAbility = ExtResource("4_eu0gb")
+flamerainAbility = ExtResource("5_4odir")
+
+[node name="BattleUI" parent="." instance=ExtResource("6_nxkdg")]
+offset_left = -576.0
+offset_top = -272.0
+offset_right = -576.0
+offset_bottom = -272.0
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -82)
+scale = Vector2(0.825, 0.825)
+sprite_frames = SubResource("SpriteFrames_r3juu")
+animation = &"barn"
+
+[node name="topLane" parent="." instance=ExtResource("12_2dgwi")]
+position = Vector2(0, -3)
+collision_mask = 6
+
+[node name="middleLane" parent="." instance=ExtResource("12_2dgwi")]
+position = Vector2(0, 89)
+collision_mask = 6
+
+[node name="bottomLane" parent="." instance=ExtResource("12_2dgwi")]
+position = Vector2(0, 178)
+collision_mask = 6
+
+[node name="LizardWinCon" type="Area2D" parent="."]
+position = Vector2(-775, 88)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LizardWinCon"]
+scale = Vector2(2, 12)
+shape = SubResource("RectangleShape2D_wqxgi")
+
+[node name="DefenseTimer" type="Timer" parent="."]
+wait_time = 180.0
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -215.0
+offset_right = 20.0
+offset_bottom = -192.0
+grow_horizontal = 2
+text = "0.00"
+label_settings = SubResource("LabelSettings_7wl8c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="spendPoints" from="." to="BattleUI" method="_on_battle_spend_points"]
+[connection signal="abilityButtonPressed" from="BattleUI" to="." method="_on_battle_ui_ability_button_pressed"]
+[connection signal="unitButtonPressed" from="BattleUI" to="." method="_on_battle_ui_unit_button_pressed"]
+[connection signal="body_entered" from="topLane" to="." method="_on_top_lane_body_entered"]
+[connection signal="body_exited" from="topLane" to="." method="_on_top_lane_body_exited"]
+[connection signal="body_entered" from="middleLane" to="." method="_on_middle_lane_body_entered"]
+[connection signal="body_exited" from="middleLane" to="." method="_on_middle_lane_body_exited"]
+[connection signal="body_entered" from="bottomLane" to="." method="_on_bottom_lane_body_entered"]
+[connection signal="body_exited" from="bottomLane" to="." method="_on_bottom_lane_body_exited"]
+[connection signal="area_entered" from="LizardWinCon" to="." method="_on_lizard_win_con_area_entered"]
+[connection signal="timeout" from="DefenseTimer" to="." method="_on_defense_timer_timeout"]

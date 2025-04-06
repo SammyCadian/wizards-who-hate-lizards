@@ -3,6 +3,7 @@ extends Node2D
 var explodableUnits = []
 var Ammoleft
 var fireReady
+var readyToDie = false
 
 func setTarget(target: Vector2):
 	position = target
@@ -17,21 +18,21 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Ammoleft <= 0:
-		deathProtocol()
+		readyToDie = true
 	elif fireReady && explodableUnits.size() > 0:
 		fireReady = false
 		Ammoleft -= 1
 		for i in range(explodableUnits.size()):
 			explodableUnits[i].takeDamage(3000)
 		$AnimatedSprite2D.play("Shoot")
+		$AudioStreamPlayer2D.play(0.0)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	if readyToDie: 
+		queue_free()
 	$AnimatedSprite2D.play("Waiting")
 	fireReady = true
-
-func deathProtocol():
-	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	explodableUnits.append(body)

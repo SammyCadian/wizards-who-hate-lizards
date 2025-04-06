@@ -26,6 +26,7 @@ func _ready() -> void:
 	z_index = global_position.y + 200
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+	enterAudio()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,6 +80,15 @@ func _on_damage_timer_timeout() -> void:
 			#$Gunshot.play(0.0)
 			targets[i].takeDamage(damage)
 
+func enterAudio():
+	var yes = RandomNumberGenerator.new().randf()
+	if yes > 0.67:
+		$SpawnA.play(0.0)
+	elif yes > .33:
+		$SpawnB.play(0.0)
+	else:
+		$SpawnC.play(0.0)
+		
 func takeDamage(damage: int):
 	health -= damage
 	if(health <= 0):

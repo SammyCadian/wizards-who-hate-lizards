@@ -1,10 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddgw8akh4iuwq"]
+[gd_scene load_steps=29 format=3 uid="uid://ddgw8akh4iuwq"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/rifleman.gd" id="1_7owsm"]
 [ext_resource type="Texture2D" uid="uid://badpqktslru2s" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanShoot.png" id="2_67k6v"]
 [ext_resource type="Texture2D" uid="uid://di2o38ep7qiuu" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanWalk.png" id="3_8txdn"]
 [ext_resource type="Texture2D" uid="uid://diobggamlpqt2" path="res://Sprites/Units/Wizards/WizardRifleman/WizardRiflemanDie.png" id="3_xiq17"]
 [ext_resource type="AudioStream" uid="uid://hejonw6fxfch" path="res://Sound Effects/Gunshot.wav" id="5_ylg03"]
+[ext_resource type="AudioStream" uid="uid://k57dmg6v1gfx" path="res://Sound Effects/Voicelines/Rifleman/RiflemanEnter.mp3" id="6_i2c5f"]
+[ext_resource type="AudioStream" uid="uid://brkhlgkigy0y2" path="res://Sound Effects/Voicelines/Rifleman/RiflemanDeath.mp3" id="7_jj82f"]
+[ext_resource type="AudioStream" uid="uid://v0u23motvjbe" path="res://Sound Effects/Voicelines/Rifleman/RiflemanEnterAltA.mp3" id="7_obc8k"]
+[ext_resource type="AudioStream" uid="uid://b3iy3q0uwu146" path="res://Sound Effects/Voicelines/Rifleman/RiflemanEnterAltB.mp3" id="8_ys7tx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pson"]
 atlas = ExtResource("2_67k6v")
@@ -172,6 +176,20 @@ shape = SubResource("RectangleShape2D_47y6h")
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ylg03")
+
+[node name="SpawnA" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i2c5f")
+
+[node name="SpawnB" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_obc8k")
+volume_db = -5.0
+
+[node name="SpawnC" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ys7tx")
+volume_db = -10.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jj82f")
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]

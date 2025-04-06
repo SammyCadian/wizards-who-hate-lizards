@@ -13,7 +13,10 @@ var victoryInstance
 
 # Start the battle from the map selection
 func startBattle(loadedUnits: Array, location: String):
-	currBattle = get_parent().loadScene("res://Scenes/Battle/battle.tscn") # Load the battle into the game
+	if location != "???":
+		currBattle = get_parent().loadScene("res://Scenes/Battle/battle.tscn") # Load the battle into the game
+	else:
+		currBattle = get_parent().loadScene("res://Scenes/Battle/finalbattle.tscn") # Load the battle into the game
 	battleUI = currBattle.get_node("BattleUI") # Update the battle UI
 	currBattle.laneSelected.connect($"Unit Spawner"._on_battle_lane_selected) # Connect the unit spawning signal
 	currBattle.laneTraffic.connect($"Unit Spawner"/"Enemy AI"._on_battle_lane_traffic) # Connect the unit tracker signal

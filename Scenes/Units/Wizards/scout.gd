@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @onready var see_enemy = false
-@export var damage = 1
+@export var damage = 100
 var shooting = false
 var wasshooting = false
 var health = 10
-var speed = 80
+var speed = 800
 var damage_multiplier = 1
 var damageTaken = 0
 #var isDead = false

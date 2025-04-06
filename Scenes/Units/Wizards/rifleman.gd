@@ -26,6 +26,7 @@ func _ready() -> void:
 	z_index = global_position.y + 200
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+	enterAudio()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,7 +63,6 @@ func _on_range_area_body_entered(body: Node2D) -> void:
 	$AnimatedSprite2D.animation = "attack"
 	see_enemy = true
 
-
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if(targets.has(body)):
 		targets.remove_at(targets.find(body))
@@ -72,7 +72,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		$DamageTimer.stop()
 		$AnimatedSprite2D.animation = "walk"
 		see_enemy = false
-
 
 func _on_damage_timer_timeout() -> void:
 	if(targets.size() > 0):
@@ -87,8 +86,18 @@ func takeDamage(damage: int):
 		else:
 			ouchieMyForehead()
 
+func enterAudio():
+	var yes = RandomNumberGenerator.new().randf()
+	if yes > 0.67:
+		$SpawnA.play(0.0)
+	elif yes > .33:
+		$SpawnB.play(0.0)
+	else:
+		$SpawnC.play(0.0)
+		
 
 func ouchieMyForehead():
+	$Death.play(0.0)
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
 	if get_node("RangeArea") != null:

@@ -96,7 +96,15 @@ func _map_node_selected():
 	# Switch into the shop
 	if selectedMapNode.nodeType == "Shop":
 		handleShopSelect()
+		
+	if selectedMapNode.nodeType == "Boss":
+		handleBossSelect()
 
+func handleBossSelect():
+	currUnitSelect = unitSelectScene.instantiate()
+	currUnitSelect.loadBattle.connect(loadBattle) # Connect the startGame signal
+	add_child(currUnitSelect)
+	
 # Called when a selected node is a battle
 func handleBattleSelect():
 	selectedMapNode.get_node("Icon").frame = 1

@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		set_position(startPos + (timeTracker/travelTime) * (targetPos - startPos))
 	elif not exploded:
 		exploded = true
+		$Kaboom.play(0.0)
 		$AnimatedSprite2D.play("Explosion")
 		$AnimatedSprite2D.position = Vector2.ZERO
 		for i in range(explodableUnits.size()):

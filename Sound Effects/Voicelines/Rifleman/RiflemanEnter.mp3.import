@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k57dmg6v1gfx"
+path="res://.godot/imported/RiflemanEnter.mp3-ab8c52a9722df18ff4c8e179efeec2a0.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Voicelines/Rifleman/RiflemanEnter.mp3"
+dest_files=["res://.godot/imported/RiflemanEnter.mp3-ab8c52a9722df18ff4c8e179efeec2a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

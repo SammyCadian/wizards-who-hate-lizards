@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://576hs27a5s18"]
+[gd_scene load_steps=15 format=3 uid="uid://576hs27a5s18"]
 
 [ext_resource type="Script" path="res://Scenes/Abilities/shotgun.gd" id="1_onxhf"]
 [ext_resource type="Texture2D" uid="uid://cykbdeji7mdxm" path="res://Sprites/Abilities/Shotgun.png" id="1_wvnym"]
+[ext_resource type="AudioStream" uid="uid://banum3m3jotkt" path="res://Sound Effects/Shotgun.mp3" id="3_67oh1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lj40"]
 radius = 80.0999
@@ -94,7 +95,10 @@ shape = SubResource("CircleShape2D_4lj40")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-255, -196)
 sprite_frames = SubResource("SpriteFrames_ae0xf")
-animation = &"Waiting"
+animation = &"Shoot"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_67oh1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
