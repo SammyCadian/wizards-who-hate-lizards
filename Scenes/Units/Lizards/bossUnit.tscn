@@ -154,7 +154,8 @@ script = ExtResource("1_2cth8")
 miniMissle = ExtResource("2_0jf57")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.187, 0.187)
+position = Vector2(0, -97)
+scale = Vector2(0.757813, 0.757813)
 sprite_frames = SubResource("SpriteFrames_vq0xk")
 animation = &"death"
 

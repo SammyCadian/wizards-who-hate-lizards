@@ -18,11 +18,6 @@ func startBattle(loadedUnits: Array, location: String):
 		currBattle = get_parent().loadScene("res://Scenes/Battle/battle.tscn") # Load the battle into the game
 	else:
 		currBattle = get_parent().loadScene("res://Scenes/Battle/finalbattle.tscn") # Load the battle into the game
-		
-		var finalExposition = finalOverlay.instantiate()
-		finalExposition.connect("endTutorial", get_parent().undoPause)
-		get_parent().add_child(finalExposition)
-		get_parent().zaWarudo(true)
 	battleUI = currBattle.get_node("BattleUI") # Update the battle UI
 	currBattle.laneSelected.connect($"Unit Spawner"._on_battle_lane_selected) # Connect the unit spawning signal
 	currBattle.laneTraffic.connect($"Unit Spawner"/"Enemy AI"._on_battle_lane_traffic) # Connect the unit tracker signal
@@ -45,6 +40,11 @@ func startBattle(loadedUnits: Array, location: String):
 		var tut = tutorialOverlay.instantiate()
 		tut.connect("endTutorial", get_parent().undoPause)
 		get_parent().add_child(tut)
+		get_parent().zaWarudo(true)
+	if location == "???":
+		var finalExposition = finalOverlay.instantiate()
+		finalExposition.connect("endTutorial", get_parent().undoPause)
+		get_parent().add_child(finalExposition)
 		get_parent().zaWarudo(true)
 
 # Adjust the camera's zoom for battle

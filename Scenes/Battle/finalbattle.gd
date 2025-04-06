@@ -27,7 +27,7 @@ var unitCost = 0
 var unitOrAbility = 0
 var isFriendly = true
 
-var defenseTimer = 180.0
+var defenseTimer = 10.0
 
 # Camera Variables
 var cursorPos = Vector2(0,0) # Track the cursor position
@@ -106,8 +106,9 @@ func _on_lizard_win_con_area_entered(area: Area2D) -> void:
 	winCon.emit("Lizards")
 
 
-func _on_wizard_win_con_area_entered(area: Area2D) -> void:
+func WizardWinCon():
 	winCon.emit("Wizards")
+	
 
 
 
@@ -139,7 +140,9 @@ func _on_bottom_lane_body_exited(body: Node2D) -> void:
 
 
 func _on_defense_timer_timeout() -> void:
+	$DefenseTimer.stop()
 	var newBoss = bossEnemy.instantiate()
-	newBoss.connect("death", _on_wizard_win_con_area_entered)
+	newBoss.connect("death", WizardWinCon)
+	newBoss.position += Vector2(600, 0)
 	add_child(newBoss)
 	pass # Replace with function body.

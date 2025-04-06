@@ -144,7 +144,7 @@ scale = Vector2(2, 12)
 shape = SubResource("RectangleShape2D_wqxgi")
 
 [node name="DefenseTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 10.0
 autostart = true
 
 [node name="TimerLabel" type="Label" parent="."]

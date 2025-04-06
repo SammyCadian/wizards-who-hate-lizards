@@ -6,9 +6,9 @@ const JUMP_VELOCITY = -400.0
 
 signal death
 @export var miniMissle:PackedScene
-@export var damage = 1
+@export var damage = 10
 @onready var see_enemy = false
-var health = 20
+var health = 300
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
@@ -38,7 +38,7 @@ func move():
 	if see_enemy:
 		velocity = Vector2(0, 0)   
 	elif !see_enemy:
-		velocity = Vector2(-50, 0)  
+		velocity = Vector2(-20, 0)  
 	move_and_slide()
 
 
@@ -91,12 +91,12 @@ func _on_missile_range_area_body_entered(body: Node2D) -> void:
 	if(mtargets.has(body)):
 		mtargets.remove_at(mtargets.find(body))
 	if(mtargets.size() <= 0):
-		$DamageTimer.stop()
+		$MissileDamageTimer.stop()
 	pass # Replace with function body.
 
 func _on_missile_range_area_body_exited(body: Node2D) -> void:
 	mtargets.append(body)
-	$DamageTimer.start()
+	$MissileDamageTimer.start()
 	pass # Replace with function body.
 
 func _on_missile_damage_timer_timeout() -> void:
