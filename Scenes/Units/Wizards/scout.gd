@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @onready var see_enemy = false
-@export var damage = 100
+@export var damage = Global.SCOUT_DAMAGE
 var shooting = false
 var wasshooting = false
-var health = 10
-@export var speed = 1000
+var health = Global.SCOUT_HEALTH
+@export var speed = Global.SCOUT_SPEED
 var damage_multiplier = 1
 var damageTaken = 0
 #var isDead = false

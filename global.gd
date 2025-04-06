@@ -20,6 +20,17 @@ var NODES_COMPLETED = 0
 # Global variable to track the battles won
 var BATTLES_WON = 0
 
+# Global variables for getting God Scout
+var SCOUT_DAMAGE = 2
+var SCOUT_SPEED = 80
+var SCOUT_HEALTH = 10
+
+# Give the player GOD SCOUT
+func GET_GOD_SCOUT():
+	SCOUT_DAMAGE = 200
+	SCOUT_SPEED = 1000
+	SCOUT_HEALTH = 10000
+
 # Add to player war bonds
 func ADD_WAR_BONDS(amount: int):
 	PLAYER_WAR_BONDS += amount
