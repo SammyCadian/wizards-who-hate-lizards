@@ -12,6 +12,7 @@ var health = 300
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
+var deviationRange = 500.0
 
 var is_friendly = false
 
@@ -38,7 +39,7 @@ func move():
 	if see_enemy:
 		velocity = Vector2(0, 0)   
 	elif !see_enemy:
-		velocity = Vector2(-20, 0)  
+		velocity = Vector2(-10, 0)  
 	move_and_slide()
 
 
@@ -100,11 +101,9 @@ func _on_missile_range_area_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func _on_missile_damage_timer_timeout() -> void:
-	if(mtargets.size() > 0):
-		var targetAmount = min(mtargets.size(), 3)
-		for i in range(targetAmount):
-			#$Gunshot.play(0.0)
-			var newMissle = miniMissle.instantiate()
-			newMissle.setTarget(mtargets[i].position)
-			get_parent().add_child(newMissle)
-	pass # Replace with function body.
+	for i in range(4):
+		var newMissle = miniMissle.instantiate()
+		var randX = -(deviationRange * RandomNumberGenerator.new().randf())
+		var randY =  150.0 * RandomNumberGenerator.new().randf_range(-1.0, 1.0)
+		newMissle.setTarget(position + Vector2(randX, randY))
+		get_parent().add_child(newMissle)
