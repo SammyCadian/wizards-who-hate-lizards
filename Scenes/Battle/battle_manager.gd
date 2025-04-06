@@ -4,6 +4,7 @@ extends Node2D
 @export var finalOverlay: PackedScene
 @export var inBattle = false
 @export var currBattle : Node = null  # Track the current battle
+var incomeTimer  = 2.0 # Track the income timer with difficulty
 var battleUI : Node = null  # Track the current battle UI
 @onready var camera : Camera2D = get_parent().get_node("Camera2D")
 
@@ -25,6 +26,7 @@ func startBattle(loadedUnits: Array, location: String):
 	currBattle.laneTraffic.connect($"Unit Spawner"/"Enemy AI"._on_battle_lane_traffic) # Connect the unit tracker signal
 	currBattle.winCon.connect(_on_battle_win_con) # Connect the battle win/lose signal
 	currBattle.get_node("Background").animation = location.to_lower() # Set the battle background
+	battleUI.incomeTime = incomeTimer # Set the income timer
 	battleCamera(true) # Turn on the battle camera
 	currBattle.reparent(self)
 	inBattle = true
@@ -83,6 +85,11 @@ func playerWins():
 		Global.BATTLES_WON += 1
 		Global.NODES_COMPLETED += 1
 		
+		# Increase the difficulty
+		if (Global.BATTLES_WON == 2 || Global.BATTLES_WON == 4):
+			incomeTimer -= 0.5
+			$"Unit Spawner".increaseDiffulty()
+		
 		# Track the progress on the map
 		get_parent().map.progressMap()
 		
@@ -130,4 +137,7 @@ func selectHealthUpgrade():
 
 func selectDamageUpgrade():
 	selected = "DamageUpgrade"
-	
+
+func resetDifficultyScaling():
+	$"Unit Spawner".resetDifficulty()
+	incomeTimer = 2.0

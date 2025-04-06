@@ -13,6 +13,16 @@ extends Node2D
 var starting_enemies:int # How many enemies we start with
 var current_enemies: int # How many enemies there are currently
 
+func increaseDiffulty():
+	$"Enemy AI".iteration_delay -= 2.0
+	$"Enemy AI".min_amount += 1
+	$"Enemy AI".max_amount += 1
+
+func resetDifficulty():
+	$"Enemy AI".iteration_delay = 8.0
+	$"Enemy AI".min_amount = 1
+	$"Enemy AI".max_amount = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	starting_enemies = get_child_count() # Typically 0 for now

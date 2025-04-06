@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle_manager.gd" id="1_7vafl"]
 [ext_resource type="PackedScene" uid="uid://diqlvj73qjhx5" path="res://Scenes/Battle/unit_spawner.tscn" id="1_t73rl"]
-[ext_resource type="PackedScene" uid="uid://bf45ky3km8b5t" path="res://Scenes/UI/tutorial.tscn" id="2_7mgxk"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/tutorial.tscn" id="2_7mgxk"]
 [ext_resource type="PackedScene" uid="uid://dd0bo61g21jlb" path="res://Scenes/UI/finalBossOverlay.tscn" id="3_rxd5l"]
 
 [node name="Battle Manager" type="Node2D"]

@@ -70,6 +70,9 @@ func restartGame():
 	# Reset the player data
 	Global.resetPlayer()
 	
+	# Reset enemy scaling
+	$BattleManager.resetDifficultyScaling()
+	
 	# Free the old map and make a new one
 	map.queue_free()
 	generateMap()
