@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://vh8fqpi5li3"]
+[gd_scene load_steps=17 format=3 uid="uid://vh8fqpi5li3"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/finalbattle.gd" id="1_khrc1"]
+[ext_resource type="PackedScene" uid="uid://c08cradw387yd" path="res://Scenes/Units/Lizards/bossUnit.tscn" id="2_awoel"]
 [ext_resource type="PackedScene" uid="uid://ctgsyiohrgqae" path="res://Scenes/Abilities/missile_strike.tscn" id="2_etg4l"]
 [ext_resource type="PackedScene" uid="uid://576hs27a5s18" path="res://Scenes/Abilities/shotgun.tscn" id="3_i5fb2"]
 [ext_resource type="PackedScene" uid="uid://g5yfsxmc1pss" path="res://Scenes/Abilities/anti_dying_circle.tscn" id="4_eu0gb"]
@@ -102,6 +103,7 @@ animations = [{
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_khrc1")
+bossEnemy = ExtResource("2_awoel")
 missileAbility = ExtResource("2_etg4l")
 shotgunAbility = ExtResource("3_i5fb2")
 antideathAbility = ExtResource("4_eu0gb")
@@ -117,7 +119,7 @@ offset_bottom = -272.0
 position = Vector2(0, -82)
 scale = Vector2(0.825, 0.825)
 sprite_frames = SubResource("SpriteFrames_r3juu")
-animation = &"barn"
+animation = &"rock"
 
 [node name="topLane" parent="." instance=ExtResource("12_2dgwi")]
 position = Vector2(0, -3)

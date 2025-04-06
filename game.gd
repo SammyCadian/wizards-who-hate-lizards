@@ -55,12 +55,14 @@ func loadStart():
 	inMenu = true
 
 func loadMap():
+	$Music.play(0.0)
 	clearScene()
 	updateWarBonds()
 	showWarBonds()
 	map.show()
 
 func unloadMap():
+	$Music.stop()
 	hideWarBonds()
 	map.hide()
 
