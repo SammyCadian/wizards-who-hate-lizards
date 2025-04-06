@@ -110,7 +110,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_patrw"]
@@ -128,10 +128,9 @@ script = ExtResource("1_mpuiu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3.05176e-05)
-scale = Vector2(0.187, 0.187)
+scale = Vector2(0.13, 0.13)
 sprite_frames = SubResource("SpriteFrames_58wq1")
-animation = &"attack"
-frame_progress = 0.709482
+animation = &"walk"
 
 [node name="RangeArea" type="Area2D" parent="."]
 collision_mask = 4

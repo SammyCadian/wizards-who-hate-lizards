@@ -44,15 +44,7 @@ animations = [{
 "texture": ExtResource("3_rf7mn")
 }],
 "loop": true,
-"name": &"forest1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_rf7mn")
-}],
-"loop": true,
-"name": &"forest2",
+"name": &"forest",
 "speed": 5.0
 }, {
 "frames": [{
@@ -117,7 +109,7 @@ offset_bottom = -272.0
 position = Vector2(0, -82)
 scale = Vector2(0.825, 0.825)
 sprite_frames = SubResource("SpriteFrames_r3juu")
-animation = &"barn"
+animation = &"forest"
 
 [node name="topLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, -3)
