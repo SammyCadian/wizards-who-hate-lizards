@@ -173,6 +173,7 @@ autowrap_mode = 2
 
 [node name="Amount" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -365.0
 offset_top = 280.0
 offset_right = -77.0
@@ -187,6 +188,7 @@ autowrap_mode = 2
 
 [node name="CantBuyLabel" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 204.0
 offset_top = 216.0
 offset_right = 628.0
