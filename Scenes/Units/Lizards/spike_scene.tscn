@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://dw8h0r1xbj0t3"]
+[gd_scene load_steps=31 format=3 uid="uid://dw8h0r1xbj0t3"]
 
 [ext_resource type="Texture2D" uid="uid://t3wpfkv8ted1" path="res://Sprites/Units/Lizards/SpikeLizard/SpikeAttack.png" id="1_bwf0y"]
 [ext_resource type="Script" path="res://Scenes/Units/Lizards/spike_scene.gd" id="1_cipye"]
 [ext_resource type="Texture2D" uid="uid://m40dii0wit0y" path="res://Sprites/Units/Lizards/SpikeLizard/SpikeDeath.png" id="2_k0vht"]
 [ext_resource type="Texture2D" uid="uid://bsf8ti3h7dqhd" path="res://Sprites/Units/Lizards/SpikeLizard/SpikeWalk.png" id="3_nb6np"]
 [ext_resource type="AudioStream" uid="uid://behxvt4yndoul" path="res://Sound Effects/spikeGunshot.wav" id="5_32amw"]
+[ext_resource type="AudioStream" uid="uid://bvrgrnpgi6qxq" path="res://Sound Effects/LizardDeathA.mp3" id="6_vd0xu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tvbq"]
 atlas = ExtResource("1_bwf0y")
@@ -206,6 +207,9 @@ shape = SubResource("RectangleShape2D_4pv43")
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_32amw")
 volume_db = -10.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_vd0xu")
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_range_area_body_exited"]

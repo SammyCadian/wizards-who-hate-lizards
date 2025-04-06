@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5mdfaipfun23"]
+[gd_scene load_steps=27 format=3 uid="uid://c5mdfaipfun23"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Lizards/sus_scene.gd" id="1_c3cw4"]
 [ext_resource type="Texture2D" uid="uid://b0tjcxsg2n2mf" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusAttack.png" id="2_h7yft"]
 [ext_resource type="Texture2D" uid="uid://0w8p07kiowv0" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusDeath.png" id="3_pm5im"]
 [ext_resource type="Texture2D" uid="uid://c7uda4nvu01t5" path="res://Sprites/Units/Lizards/SuspiciousLizard/SusWalk.png" id="4_o6c7k"]
 [ext_resource type="AudioStream" uid="uid://c6o6v2t80psof" path="res://Sound Effects/LizardDeathB.mp3" id="5_fh6dk"]
+[ext_resource type="AudioStream" uid="uid://clwqxhkpdkvju" path="res://Sound Effects/susGunshot.wav" id="6_qyd46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8mh4t"]
 atlas = ExtResource("2_h7yft")
@@ -178,6 +179,9 @@ shape = SubResource("RectangleShape2D_t4rhj")
 stream = ExtResource("5_fh6dk")
 volume_db = -5.0
 pitch_scale = 2.0
+
+[node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qyd46")
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_range_area_body_exited"]
