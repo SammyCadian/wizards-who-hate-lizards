@@ -18,6 +18,8 @@ func startBattle(loadedUnits: Array, location: String):
 		currBattle = get_parent().loadScene("res://Scenes/Battle/battle.tscn") # Load the battle into the game
 	else:
 		currBattle = get_parent().loadScene("res://Scenes/Battle/finalbattle.tscn") # Load the battle into the game
+		currBattle.name = "BossBattle"
+		
 	battleUI = currBattle.get_node("BattleUI") # Update the battle UI
 	currBattle.laneSelected.connect($"Unit Spawner"._on_battle_lane_selected) # Connect the unit spawning signal
 	currBattle.laneTraffic.connect($"Unit Spawner"/"Enemy AI"._on_battle_lane_traffic) # Connect the unit tracker signal
@@ -70,29 +72,29 @@ func playerWins():
 	# Reset the camera position
 	camera.position = Vector2(0, 0)
 	
-	# Update player variables
-	Global.ADD_WAR_BONDS(100)
-	get_parent().updateWarBonds()
-	Global.BATTLES_WON += 1
-	Global.NODES_COMPLETED += 1
-	
-	# Track the progress on the map
-	get_parent().get_node("Map").progressMap()
-	
-	# Instantiate the Victory UI
-	victoryInstance = victoryScene.instantiate()
-	victoryInstance.position = Vector2(0, 0) # Set the position
-	victoryInstance.get_node("Button").pressed.connect(_victory_button) # Connect the pressed signal
-	victoryInstance.get_node("HealthUpgrade").pressed.connect(selectHealthUpgrade)
-	victoryInstance.get_node("DamageUpgrade").pressed.connect(selectDamageUpgrade)
-	currBattle.add_child(victoryInstance)
+	if (currBattle.name == "BossBattle"):
+		get_parent().loadScene("res://Scenes/UI/boss_win_ui.tscn")
+	else:
+		# Update player variables
+		Global.ADD_WAR_BONDS(200)
+		get_parent().updateWarBonds()
+		Global.BATTLES_WON += 1
+		Global.NODES_COMPLETED += 1
+		
+		# Track the progress on the map
+		get_parent().get_node("Map").progressMap()
+		
+		# Instantiate the Victory UI
+		victoryInstance = victoryScene.instantiate()
+		victoryInstance.position = Vector2(0, 0) # Set the position
+		victoryInstance.get_node("Button").pressed.connect(_victory_button) # Connect the pressed signal
+		victoryInstance.get_node("HealthUpgrade").pressed.connect(selectHealthUpgrade)
+		victoryInstance.get_node("DamageUpgrade").pressed.connect(selectDamageUpgrade)
+		currBattle.add_child(victoryInstance)
 	
 func lizardsWin():
 	# Reset the camera position
 	camera.position = Vector2(0, 0)	
-
-	# Reset player variables
-	Global.resetPlayer()
 	
 	# Instantiate the Game Over UI
 	var gameOverInstance = gameOverScene.instantiate()

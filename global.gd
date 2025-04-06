@@ -2,10 +2,10 @@ extends Node
 
 # Global dictionary to track purchased shop items
 var boughtItems = {
-	"Missile Launch" : 1,
-	"Flame Rain" : 3,
-	"Anti-Dying Circle" : 5,
-	"Shotgun" : 5
+	"Missile Launch" : 0,
+	"Flame Rain" : 0,
+	"Anti-Dying Circle" : 0,
+	"Shotgun" : 0
 }
 
 # Global array to track unlocked units
@@ -40,6 +40,7 @@ func resetPlayer():
 	PLAYER_WAR_BONDS = 0
 	BATTLES_WON = 0
 	NODES_COMPLETED = 0
+	unlockedUnits = []
 	boughtItems["Missile Launch"] = 0
 	boughtItems["Flame Rain"] = 0
 	boughtItems["Anti-Dying Circle"] = 0

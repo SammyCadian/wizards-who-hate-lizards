@@ -1,0 +1,169 @@
+[gd_scene load_steps=14 format=3 uid="uid://dntro4pmfx24c"]
+
+[ext_resource type="Texture2D" uid="uid://c63oenjhhsc2u" path="res://Sprites/UI/KaboomPlanet.png" id="1_r3w30"]
+[ext_resource type="Script" path="res://Scenes/UI/boss_win_ui.gd" id="1_t3yuv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tsyn"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhei0"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjn3q"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn588"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo7n0"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5clgi"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocja3"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avfab"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5h0r"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wr6d"]
+atlas = ExtResource("1_r3w30")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ph2cs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tsyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhei0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjn3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn588")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo7n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5clgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocja3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avfab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5h0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wr6d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="BossWinUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t3yuv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.099986, 0.099986, 0.099986, 0.85098)
+
+[node name="PlanetExplosion" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(960, 496)
+sprite_frames = SubResource("SpriteFrames_ph2cs")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -310.5
+offset_right = 232.0
+offset_bottom = -141.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "YOU DID IT!
+YIPPEE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Restart" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -432.0
+offset_right = 202.0
+offset_bottom = -352.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 45
+text = "Restart Game"
+autowrap_mode = 2
+
+[node name="Quit" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -328.0
+offset_right = 200.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 45
+text = "Quit"
+autowrap_mode = 2
+
+[connection signal="pressed" from="ColorRect/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="ColorRect/Quit" to="." method="_on_quit_pressed"]

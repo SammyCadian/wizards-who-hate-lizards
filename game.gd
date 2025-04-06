@@ -67,6 +67,9 @@ func unloadMap():
 	map.hide()
 
 func restartGame():
+	# Reset the player data
+	Global.resetPlayer()
+	
 	# Free the old map and make a new one
 	map.queue_free()
 	generateMap()

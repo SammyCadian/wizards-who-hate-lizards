@@ -1,21 +1,30 @@
-[gd_scene load_steps=17 format=3 uid="uid://vh8fqpi5li3"]
+[gd_scene load_steps=18 format=3 uid="uid://vh8fqpi5li3"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/finalbattle.gd" id="1_khrc1"]
-[ext_resource type="PackedScene" uid="uid://c08cradw387yd" path="res://Scenes/Units/Lizards/bossUnit.tscn" id="2_awoel"]
+[ext_resource type="PackedScene" path="res://Scenes/Units/Lizards/bossUnit.tscn" id="2_awoel"]
 [ext_resource type="PackedScene" uid="uid://ctgsyiohrgqae" path="res://Scenes/Abilities/missile_strike.tscn" id="2_etg4l"]
 [ext_resource type="PackedScene" uid="uid://576hs27a5s18" path="res://Scenes/Abilities/shotgun.tscn" id="3_i5fb2"]
 [ext_resource type="PackedScene" uid="uid://g5yfsxmc1pss" path="res://Scenes/Abilities/anti_dying_circle.tscn" id="4_eu0gb"]
 [ext_resource type="PackedScene" uid="uid://b0mve30crj0ma" path="res://Scenes/Abilities/flame_rain.tscn" id="5_4odir"]
 [ext_resource type="PackedScene" uid="uid://cpy73rsjkhjof" path="res://Scenes/UI/battle_ui.tscn" id="6_nxkdg"]
 [ext_resource type="Texture2D" uid="uid://o3aeygkoaedp" path="res://Sprites/Battlefields/ForestBattle.png" id="7_o0t2k"]
+[ext_resource type="Texture2D" uid="uid://blryxdmta5238" path="res://Sprites/Battlefields/BossBattle.png" id="7_ur74j"]
 [ext_resource type="Texture2D" uid="uid://7mbnf7keee22" path="res://Sprites/Battlefields/PlainsBackground.png" id="8_bhpry"]
 [ext_resource type="Texture2D" uid="uid://cmxfx33hnk0nm" path="res://Sprites/Battlefields/BeachBattle.png" id="9_rna6k"]
 [ext_resource type="Texture2D" uid="uid://dcqju63xhao1h" path="res://Sprites/Battlefields/MagnoliaBattle.png" id="10_3y1we"]
 [ext_resource type="Texture2D" uid="uid://b8t6wxomlfpkt" path="res://Sprites/Battlefields/RockyBattle.png" id="11_u2xcu"]
 [ext_resource type="PackedScene" uid="uid://h1mk235t1xj1" path="res://Scenes/Battle/lane.tscn" id="12_2dgwi"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_r3juu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s85x8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ur74j")
+}],
+"loop": true,
+"name": &"???",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("7_o0t2k")
@@ -45,15 +54,7 @@ animations = [{
 "texture": ExtResource("7_o0t2k")
 }],
 "loop": true,
-"name": &"forest1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_o0t2k")
-}],
-"loop": true,
-"name": &"forest2",
+"name": &"forest",
 "speed": 5.0
 }, {
 "frames": [{
@@ -95,13 +96,21 @@ animations = [{
 "loop": true,
 "name": &"rock",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_o0t2k")
+}],
+"loop": true,
+"name": &"they\'re in the trees!",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqxgi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7wl8c"]
 
-[node name="Battle" type="Node2D"]
+[node name="Battle2" type="Node2D"]
 script = ExtResource("1_khrc1")
 bossEnemy = ExtResource("2_awoel")
 missileAbility = ExtResource("2_etg4l")
@@ -118,8 +127,8 @@ offset_bottom = -272.0
 [node name="Background" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -82)
 scale = Vector2(0.825, 0.825)
-sprite_frames = SubResource("SpriteFrames_r3juu")
-animation = &"rock"
+sprite_frames = SubResource("SpriteFrames_s85x8")
+animation = &"???"
 
 [node name="topLane" parent="." instance=ExtResource("12_2dgwi")]
 position = Vector2(0, -3)
