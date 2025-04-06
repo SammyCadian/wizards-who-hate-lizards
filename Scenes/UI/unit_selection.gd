@@ -26,8 +26,8 @@ var descriptions = {"Scout":"A basic wizard with a gun. That walk speed though..
 					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)",
 					"Anti-Dying Circle":"Manifest a big ol' anti death circle! note: does not prevent injury",
 					"Flame Rain":"Summon a rain of fireballs to destroy your enemies!"}
-					
-					
+
+
 func _ready() -> void:
 	$UnitDescription.hide()
 	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.hide()

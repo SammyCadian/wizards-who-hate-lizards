@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var tutorialOverlay: PackedScene
 @export var inBattle = false
 @export var currBattle : Node = null  # Track the current battle
 var battleUI : Node = null  # Track the current battle UI
@@ -30,6 +31,11 @@ func startBattle(loadedUnits: Array, location: String):
 		if (loadedUnits[4+i][1] != "NO_ABILITY"):
 			print(loadedUnits[i+4])
 			battleUI.receiveAbility(loadedUnits[i+4][0], loadedUnits[i+4][1], loadedUnits[i+4][2])
+	if location == "Barn":
+		var tut = tutorialOverlay.instantiate()
+		tut.connect("endTutorial", get_parent().undoPause)
+		get_parent().add_child(tut)
+		get_parent().zaWarudo(true)
 
 # Adjust the camera's zoom for battle
 func battleCamera(isOn : bool):
