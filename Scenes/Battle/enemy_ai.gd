@@ -1,9 +1,9 @@
 extends Node2D
 
 #Delay Between Ai Determining Whether to Spawn
-@export var iteration_delay = 5.0
+@export var iteration_delay = 8.0
 @export var min_amount = 1
-@export var max_amount = 3
+@export var max_amount = 1
 
 #Allows the first battle spawns 
 var do_first_spawn
@@ -44,7 +44,7 @@ func initial_spawns():
 
 # 66/33 chance in spawn favor. Decides whether or not to spawn in enemies
 func spawn_or_no_spawn() -> bool:
-	if(rng.randi_range(0, 2) == 2):
+	if(rng.randi_range(1, 10) == 1):
 		# not spawned
 		return false
 	# spawned

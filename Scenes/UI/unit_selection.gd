@@ -78,7 +78,7 @@ func _on_unit_select_1_pressed() -> void:
 	selected = true
 	unitId = "Scout"
 	icon = $"All units/Unit1/UnitSelect1".icon
-	cost = 10
+	cost = 20
 	unitOrAbility = 1
 	
 
@@ -94,7 +94,7 @@ func _on_unit_select_3_pressed() -> void:
 	selected = true
 	unitId = "Autorifle"
 	icon = $"All units/Unit3/UnitSelect3".icon
-	cost = 50
+	cost = 40
 	unitOrAbility = 1
 
 
@@ -102,7 +102,7 @@ func _on_unit_select_4_pressed() -> void:
 	selected = true
 	unitId = "Sniper"
 	icon = $"All units/Unit1/UnitSelect4".icon
-	cost = 80
+	cost = 60
 	unitOrAbility = 1
 	
 	
@@ -118,7 +118,7 @@ func _on_unit_select_6_pressed() -> void:
 	selected = true
 	unitId = "Caster"
 	icon = $"All units/Unit3/UnitSelect6".icon
-	cost = 120
+	cost = 90
 	unitOrAbility = 1
 
 
@@ -190,7 +190,7 @@ func show_uses_left(name):
 	$UnitDescription/HBoxContainer/HBoxContainer2/UsesLeft.show()
 
 func _on_unit_select_1_mouse_entered() -> void:
-	show_description("Scout", 10)
+	show_description("Scout", 20)
 
 
 func _on_unit_select_2_mouse_entered() -> void:
@@ -198,18 +198,18 @@ func _on_unit_select_2_mouse_entered() -> void:
 
 
 func _on_unit_select_3_mouse_entered() -> void:
-	show_description("Autorifle", 50)
+	show_description("Autorifle", 40)
 
 
 func _on_unit_select_4_mouse_entered() -> void:
-	show_description("Sniper", 80)
+	show_description("Sniper", 60)
 
 func _on_unit_select_5_mouse_entered() -> void:
 	show_description("Hoplite", 40)
 
 
 func _on_unit_select_6_mouse_entered() -> void:
-	show_description("Caster", 120)
+	show_description("Caster", 90)
 
 
 func _on_ability_select_1_mouse_entered() -> void:
