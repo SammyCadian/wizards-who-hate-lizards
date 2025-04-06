@@ -64,7 +64,7 @@ func buyItem():
 func _on_map_button_pressed() -> void:
 	# Track the progress on the map
 	Global.NODES_COMPLETED += 1
-	get_parent().get_node("Map").progressMap()
+	get_parent().getmap().progressMap()
 	
 	# Load the map
 	get_parent().loadMap()

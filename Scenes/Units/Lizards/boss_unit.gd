@@ -103,7 +103,7 @@ func _on_missile_range_area_body_exited(body: Node2D) -> void:
 func _on_missile_damage_timer_timeout() -> void:
 	for i in range(4):
 		var newMissle = miniMissle.instantiate()
-		var randX = -(deviationRange * RandomNumberGenerator.new().randf())
+		var randX = -150.0 - (deviationRange * RandomNumberGenerator.new().randf())
 		var randY =  150.0 * RandomNumberGenerator.new().randf_range(-1.0, 1.0)
 		newMissle.setTarget(position + Vector2(randX, randY))
 		get_parent().add_child(newMissle)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dntro4pmfx24c"]
+[gd_scene load_steps=14 format=3 uid="uid://bif3ek7o06le"]
 
 [ext_resource type="Texture2D" uid="uid://c63oenjhhsc2u" path="res://Sprites/UI/KaboomPlanet.png" id="1_r3w30"]
 [ext_resource type="Script" path="res://Scenes/UI/boss_win_ui.gd" id="1_t3yuv"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://vh8fqpi5li3"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/finalbattle.gd" id="1_khrc1"]
-[ext_resource type="PackedScene" path="res://Scenes/Units/Lizards/bossUnit.tscn" id="2_awoel"]
+[ext_resource type="PackedScene" uid="uid://c08cradw387yd" path="res://Scenes/Units/Lizards/bossUnit.tscn" id="2_awoel"]
 [ext_resource type="PackedScene" uid="uid://ctgsyiohrgqae" path="res://Scenes/Abilities/missile_strike.tscn" id="2_etg4l"]
 [ext_resource type="PackedScene" uid="uid://576hs27a5s18" path="res://Scenes/Abilities/shotgun.tscn" id="3_i5fb2"]
 [ext_resource type="PackedScene" uid="uid://g5yfsxmc1pss" path="res://Scenes/Abilities/anti_dying_circle.tscn" id="4_eu0gb"]

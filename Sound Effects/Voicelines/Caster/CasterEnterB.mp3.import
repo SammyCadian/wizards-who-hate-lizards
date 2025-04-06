@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6qu4i2tyv8np"
+path="res://.godot/imported/CasterEnterB.mp3-53c1ad7ba9052dcd32850fa6aad722b8.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Voicelines/Caster/CasterEnterB.mp3"
+dest_files=["res://.godot/imported/CasterEnterB.mp3-53c1ad7ba9052dcd32850fa6aad722b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

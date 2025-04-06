@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://yibjyqw6jeqi"]
+[gd_scene load_steps=39 format=3 uid="uid://yibjyqw6jeqi"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/caster.gd" id="1_k2ofh"]
 [ext_resource type="Texture2D" uid="uid://chm6g0ykrdfd7" path="res://Sprites/Units/Wizards/WizardCaster/WizardCasterAttack.png" id="2_43q36"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cjmtsspys4272" path="res://Sprites/Units/Wizards/WizardCaster/WizardCasterDie.png" id="3_f3doq"]
 [ext_resource type="Texture2D" uid="uid://cbxduvnn1iytr" path="res://Sprites/Units/Wizards/WizardCaster/WizardCasterWalk.png" id="4_otk0t"]
 [ext_resource type="AudioStream" uid="uid://sbvh53714spf" path="res://Sound Effects/laser-energy-sword-swipe-betacut-1-00-00.mp3" id="6_efxtr"]
+[ext_resource type="AudioStream" uid="uid://dhcyy6kivvumq" path="res://Sound Effects/Voicelines/Caster/CasterEnterA.mp3" id="6_fkjkw"]
+[ext_resource type="AudioStream" uid="uid://6qu4i2tyv8np" path="res://Sound Effects/Voicelines/Caster/CasterEnterB.mp3" id="7_vosxd"]
+[ext_resource type="AudioStream" uid="uid://dpyau05fefysn" path="res://Sound Effects/Voicelines/Caster/CasterEnterC.mp3" id="8_bs77y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyfjp"]
 atlas = ExtResource("2_43q36")
@@ -241,6 +244,18 @@ collision_layer = 4
 position = Vector2(-5, 20)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_47y6h")
+
+[node name="SpawnA" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fkjkw")
+volume_db = -10.0
+
+[node name="SpawnB" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vosxd")
+volume_db = -10.0
+
+[node name="SpawnC" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_bs77y")
+volume_db = -5.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_efxtr")

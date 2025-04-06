@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var damage:int = 3000
+@export var damage:int = 20
 var explodableUnits = []
 var travelTime = 1.0
 var timeTracker = 0.0

@@ -18,6 +18,14 @@ func setAntiDeath(killable: bool):
 
 var targets = []
 
+func enterAudio():
+	var yes = RandomNumberGenerator.new().randf()
+	if yes > 0.67:
+		$SpawnA.play(0.0)
+	elif yes > .33:
+		$SpawnB.play(0.0)
+	else:
+		$SpawnC.play(0.0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health *= Global.getHealthUpgrade()
@@ -26,6 +34,7 @@ func _ready() -> void:
 	z_index = global_position.y + 200
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+	enterAudio()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

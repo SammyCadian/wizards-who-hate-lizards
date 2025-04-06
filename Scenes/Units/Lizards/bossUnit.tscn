@@ -192,7 +192,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3cw4"]
-size = Vector2(929.625, 362)
+size = Vector2(794.625, 362)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrfj6"]
 size = Vector2(20, 358)
@@ -219,7 +219,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="Range" type="CollisionShape2D" parent="MissileRangeArea"]
-position = Vector2(-465.188, 12)
+position = Vector2(-397.688, 12)
 shape = SubResource("RectangleShape2D_c3cw4")
 
 [node name="RangeArea" type="Area2D" parent="."]

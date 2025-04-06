@@ -66,6 +66,9 @@ func unloadMap():
 	hideWarBonds()
 	map.hide()
 
+func getmap():
+	return map
+
 func restartGame():
 	# Reset the player data
 	Global.resetPlayer()
