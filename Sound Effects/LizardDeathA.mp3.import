@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvrgrnpgi6qxq"
+path="res://.godot/imported/LizardDeathA.mp3-eac53eb1303eba6a34e002df89f1becc.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/LizardDeathA.mp3"
+dest_files=["res://.godot/imported/LizardDeathA.mp3-eac53eb1303eba6a34e002df89f1becc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

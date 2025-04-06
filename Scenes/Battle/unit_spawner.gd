@@ -37,7 +37,7 @@ func spawn(type, location, amount):
 			var randPrecent = RandomNumberGenerator.new().randf()
 			unit.position = location.position + Vector2(0, -30 * randPrecent)
 			get_parent().currBattle.add_child(unit) # Add units as children to the battle scene
-			await get_tree().create_timer(0.3).timeout
+			#await get_tree().create_timer(0.2).timeout
 
 func getSpawnPoint(laneID):
 	match (laneID):

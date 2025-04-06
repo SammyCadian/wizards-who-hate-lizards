@@ -48,6 +48,7 @@ func startBattle(loadedUnits: Array, location: String):
 		finalExposition.connect("endTutorial", get_parent().undoPause)
 		get_parent().add_child(finalExposition)
 		get_parent().zaWarudo(true)
+	$"Unit Spawner".process_mode = Node.PROCESS_MODE_INHERIT
 
 # Adjust the camera's zoom for battle
 func battleCamera(isOn : bool):
@@ -58,6 +59,7 @@ func battleCamera(isOn : bool):
 		camera.set_zoom(Vector2(0.6, 0.6))
 
 func _on_battle_win_con(side: Variant) -> void:
+	$"Unit Spawner".process_mode = Node.PROCESS_MODE_DISABLED
 	if inBattle:
 		inBattle = false
 		if (side == "Wizards"):

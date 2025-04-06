@@ -7,11 +7,14 @@ var damageTaken = 0
 #var isDead = false
 var deathTimer = 0
 
+var moveSpeed = -40
+
 var is_friendly = false
 
 var targets = []
 
 func _ready() -> void:
+	moveSpeed -= RandomNumberGenerator.new().randi_range(0, 20)
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
 	z_index = global_position.y + 200
@@ -31,7 +34,7 @@ func move():
 	if see_enemy:
 		velocity = Vector2(0, 0)   
 	elif !see_enemy:
-		velocity = Vector2(-50, 0)  
+		velocity = Vector2(moveSpeed, 0)  
 	move_and_slide()
 
 
@@ -70,6 +73,7 @@ func _on_range_area_body_exited(body: Node2D) -> void:
 		see_enemy = false
 
 func ouchieMyForehead():
+	$Death.play(0.0)
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
 	if get_node("RangeArea") != null:

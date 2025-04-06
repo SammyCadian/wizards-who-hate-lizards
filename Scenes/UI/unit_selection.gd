@@ -225,8 +225,8 @@ func _on_ability_select_3_mouse_entered() -> void:
 	show_uses_left("Shotgun")
 
 func _on_ability_select_4_mouse_entered() -> void:
-	show_description("Missile Launch", 80)
-	show_uses_left("Missile Launch")
+	show_description("Flame Rain", 80)
+	show_uses_left("Flame Rain")
 
 	
 func _on_button_mouse_exited() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://5iga6e20ot8s"]
+[gd_scene load_steps=18 format=3 uid="uid://5iga6e20ot8s"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_aqr0y"]
 [ext_resource type="PackedScene" uid="uid://ctgsyiohrgqae" path="res://Scenes/Abilities/missile_strike.tscn" id="2_ckw75"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dcqju63xhao1h" path="res://Sprites/Battlefields/MagnoliaBattle.png" id="9_qytri"]
 [ext_resource type="Texture2D" uid="uid://b8t6wxomlfpkt" path="res://Sprites/Battlefields/RockyBattle.png" id="10_mdehf"]
 [ext_resource type="Texture2D" uid="uid://7mbnf7keee22" path="res://Sprites/Battlefields/PlainsBackground.png" id="11_k3uc0"]
+[ext_resource type="AudioStream" uid="uid://btq3befnycb8" path="res://Music/BattleTheme.mp3" id="14_av4fk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r3juu"]
 animations = [{
@@ -159,6 +160,11 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WizardWinCon"]
 scale = Vector2(2, 12)
 shape = SubResource("RectangleShape2D_o8bsx")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_av4fk")
+autoplay = true
+parameters/looping = true
 
 [connection signal="spendPoints" from="." to="BattleUI" method="_on_battle_spend_points"]
 [connection signal="abilityButtonPressed" from="BattleUI" to="." method="_on_battle_ui_ability_button_pressed"]

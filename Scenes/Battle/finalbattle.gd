@@ -143,6 +143,6 @@ func _on_defense_timer_timeout() -> void:
 	$DefenseTimer.stop()
 	var newBoss = bossEnemy.instantiate()
 	newBoss.connect("death", WizardWinCon)
-	newBoss.position += Vector2(600, 200)
+	newBoss.position += Vector2(600, 90)
 	add_child(newBoss)
 	pass # Replace with function body.

@@ -4,7 +4,7 @@ signal unitButtonPressed(pressedUnitID: String, cost: int)
 signal abilityButtonPressed(pressedAbilityID: String, cost: int)
 
 @export var incomeTime = 2.0 # Timer between getting more magic points
-var magicPoints = 80 # Track the number of magic points, as displayed in the U.I
+var magicPoints = 0 # Track the number of magic points, as displayed in the U.I
 
 # Units in each button, global script should update these as the player unlocks/selects other units outside of battle
 @export var unitOneIcon: CompressedTexture2D

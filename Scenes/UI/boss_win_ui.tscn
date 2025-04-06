@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dntro4pmfx24c"]
+[gd_scene load_steps=14 format=3 uid="uid://bif3ek7o06le"]
 
 [ext_resource type="Texture2D" uid="uid://c63oenjhhsc2u" path="res://Sprites/UI/KaboomPlanet.png" id="1_r3w30"]
 [ext_resource type="Script" path="res://Scenes/UI/boss_win_ui.gd" id="1_t3yuv"]
@@ -78,7 +78,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 1.0
+"speed": 5.0
 }]
 
 [node name="BossWinUI" type="Control"]
@@ -109,6 +109,8 @@ color = Color(0.099986, 0.099986, 0.099986, 0.85098)
 position = Vector2(960, 496)
 sprite_frames = SubResource("SpriteFrames_ph2cs")
 autoplay = "default"
+frame = 9
+frame_progress = 1.0
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
