@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr23s22jn2fav"]
+[gd_scene load_steps=3 format=3 uid="uid://c03e8i0447il6"]
 
 [ext_resource type="Texture2D" uid="uid://4f4a4ab3k3b8" path="res://Sprites/UI/BarnEntry.png" id="1_kcgqy"]
 [ext_resource type="Script" path="res://Scenes/UI/exposition.gd" id="1_vkbei"]
@@ -63,7 +63,7 @@ offset_bottom = 340.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 35
 text = "Humanity is locked into a war with a alien lizard species,
-and is losing. An alien lizard UFO has crashed out in the wilderness,
+and is losing. An alien lizard UFO has landed in the wilderness,
 command wants to capture it.
 
 Your elite arcane infantry unit has been dispatched

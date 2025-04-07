@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://d36xpktn7v7te"]
+[gd_scene load_steps=27 format=3 uid="uid://d36xpktn7v7te"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Lizards/ghost_scene.gd" id="1_mpuiu"]
 [ext_resource type="Texture2D" uid="uid://budni3t6nmj18" path="res://Sprites/Units/Lizards/GhostLizard/GhostLizardAttack.png" id="2_lhrie"]
 [ext_resource type="Texture2D" uid="uid://0eefh7g1ifoh" path="res://Sprites/Units/Lizards/GhostLizard/GhostLizardWalk.png" id="3_gj1sq"]
+[ext_resource type="Texture2D" uid="uid://hfk8sounfju4" path="res://Sprites/Units/Lizards/GhostLizard/GhostDeath.png" id="3_oqd6v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0d4o"]
 atlas = ExtResource("2_lhrie")
@@ -31,6 +32,26 @@ region = Rect2(3840, 0, 768, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6fcdb"]
 atlas = ExtResource("2_lhrie")
 region = Rect2(4608, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igcoh"]
+atlas = ExtResource("3_oqd6v")
+region = Rect2(0, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8i1d"]
+atlas = ExtResource("3_oqd6v")
+region = Rect2(768, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyrl6"]
+atlas = ExtResource("3_oqd6v")
+region = Rect2(1536, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43hrx"]
+atlas = ExtResource("3_oqd6v")
+region = Rect2(2304, 0, 768, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mc2n"]
+atlas = ExtResource("3_oqd6v")
+region = Rect2(3072, 0, 768, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7fpr"]
 atlas = ExtResource("3_gj1sq")
@@ -84,7 +105,22 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igcoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8i1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyrl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43hrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mc2n")
+}],
 "loop": false,
 "name": &"death",
 "speed": 5.0
@@ -130,7 +166,7 @@ script = ExtResource("1_mpuiu")
 position = Vector2(0, -3.05176e-05)
 scale = Vector2(0.13, 0.13)
 sprite_frames = SubResource("SpriteFrames_58wq1")
-animation = &"walk"
+animation = &"death"
 
 [node name="RangeArea" type="Area2D" parent="."]
 collision_mask = 4

@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 			do_first_spawn = false
 		$"Iteration Delay".paused = false
 	else:
+		print("should spawn 3 init")
 		do_first_spawn = true
 
 
