@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhrsqjgxt8sv0"]
+[gd_scene load_steps=30 format=3 uid="uid://dhrsqjgxt8sv0"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/scout.gd" id="1_cq06d"]
 [ext_resource type="Texture2D" uid="uid://dpeuiysgcoiq5" path="res://Sprites/Units/Wizards/WizardScout/WizardScoutShooting.png" id="2_cq06d"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cdo31ugtssro5" path="res://Sound Effects/Voicelines/Scout/ScoutEnterA.mp3" id="6_icxcs"]
 [ext_resource type="AudioStream" uid="uid://sf5pxfjbvnha" path="res://Sound Effects/Voicelines/Scout/ScoutEnterB.mp3" id="7_sdpfj"]
 [ext_resource type="AudioStream" uid="uid://b4d4whtcrn0xb" path="res://Sound Effects/Voicelines/Scout/ScoutEnterC.mp3" id="8_wd62g"]
+[ext_resource type="AudioStream" uid="uid://ccpc7vslpfl8c" path="res://Sound Effects/Voicelines/Scout/ScoutDeath.mp3" id="9_5u0e7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1rqh"]
 atlas = ExtResource("2_cq06d")
@@ -195,6 +196,10 @@ volume_db = -10.0
 [node name="SpawnC" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_wd62g")
 volume_db = -5.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_5u0e7")
+volume_db = -3.0
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]

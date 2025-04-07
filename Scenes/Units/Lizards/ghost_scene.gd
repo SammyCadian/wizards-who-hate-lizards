@@ -11,7 +11,10 @@ var is_friendly = false
 
 var targets = []
 
+var moveSpeed = -60
+
 func _ready() -> void:
+	moveSpeed -= RandomNumberGenerator.new().randi_range(0, 20)
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
 	z_index = global_position.y + 200
@@ -31,7 +34,7 @@ func move():
 	if see_enemy:
 		velocity = Vector2(0, 0)   
 	elif !see_enemy:
-		velocity = Vector2(-70, 0)  
+		velocity = Vector2(moveSpeed, 0)  
 	move_and_slide()
 
 

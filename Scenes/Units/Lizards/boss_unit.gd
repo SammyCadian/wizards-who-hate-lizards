@@ -8,7 +8,7 @@ signal death
 @export var miniMissle:PackedScene
 @export var damage = 10
 @onready var see_enemy = false
-var health = 300
+var health = 400
 var damageTaken = 0
 #var isDead = false
 var deathTimer = 0

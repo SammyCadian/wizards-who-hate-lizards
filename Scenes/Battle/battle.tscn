@@ -127,7 +127,7 @@ offset_bottom = -272.0
 position = Vector2(0, -82)
 scale = Vector2(0.825, 0.825)
 sprite_frames = SubResource("SpriteFrames_r3juu")
-animation = &"???"
+animation = &"plains"
 
 [node name="topLane" parent="." instance=ExtResource("4_wqxgi")]
 position = Vector2(0, -3)

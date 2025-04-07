@@ -3,7 +3,7 @@ extends Control
 signal unitButtonPressed(pressedUnitID: String, cost: int)
 signal abilityButtonPressed(pressedAbilityID: String, cost: int)
 
-@export var incomeTime = 1.75 # Timer between getting more magic points
+@export var incomeTime = 1.5 # Timer between getting more magic points
 var magicPoints = 20 # Track the number of magic points, as displayed in the U.I
 
 # Units in each button, global script should update these as the player unlocks/selects other units outside of battle
@@ -16,16 +16,16 @@ var magicPoints = 20 # Track the number of magic points, as displayed in the U.I
 var units = []
 var abilities = []
 var costs = [0, 0, 0, 0, 0, 0]
-var descriptions = {"Scout":"A basic wizard with a gun. That walk speed though..",
-					"Autorifle":"I just work here..",
-					"Rifleman":"I don't know the difference between these units",
-					"Sniper":"Shoots very far",
-					"Hoplite":"Runs very fast",
-					"Caster":"Shadow Wizard Money gang - We love casting spells",
+var descriptions = {"Scout":"Fast moving wizard with low health. I'll learn how to cast fireball one day...",
+					"Autorifle":"Fires fast, can hit many targets with machine gun. Dark magic was worth it",
+					"Rifleman":"Core, decent dps frontline unit. Had to pay for uni somehow...",
+					"Sniper":"Snipers pick off targets from afar with precision. No relation to shopkeep",
+					"Hoplite":"High health melee tank unit. Will mash your face in",
+					"Caster":"Casts fireball repeatedly. Because fireballs solve problems",
 					# Ability Descriptions
 					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
 					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)",
-					"Anti-Dying Circle":"Manifest a big ol' anti death circle! note: does not prevent intense injury",
+					"Anti-Dying Circle":"Manifest a big ol' anti death circle! note: does not prevent injury",
 					"Flame Rain":"Summon a rain of fireballs to destroy your enemies!"}
 
 #Load units in for testing purposes

@@ -15,12 +15,12 @@ var unitOrAbility = 0
 
 signal loadBattle
 
-var descriptions = {"Scout":"A basic wizard with a gun. That walk speed though..",
-					"Autorifle":"I just work here..",
-					"Rifleman":"I don't know the difference between these units",
-					"Sniper":"Shoots very far",
-					"Hoplite":"Runs very fast",
-					"Caster":"Shadow Wizard Money gang - We love casting spells",
+var descriptions = {"Scout":"Fast moving wizard with low health. I'll learn how to cast fireball one day...",
+					"Autorifle":"Fires fast, can hit many targets with machine gun. Dark magic was worth it",
+					"Rifleman":"Core, decent dps frontline unit. Had to pay for uni somehow...",
+					"Sniper":"Snipers pick off targets from afar with precision. No relation to shopkeep",
+					"Hoplite":"High health melee tank unit. Will mash your face in",
+					"Caster":"Casts fireball repeatedly. Because fireballs solve problems",
 					# Ability Descriptions
 					"Missile Launch":"KABOOM the lizards where you click! Works in adjacent lanes",
 					"Shotgun":"Summon a big boom stick to send your enemies to their god(s)",

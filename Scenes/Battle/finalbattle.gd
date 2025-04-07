@@ -27,7 +27,7 @@ var unitCost = 0
 var unitOrAbility = 0
 var isFriendly = true
 
-var defenseTimer = 10.0
+var defenseTimer = 180.0
 
 # Camera Variables
 var cursorPos = Vector2(0,0) # Track the cursor position

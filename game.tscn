@@ -35,5 +35,4 @@ position_smoothing_speed = 10.0
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_04lim")
-volume_db = 10.0
 parameters/looping = true

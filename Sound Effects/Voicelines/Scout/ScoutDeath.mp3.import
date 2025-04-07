@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccpc7vslpfl8c"
+path="res://.godot/imported/ScoutDeath.mp3-6d270addffb9d908a3cf96d4f8bb4870.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Voicelines/Scout/ScoutDeath.mp3"
+dest_files=["res://.godot/imported/ScoutDeath.mp3-6d270addffb9d908a3cf96d4f8bb4870.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

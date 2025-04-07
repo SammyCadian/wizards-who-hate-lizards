@@ -250,6 +250,7 @@ text = "Uses Left
 "
 
 [node name="AbilitiesLoadout" type="Label" parent="."]
+z_index = 2000
 layout_mode = 2
 offset_left = 131.104
 offset_top = 8.85094
@@ -258,6 +259,7 @@ offset_bottom = 31.8509
 text = "Abilities Loadout"
 
 [node name="Wizards" type="Label" parent="."]
+z_index = 2000
 layout_mode = 0
 offset_left = -325.0
 offset_top = -149.913
@@ -266,6 +268,7 @@ offset_bottom = -126.913
 text = "Wizards"
 
 [node name="Abilities" type="Label" parent="."]
+z_index = 2000
 layout_mode = 0
 offset_left = -325.0
 offset_top = 16.5951
@@ -274,6 +277,7 @@ offset_bottom = 39.5951
 text = "Abilities"
 
 [node name="UnitsLoadout" type="Label" parent="."]
+z_index = 2000
 layout_mode = 0
 offset_left = 138.296
 offset_top = -87.4035

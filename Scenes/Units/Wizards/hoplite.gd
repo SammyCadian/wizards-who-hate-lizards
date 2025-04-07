@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var damage = 5
 var shooting = false
 var wasshooting = false
-var health = 40
+var health = 50
 var speed = 50
 var damage_multiplier = 1
 var damageTaken = 0
@@ -98,16 +98,3 @@ func ouchieMyForehead():
 		get_node("RangeArea").free()
 		get_node("HitboxArea").free()
 		get_node("CollisionShape2D").free()
-
-
-#func _on_hitbox_area_area_entered(area: Area2D) -> void:
-	#if area.get_parent().has_method("LizardDamage"):
-		#var node = area.get_parent() as Node
-		#damageTaken += node.LizardDamage()
-		#$DamageTimer.start()
-#
-#
-#func _on_hitbox_area_area_exited(area: Area2D) -> void:
-	#if area.get_parent().has_method("LizardDamage"):
-		#var node = area.get_parent() as Node
-		#damageTaken -= node.LizardDamage()

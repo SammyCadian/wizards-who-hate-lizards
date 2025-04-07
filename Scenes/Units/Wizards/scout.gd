@@ -99,6 +99,7 @@ func takeDamage(damage: int):
 			ouchieMyForehead()
 
 func ouchieMyForehead():
+	$Death.play(0.0)
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
 	if get_node("RangeArea") != null:

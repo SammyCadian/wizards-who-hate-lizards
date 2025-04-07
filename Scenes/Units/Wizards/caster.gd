@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var fireBall: PackedScene
 var shooting = false
 var wasshooting = false
-var health = 30
+var health = 20
 var speed = 50
 var damage_multiplier = 1
 var damageTaken = 0
@@ -100,6 +100,7 @@ func takeDamage(damage: int):
 
 
 func ouchieMyForehead():
+	$Death.play(0.0)
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
 	if get_node("RangeArea") != null:
