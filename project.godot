@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Wizards Who Hate Lizards"
+config/name="Wizards VS Lizards"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Sprites/UI/gameIcon.png"
