@@ -27,7 +27,7 @@ var unitCost = 0
 var unitOrAbility = 0
 var isFriendly = true
 
-var defenseTimer = 180.0
+var defenseTimer = 120.0
 
 # Camera Variables
 var cursorPos = Vector2(0,0) # Track the cursor position
@@ -59,8 +59,11 @@ func _ready():
 	pass
 
 func _process(delta):
-	defenseTimer -= delta
-	$TimerLabel.text = "Hold out for %10.2f" % defenseTimer
+	if defenseTimer > 0.0:
+		defenseTimer -= delta
+		$TimerLabel.text = "Hold out for %10.2f" % defenseTimer
+	else:
+		$TimerLabel.text = "The mech is jamming the bomb! kill it!!"
 	
 	# Refresh lane var
 	selectedLane = "NO_LANE"

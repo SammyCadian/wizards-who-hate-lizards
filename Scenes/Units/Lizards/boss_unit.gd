@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.animation = "death"
 		deathTimer -= delta
 		if(deathTimer < 0.5):
-			queue_free()
+			death.emit()
 	else:
 		move()
 
@@ -78,7 +78,6 @@ func _on_range_area_body_exited(body: Node2D) -> void:
 		see_enemy = false
 
 func ouchieMyForehead():
-	death.emit()
 	deathTimer = 2.5
 	velocity = Vector2(0, 0)
 	if get_node("RangeArea") != null:
@@ -101,9 +100,15 @@ func _on_missile_range_area_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func _on_missile_damage_timer_timeout() -> void:
+	$AnimatedSprite2D.play("range_attack")
 	for i in range(4):
 		var newMissle = miniMissle.instantiate()
 		var randX = -150.0 - (deviationRange * RandomNumberGenerator.new().randf())
 		var randY =  150.0 * RandomNumberGenerator.new().randf_range(-1.0, 1.0)
 		newMissle.setTarget(position + Vector2(randX, randY))
 		get_parent().add_child(newMissle)
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if deathTimer == 0:
+		$AnimatedSprite2D.play("walk")
+	pass # Replace with function body.

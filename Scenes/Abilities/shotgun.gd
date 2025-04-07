@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		fireReady = false
 		Ammoleft -= 1
 		for i in range(explodableUnits.size()):
-			explodableUnits[i].takeDamage(3000)
+			explodableUnits[i].takeDamage(20)
 		$AnimatedSprite2D.play("Shoot")
 		$AudioStreamPlayer2D.play(0.0)
 

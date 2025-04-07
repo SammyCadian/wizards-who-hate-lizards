@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var damage:int = 20
+@export var damage:int = 30
 var explodableUnits = []
 var travelTime = 1.0
 var timeTracker = 0.0
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.play("Explosion")
 		$AnimatedSprite2D.position = Vector2.ZERO
 		for i in range(explodableUnits.size()):
-			explodableUnits[i].takeDamage(3000)
+			explodableUnits[i].takeDamage(40)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

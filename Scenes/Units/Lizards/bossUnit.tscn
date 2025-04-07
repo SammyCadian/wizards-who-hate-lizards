@@ -163,9 +163,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5nsv1")
 }],
-"loop": true,
+"loop": false,
 "name": &"range_attack",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -212,7 +212,7 @@ miniMissle = ExtResource("2_0jf57")
 position = Vector2(0, -97)
 scale = Vector2(0.378, 0.378)
 sprite_frames = SubResource("SpriteFrames_vq0xk")
-animation = &"death"
+animation = &"range_attack"
 
 [node name="MissileRangeArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -245,6 +245,7 @@ wait_time = 5.0
 
 [node name="DamageTimer" type="Timer" parent="."]
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="MissileRangeArea" to="." method="_on_missile_range_area_body_entered"]
 [connection signal="body_exited" from="MissileRangeArea" to="." method="_on_missile_range_area_body_exited"]
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]

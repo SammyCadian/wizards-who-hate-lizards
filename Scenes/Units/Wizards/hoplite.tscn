@@ -1,10 +1,14 @@
-[gd_scene load_steps=41 format=3 uid="uid://wg47gug4qmtq"]
+[gd_scene load_steps=45 format=3 uid="uid://wg47gug4qmtq"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Wizards/hoplite.gd" id="1_0tjoi"]
 [ext_resource type="Texture2D" uid="uid://c2dpksaudhqmt" path="res://Sprites/Units/Wizards/WizardHoplite/WizardGuardsmanAttack.png" id="2_vmjca"]
 [ext_resource type="Texture2D" uid="uid://nb87vlsregve" path="res://Sprites/Units/Wizards/WizardHoplite/WizardGuardsmanDie.png" id="3_kpbhq"]
 [ext_resource type="Texture2D" uid="uid://manx5l3b7rtx" path="res://Sprites/Units/Wizards/WizardHoplite/WizardGuardsmanWalk.png" id="4_8dt7s"]
 [ext_resource type="AudioStream" uid="uid://sbvh53714spf" path="res://Sound Effects/laser-energy-sword-swipe-betacut-1-00-00.mp3" id="5_gwe4h"]
+[ext_resource type="AudioStream" uid="uid://xe0tetuaycl8" path="res://Sound Effects/Voicelines/Hoplite/hoplite1.wav" id="6_68mm8"]
+[ext_resource type="AudioStream" uid="uid://cvu22ngtjl5ao" path="res://Sound Effects/Voicelines/Hoplite/hoplite2.wav" id="7_kxkab"]
+[ext_resource type="AudioStream" uid="uid://cruc5btgtisol" path="res://Sound Effects/Voicelines/Hoplite/hoplite3.wav" id="8_ybci3"]
+[ext_resource type="AudioStream" uid="uid://oghg4eb500yl" path="res://Sound Effects/Voicelines/Caster/CasterDeath.mp3" id="9_thyjx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7308k"]
 atlas = ExtResource("2_vmjca")
@@ -286,6 +290,21 @@ shape = SubResource("RectangleShape2D_47y6h")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gwe4h")
 volume_db = -10.0
+
+[node name="SpawnA" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_68mm8")
+volume_db = -10.0
+
+[node name="SpawnB" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kxkab")
+volume_db = -10.0
+
+[node name="SpawnC" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ybci3")
+volume_db = -5.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_thyjx")
 
 [connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_body_entered"]
 [connection signal="body_exited" from="RangeArea" to="." method="_on_area_2d_body_exited"]

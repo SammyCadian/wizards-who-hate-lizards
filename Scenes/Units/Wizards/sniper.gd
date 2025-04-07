@@ -18,8 +18,17 @@ func setAntiDeath(killable: bool):
 
 var targets = []
 
+func enterAudio():
+	var yes = RandomNumberGenerator.new().randf()
+	if yes > 0.67:
+		$SpawnA.play(0.0)
+	elif yes > .33:
+		$SpawnB.play(0.0)
+	else:
+		$SpawnC.play(0.0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	enterAudio()
 	health *= Global.getHealthUpgrade()
 	damage *= Global.getDamageUpgrade()
 	speed += 10 * RandomNumberGenerator.new().randf()
@@ -89,6 +98,7 @@ func takeDamage(damage: int):
 
 
 func ouchieMyForehead():
+	$Death.play(0.0)
 	deathTimer = 3.5
 	velocity = Vector2(0, 0)
 	if get_node("RangeArea") != null:
