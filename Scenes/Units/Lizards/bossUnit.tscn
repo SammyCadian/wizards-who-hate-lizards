@@ -212,7 +212,7 @@ miniMissle = ExtResource("2_0jf57")
 position = Vector2(0, -97)
 scale = Vector2(0.378, 0.378)
 sprite_frames = SubResource("SpriteFrames_vq0xk")
-animation = &"range_attack"
+animation = &"mele_attack"
 
 [node name="MissileRangeArea" type="Area2D" parent="."]
 collision_layer = 0

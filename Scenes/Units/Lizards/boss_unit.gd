@@ -65,7 +65,7 @@ func takeDamage(damage: int):
 func _on_range_area_body_entered(body: Node2D) -> void:
 	targets.append(body)
 	$DamageTimer.start()
-	$AnimatedSprite2D.animation = "attack"
+	$AnimatedSprite2D.animation = "mele_attack"
 	see_enemy = true
 
 
